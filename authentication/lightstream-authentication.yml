@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightstream-live-openapi-original.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: AccessToken
+  type: apiKey
+  in: header
+  parameter: 'Authorization: Bearer'
+  description: 'Assert your access token into a HTTP Header named ''Authorization: Bearer''<br><pre>curl
+    -H ''Authorization: Bearer bar'' https://live.api.stream/live/v2/collection/foo</pre>'
+  sources:
+  - openapi/lightstream-live-openapi-original.yml
+- name: ApiKey
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: Assert your api key into a HTTP Header named 'X-API-Key'<br><pre>curl -H 'X-API-Key:bar'
+    https://live.api.stream/live/v2/collection/foo</pre>
+  sources:
+  - openapi/lightstream-live-openapi-original.yml
