@@ -1,0 +1,671 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService LayerService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: LayerService
+  description: Layers
+paths:
+  /layouts/{layoutId}/layers:
+    get:
+      summary: List all layers
+      operationId: LayerService_ListLayers
+      responses:
+        '200':
+          description: list of all layers
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/v2Layer'
+        '404':
+          description: Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: the id of the Layout
+        in: path
+        required: true
+        type: string
+      tags:
+      - LayerService
+    post:
+      summary: 'Create a layer
+
+        '
+      operationId: LayerService_CreateLayer
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2Layer'
+        '404':
+          description: Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: the id of the Layout
+        in: path
+        required: true
+        type: string
+      - name: body
+        description: layer to create - all fields have defaults except type.
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v2PartialLayer'
+      tags:
+      - LayerService
+  /layouts/{layoutId}/layers/batch:
+    post:
+      summary: 'Batch update
+
+        '
+      operationId: LayerService_Batch
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2BatchLayerResponse'
+        '404':
+          description: Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: The layout all requests interact with.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            layers:
+              type: array
+              items:
+                $ref: '#/definitions/BatchLayerRequestBatchItem'
+              title: List of layers to update
+            requestMetadata:
+              type: object
+              example:
+                example: true
+              default: undefined
+              title: Metadata sent with the request
+            requestAnimationMode:
+              $ref: '#/definitions/v2RequestAnimationMode'
+              description: Order in which layer animations are applied in the batch.
+          description: Batch request to modify a layout.
+      tags:
+      - LayerService
+  /layouts/{layoutId}/layers/{layerId}:
+    get:
+      summary: 'Get a single layer
+
+        '
+      operationId: LayerService_GetLayer
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2Layer'
+        '404':
+          description: Layer or Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: the id of the Layout
+        in: path
+        required: true
+        type: string
+      - name: layerId
+        description: the id of the Layer
+        in: path
+        required: true
+        type: string
+      tags:
+      - LayerService
+    delete:
+      summary: Delete a layer
+      operationId: LayerService_DeleteLayer
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2DeleteLayerResponse'
+        '404':
+          description: Layer or Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: the id of the Layout
+        in: path
+        required: true
+        type: string
+      - name: layerId
+        description: the id of the Layer
+        in: path
+        required: true
+        type: string
+      - name: body
+        description: Metadata associated with the deletion of a layer
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v2DeleteLayerPayload'
+      tags:
+      - LayerService
+    patch:
+      summary: 'Update a layer
+
+        '
+      operationId: LayerService_UpdateLayer
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2Layer'
+        '404':
+          description: Layer or Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: layoutId
+        description: the id of the Layout
+        in: path
+        required: true
+        type: string
+      - name: layerId
+        description: the id of the Layer
+        in: path
+        required: true
+        type: string
+      - name: body
+        description: layer data to update with.
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v2PartialLayer'
+      tags:
+      - LayerService
+definitions:
+  BatchLayerResponseBatchLayerItem:
+    type: object
+    properties:
+      create:
+        $ref: '#/definitions/v2Layer'
+      update:
+        $ref: '#/definitions/v2Layer'
+      delete:
+        $ref: '#/definitions/v2DeleteLayerResponse'
+    description: Thee result of interacting with that layer.
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  v2BatchDeleteLayerRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '12345'
+        description: ID of the layer deleted.
+        required:
+        - id
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata associated with the deletion of a layer
+    required:
+    - id
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v2BatchLayerResponse:
+    type: object
+    properties:
+      layers:
+        type: array
+        items:
+          $ref: '#/definitions/BatchLayerResponseBatchLayerItem'
+        title: List of responses
+      layoutId:
+        type: string
+        format: uuid
+        example: 713f6e91-3831-4421-a720-1c8084d10525
+        description: The layout this batch update belongs to.
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata sent with the request
+      requestAnimationMode:
+        $ref: '#/definitions/v2RequestAnimationMode'
+        description: Order in which layer animations are applied in the batch.
+    description: A batch update for layers within a layout, indicating creation, removal and updates to layers.
+  v2LayerAnimation:
+    type: object
+    properties:
+      properties:
+        type: array
+        example:
+        - '*'
+        items:
+          type: string
+        description: The properties to animate on. Currently x, y, width, height, opacity and scale are supported. "*" can be used to target all properties.
+        required:
+        - properties
+      durationMs:
+        type: integer
+        format: int32
+        example: 1000
+        title: The duration to transition over in milliseconds
+        maximum: 30000
+        required:
+        - duration_ms
+      delayMs:
+        type: integer
+        format: int32
+        example: 1000
+        description: A delay to offset the animation by.
+        maximum: 30000
+      easingMode:
+        type: string
+        example: ease-in-out
+        default: '"linear"'
+        title: 'The easing mode for the transition.
+
+          This value can be anything supported as an easing function: https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function'
+    description: 'note: this is currently only supported where layout type is "scene".'
+    title: 'Represents how we should apply the action, transitioning from the current state to the new state.
+
+      If multiple LayerAnimation''s are defined, the final LayerAnimation will be used that has a matching property!'
+    required:
+    - properties
+    - durationMs
+  v2PartialLayerWithID:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '12345'
+        description: ID of the layer.
+        required:
+        - id
+      type:
+        type: string
+        example: image
+        title: 'the type of layer we''re interacting with: e.g alert, banner'
+      data:
+        type: object
+        example:
+          media:
+            url: https://rainmaker.gg/assets/logo-white-medium.png
+        description: Custom value for the layer. This is freeform.
+      x:
+        type: integer
+        example: 1000
+        description: x position in pixels. This can be null if the layer has no absolute position.
+        maximum: 10000
+      y:
+        type: integer
+        example: 1000
+        description: y position in pixels. Can be null if the layer has no absolute position.
+        maximum: 10000
+      width:
+        type: integer
+        example: 1000
+        description: width in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      height:
+        type: integer
+        example: 1000
+        description: height in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      rotation:
+        type: integer
+        format: double
+        example: 180
+        default: '0'
+        description: rotation of layer in degrees of the layer.
+        maximum: 360
+        minimum: -360
+      opacity:
+        type: number
+        format: double
+        example: 180
+        default: '1'
+        description: opacity of the layer. This is the same as the CSS value, 0 being transparent and 1 being opaque.
+        maximum: 1
+      scale:
+        type: number
+        format: double
+        example: 0.8
+        default: '1'
+        description: 'Scale of the layer. This is expontential, with 1 equaling the normal size of the layer.
+
+          note: width/height will be affected.'
+        maximum: 4
+      hidden:
+        type: boolean
+        example: false
+        default: 'false'
+        description: whether the layer should be rendered.
+      children:
+        type: array
+        example:
+        - '1'
+        - '2'
+        - '3'
+        items:
+          type: object
+        default: '[]'
+        description: children of the layer.
+      parentId:
+        type: string
+        example: '1234'
+        description: parent layer to asssign to.
+      metadata:
+        type: object
+        example:
+          name: Test Layer
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata sent with the request
+      requestAnimation:
+        type: array
+        items:
+          $ref: '#/definitions/v2LayerAnimation'
+        default: '[]'
+        description: Animation information for the layer.
+    description: Partial Layer for updating.
+    required:
+    - id
+  v2DeleteLayerResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: 713f6e91-3831-4421-a720-1c8084d10525
+        title: The layer id that was deleted
+      layoutId:
+        type: string
+        format: uuid
+        example: 713f6e91-3831-4421-a720-1c8084d10525
+        description: The layout this layer belongs to.
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Optional request metadata sent with the delete request
+  v2RequestAnimationMode:
+    type: string
+    enum:
+    - REQUEST_ANIMATION_MODE_PARALLEL
+    - REQUEST_ANIMATION_MODE_SERIES
+    description: "Define how to apply animations in a batch request.\n\n - REQUEST_ANIMATION_MODE_PARALLEL: All animations in the batch will be applied at once.\n - REQUEST_ANIMATION_MODE_SERIES: Each layer update will appy after all animations on the previous layer(s) have completed."
+  v2DeleteLayerPayload:
+    type: object
+    properties:
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata associated with the deletion of a layer
+  v2Layer:
+    type: object
+    properties:
+      type:
+        type: string
+        example: image
+        title: 'the type of layer we''re interacting with: e.g alert, banner'
+      data:
+        type: object
+        example:
+          media:
+            url: https://rainmaker.gg/assets/logo-white-medium.png
+        description: Custom value for the layer. This is freeform.
+      x:
+        type: integer
+        example: 1000
+        description: x position in pixels. This can be null if the layer has no absolute position.
+        maximum: 10000
+      y:
+        type: integer
+        example: 1000
+        description: y position in pixels. Can be null if the layer has no absolute position.
+        maximum: 10000
+      width:
+        type: integer
+        example: 1000
+        description: width in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      height:
+        type: integer
+        example: 1000
+        description: height in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      rotation:
+        type: integer
+        format: double
+        example: 180
+        default: '0'
+        description: rotation of layer in degrees of the layer.
+        maximum: 360
+        minimum: -360
+      opacity:
+        type: number
+        format: double
+        example: 180
+        default: '1'
+        description: opacity of the layer. This is the same as the CSS value, 0 being transparent and 1 being opaque.
+        maximum: 1
+      scale:
+        type: number
+        format: double
+        example: 0.8
+        default: '1'
+        description: 'Scale of the layer. This is expontential, with 1 equaling the normal size of the layer.
+
+          note: width/height will be affected.'
+        maximum: 4
+      hidden:
+        type: boolean
+        example: false
+        default: 'false'
+        description: whether the layer should be rendered.
+      children:
+        type: array
+        example:
+        - '1'
+        - '2'
+        - '3'
+        items:
+          type: object
+        default: '[]'
+        description: children of the layer.
+      metadata:
+        type: object
+        example:
+          name: Test Layer
+        description: Custom metadata for the layer. This is freeform.
+      id:
+        type: string
+        example: '1234'
+        title: id of the layer
+      layoutId:
+        type: string
+        format: uuid
+        example: 713f6e91-3831-4421-a720-1c8084d10525
+        description: the layout this layer is associated with.
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata sent with the request
+      requestAnimation:
+        type: array
+        items:
+          $ref: '#/definitions/v2LayerAnimation'
+        default: '[]'
+        description: Animation information for the layer which should be applied on update.
+    description: The Layer represents a single item within a layout.
+  BatchLayerRequestBatchItem:
+    type: object
+    properties:
+      create:
+        $ref: '#/definitions/v2PartialLayer'
+        title: Create a layer
+      update:
+        $ref: '#/definitions/v2PartialLayerWithID'
+        title: Update a layer
+      delete:
+        $ref: '#/definitions/v2BatchDeleteLayerRequest'
+        title: Delete a layer
+    description: A batch action.
+  v2PartialLayer:
+    type: object
+    properties:
+      type:
+        type: string
+        example: image
+        title: 'the type of layer we''re interacting with: e.g alert, banner'
+      data:
+        type: object
+        example:
+          media:
+            url: https://rainmaker.gg/assets/logo-white-medium.png
+        description: Custom value for the layer. This is freeform.
+      x:
+        type: integer
+        example: 1000
+        description: x position in pixels. This can be null if the layer has no absolute position.
+        maximum: 10000
+      y:
+        type: integer
+        example: 1000
+        description: y position in pixels. Can be null if the layer has no absolute position.
+        maximum: 10000
+      width:
+        type: integer
+        example: 1000
+        description: width in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      height:
+        type: integer
+        example: 1000
+        description: height in pixels of the layer. can be null if the layer is dynamically sizable.
+        maximum: 10000
+      rotation:
+        type: integer
+        format: double
+        example: 180
+        default: '0'
+        description: rotation of layer in degrees of the layer.
+        maximum: 360
+        minimum: -360
+      opacity:
+        type: number
+        format: double
+        example: 180
+        default: '1'
+        description: opacity of the layer. This is the same as the CSS value, 0 being transparent and 1 being opaque.
+        maximum: 1
+      scale:
+        type: number
+        format: double
+        example: 0.8
+        default: '1'
+        description: 'Scale of the layer. This is expontential, with 1 equaling the normal size of the layer.
+
+          note: width/height will be affected.'
+        maximum: 4
+      hidden:
+        type: boolean
+        example: false
+        default: 'false'
+        description: whether the layer should be rendered.
+      children:
+        type: array
+        example:
+        - '1'
+        - '2'
+        - '3'
+        items:
+          type: object
+        default: '[]'
+        description: children of the layer.
+      parentId:
+        type: string
+        example: '1234'
+        description: parent layer to asssign to.
+      metadata:
+        type: object
+        example:
+          name: Test Layer
+      requestMetadata:
+        type: object
+        example:
+          example: true
+        default: undefined
+        title: Metadata sent with the request
+      requestAnimation:
+        type: array
+        items:
+          $ref: '#/definitions/v2LayerAnimation'
+        default: '[]'
+        description: Animation information for the layer.
+    description: Partial Layer for creating and updating.

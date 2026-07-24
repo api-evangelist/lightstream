@@ -1,0 +1,125 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService BackendAuthenticationService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: BackendAuthenticationService
+  description: 'The Backend Authentication Service provides token services for partner
+
+    backend systems'
+paths:
+  /authentication/token:
+    post:
+      summary: Create Access Token
+      description: Create an access token for a session host
+      operationId: BackendAuthenticationService_CreateAccessToken
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21CreateAccessTokenResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v21CreateAccessTokenRequest'
+      tags:
+      - BackendAuthenticationService
+      security:
+      - ApiKey: []
+definitions:
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v21CreateAccessTokenRequest:
+    type: object
+    properties:
+      serviceUserId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: 'service-specific user id
+
+          ### Usage
+
+          * this should be an opaque GUID with no spaces'
+        required:
+        - service_user_id
+      displayName:
+        type: string
+      role:
+        $ref: '#/definitions/v21Role'
+        example: ROLE_OWNER
+        title: the requested role
+      maxDuration:
+        type: integer
+        format: int64
+        example: 172800000
+        default: '172800000'
+        title: requested duration of token before it expires (ms)
+    required:
+    - serviceUserId
+  v21Role:
+    type: string
+    enum:
+    - ROLE_HOST
+    - ROLE_COHOST
+    - ROLE_CONTRIBUTOR
+    - ROLE_GUEST
+    - ROLE_VIEWER
+    - ROLE_RENDERER
+    - ROLE_PLATFORM
+    - ROLE_IMPERSONATE
+    title: defined roles
+  v21CreateAccessTokenResponse:
+    type: object
+    properties:
+      accessToken:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: 'access token for owner to be asserted in subsequent Video and Layout API
+
+          calls'

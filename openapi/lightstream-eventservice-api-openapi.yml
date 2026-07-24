@@ -1,0 +1,381 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService EventService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: EventService
+  description: 'The event API provides a mechanism for you to subscribe and publish events between
+
+    your backend services and the composition, as well as receive events from the live and layout api.'
+paths:
+  /publish:
+    post:
+      summary: 'Publish Event
+
+        '
+      operationId: EventService_Publish
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v2PublishEventResponse'
+        '404':
+          description: Layout not found
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v2PublishEventRequest'
+      tags:
+      - EventService
+  /stream:
+    get:
+      summary: 'Stream Events
+
+        '
+      operationId: EventService_Stream
+      responses:
+        '200':
+          description: A successful response.(streaming responses)
+          schema:
+            type: object
+            properties:
+              result:
+                $ref: '#/definitions/v2EventsStreamResponse'
+              error:
+                $ref: '#/definitions/rpcStatus'
+            title: Stream result of v2EventsStreamResponse
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: correlationId
+        description: 'Optional value to tag any return values with. This can be any string-based value
+
+          that your are able to track.'
+        in: query
+        required: false
+        type: string
+      - name: subscribe.name
+        description: 'Event name to subscribe to for custom events.
+
+          This can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`.'
+        in: query
+        required: true
+        type: string
+      - name: subscribe.target.collectionId
+        description: Subscribe to events in a given collection.
+        in: query
+        required: false
+        type: string
+      - name: subscribe.target.projectId
+        description: Subscribe to events in a given project.
+        in: query
+        required: false
+        type: string
+      - name: subscribe.target.layoutId
+        description: 'Stream events to a specific layout.
+
+          Note: when specified, collection_id and project_id are implictly defined. If you choose
+
+          to define them, you they _must_ match the layout.'
+        in: query
+        required: false
+        type: string
+        format: uuid
+      - name: unsubscribe.name
+        description: 'Event name to subscribe to for custom events.
+
+          This can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`.'
+        in: query
+        required: true
+        type: string
+      - name: unsubscribe.target.collectionId
+        description: Subscribe to events in a given collection.
+        in: query
+        required: false
+        type: string
+      - name: unsubscribe.target.projectId
+        description: Subscribe to events in a given project.
+        in: query
+        required: false
+        type: string
+      - name: unsubscribe.target.layoutId
+        description: 'Stream events to a specific layout.
+
+          Note: when specified, collection_id and project_id are implictly defined. If you choose
+
+          to define them, you they _must_ match the layout.'
+        in: query
+        required: false
+        type: string
+        format: uuid
+      - name: publish.name
+        description: Name of the event.
+        in: query
+        required: true
+        type: string
+      - name: publish.target.collectionId
+        description: Subscribe to events in a given collection.
+        in: query
+        required: false
+        type: string
+      - name: publish.target.projectId
+        description: Subscribe to events in a given project.
+        in: query
+        required: false
+        type: string
+      - name: publish.target.layoutId
+        description: 'Stream events to a specific layout.
+
+          Note: when specified, collection_id and project_id are implictly defined. If you choose
+
+          to define them, you they _must_ match the layout.'
+        in: query
+        required: false
+        type: string
+        format: uuid
+      - name: ping
+        description: Initiate a ping-pong message.
+        in: query
+        required: false
+        type: string
+      tags:
+      - EventService
+definitions:
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  v2EventsStreamReconnectRequest:
+    type: object
+    properties:
+      reauthenticate:
+        type: boolean
+        example: false
+        description: Whether the access token needs to be refreshed before reconnecting.
+        required:
+        - reauthenticate
+      beforeTimestamp:
+        type: string
+        example: '1649179486223'
+        description: 'A timestamp indicating when the connection should be reconnected by.
+
+          If you''re maintaining multiple connections, you should reconnect at a random interval within this time range.'
+        required:
+        - before_timestamp
+    title: Indicate to the client that they should re-open their connection
+    required:
+    - reauthenticate
+    - beforeTimestamp
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v2SubscribePayload:
+    type: object
+    properties:
+      name:
+        type: string
+        example: my_app:user_chat|other_events:*
+        description: 'Event name to subscribe to for custom events.
+
+          This can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`.'
+        maxLength: 128
+        minLength: 1
+        required:
+        - name
+      target:
+        $ref: '#/definitions/v2EventTarget'
+        description: The target to subscribe to.
+    title: Payload to subscribe or unsubscribe from an event
+    required:
+    - name
+  v2PublishEventResponse:
+    type: object
+    properties:
+      name:
+        type: string
+        example: my_app:user_chat
+        description: Name of the event.
+        maxLength: 128
+        minLength: 1
+        required:
+        - name
+      payload:
+        type: object
+        example:
+          custom_event: true
+        description: Value of the event.
+        required:
+        - payload
+      target:
+        $ref: '#/definitions/v2EventTarget'
+        description: Custom scoping parameters.
+      requestMetadata:
+        type: object
+        example:
+          example_data: true
+        title: Metadata associated with the publishing of the event
+      id:
+        type: string
+        format: uuid
+        example: 7f23f76c-1990-4a50-b3b9-d615703c777f
+        description: Internal ID of the event.
+    description: 'Response of an event being forwarded to a subscription.
+
+      note: if this socket is also the publisher, this payload will be
+
+      sent twice. Once for `published` and once for `event`. You can use `correlation_id`
+
+      to identify the published event.'
+    required:
+    - name
+    - payload
+  v2EventsStreamError:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        example: 13
+        description: The GRPC error code for the event.
+      message:
+        type: string
+        example: 'INTERNAL: Something went wrong'
+        description: A mesasage indicating what the error is.
+    description: 'Indicates an error with a message sent to the Event API.
+
+      Tie `correlation_id` on the message sent to the Event API and the `correlation_id`
+
+      on the parent message to understand which request this error is for.'
+  v2PublishEventRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        example: my_app:user_chat
+        description: Name of the event.
+        maxLength: 128
+        minLength: 1
+        required:
+        - name
+      payload:
+        type: object
+        example:
+          custom_event: true
+        description: Value of the event. This can be a free-form value which we do not inspect.
+        required:
+        - payload
+      requestMetadata:
+        type: object
+        example:
+          example_data: true
+        description: 'Metadata associated with the publishing of the event.
+
+          Typically this is information about _why_ the event happened. Use `payload` for
+
+          _what_ the event is.'
+      target:
+        $ref: '#/definitions/v2EventTarget'
+        title: Scope the event to a specific target
+    title: Publish a custom event
+    required:
+    - name
+    - payload
+  v2EventTarget:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 624c6f475887b2894ed87c89
+        description: Subscribe to events in a given collection.
+      projectId:
+        type: string
+        example: 624c6f465887b2894ed87c87
+        description: Subscribe to events in a given project.
+      layoutId:
+        type: string
+        format: uuid
+        example: 713f6e91-3831-4421-a720-1c8084d10525
+        description: 'Stream events to a specific layout.
+
+          Note: when specified, collection_id and project_id are implictly defined. If you choose
+
+          to define them, you they _must_ match the layout.'
+    description: 'Targetting for an event
+
+      Event targetting allows you to listen or publish an event against a specific target. You can assume that:
+
+      When subscribing, you will receive events for the chosen scope and any higher scope that isn''t targetted. This means
+
+      - An event published against a layoutId can be listened to by targetting the given layoutId, projectId or collectionId
+
+      - An event published against a collectionId can be subscribed by scoping to any given projectId or layoutId under the collection.'
+  v2EventsStreamResponse:
+    type: object
+    properties:
+      correlationId:
+        type: string
+        example: 7a59c49f-c0bb-4f94-9cbe-73af126dd1ea
+        title: 'Optional value to tag any return values with.
+
+          Correlation ID should be used to correlate requests sent down the socket,
+
+          enabling you to tie a `PUBLISH` to a `PUBLISHED``'
+      sessionId:
+        type: string
+        example: 0c596f1b-3428-47bb-a673-563211ca0c75
+        description: 'Optional session id
+
+          This is set by sending the `SessionId` header for any HTTP requests
+
+          and the `sessionId` query parameter for websockets.'
+      event:
+        $ref: '#/definitions/v2PublishEventResponse'
+        title: Custom event emitted
+      pong:
+        type: string
+        title: Ping payload
+      error:
+        $ref: '#/definitions/v2EventsStreamError'
+        title: Non-blocking streaming error
+      subscribed:
+        $ref: '#/definitions/v2SubscribePayload'
+        description: Subscribe to a new event.
+      unsubscribed:
+        $ref: '#/definitions/v2SubscribePayload'
+        description: Unsubscribe from an event.
+      published:
+        $ref: '#/definitions/v2PublishEventResponse'
+        description: Publish a new event.
+      reconnectBefore:
+        $ref: '#/definitions/v2EventsStreamReconnectRequest'
+        description: Inform the client should reoconnect before a timestamp.
+    description: Payload returned from the event API.

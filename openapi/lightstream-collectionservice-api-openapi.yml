@@ -1,0 +1,1047 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService CollectionService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: CollectionService
+  description: 'The Collection Service operates on collections, which contain projects and
+
+    collection live sources used in projects.'
+paths:
+  /collection:
+    get:
+      summary: Get Collections
+      description: Get all collections owned by the user
+      operationId: CollectionService_GetCollections
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21GetCollectionsResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      tags:
+      - CollectionService
+    post:
+      summary: Create Collection
+      description: Create a new collection of related projects and collection live sources
+      operationId: CollectionService_CreateCollection
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21CreateCollectionResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v21CreateCollectionRequest'
+      tags:
+      - CollectionService
+  /collection/{collectionId}:
+    get:
+      summary: Get Collection
+      description: 'Get an existing collection of related projects and collection live
+
+        sources'
+      operationId: CollectionService_GetCollection
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21GetCollectionResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: collectionId
+        description: collection id
+        in: path
+        required: true
+        type: string
+      - name: populateProjects
+        description: optionally populate projects.
+        in: query
+        required: false
+        type: boolean
+        default: 'true'
+      - name: populateSources
+        description: optionally populate sources.
+        in: query
+        required: false
+        type: boolean
+        default: 'true'
+      tags:
+      - CollectionService
+    delete:
+      summary: Delete Collection
+      description: Delete a collection of related projects and collection live sources
+      operationId: CollectionService_DeleteCollection
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21DeleteCollectionResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: collectionId
+        description: collection id
+        in: path
+        required: true
+        type: string
+      - name: force
+        description: forcibly end all child project broadcasts in progress.
+        in: query
+        required: false
+        type: boolean
+        default: 'false'
+      tags:
+      - CollectionService
+    patch:
+      summary: Update Collection
+      description: Update select collection document data
+      operationId: CollectionService_UpdateCollection
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21UpdateCollectionResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: collectionId
+        description: collection id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            updateMask:
+              type: string
+              example: metadata
+              title: fields to update
+              required:
+              - update_mask
+            metadata:
+              type: object
+              example:
+                createdBy: Eddie Current
+              title: arbitrary metadata to associate with this collection
+          required:
+          - updateMask
+      tags:
+      - CollectionService
+definitions:
+  v21PreviewAddress:
+    type: object
+    properties:
+      webrtc:
+        $ref: '#/definitions/v21PreviewWebRtcAddress'
+        title: 'hls preview address
+
+          optional PreviewHlsPullAddress hls = 1;
+
+          webrtc preview address'
+    title: addresses of source previews
+  v21VideoColorSpace:
+    type: string
+    enum:
+    - VIDEO_COLOR_SPACE_YUV420
+    title: rendering color space
+  v21SceneComposition:
+    type: object
+    properties:
+      rendererUrl:
+        type: string
+        example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+        title: the url to pass to the studiosdk
+      selectedLayoutId:
+        type: string
+        example: e67cfd6ad57560962fddcf63611d2835
+        title: the active "scene" to render
+      debug:
+        type: boolean
+        example: false
+        default: 'false'
+    title: compose scenes using the browser-based compositor
+  v21SourceAddress:
+    type: object
+    properties:
+      rtmpPush:
+        $ref: '#/definitions/v21SourceRtmpPushAddress'
+        title: rtmp push addressing
+      srtPush:
+        $ref: '#/definitions/v21SrtPushAddress'
+        title: the srt address to publish to
+      rtmpPull:
+        $ref: '#/definitions/v21RtmpPullAddress'
+        title: the rtmp address to pull from
+    title: live source address (select one)
+  v21VideoEncoding:
+    type: object
+    properties:
+      codec:
+        $ref: '#/definitions/v21VideoCodec'
+        example: VIDEO_CODEC_H264
+        default: VIDEO_CODEC_H264
+        title: video encoding codec
+      rateControl:
+        $ref: '#/definitions/v21VideoCodecRateControl'
+        default: '{}'
+        title: video encoding rate control
+      profile:
+        $ref: '#/definitions/v21VideoCodecProfile'
+        example: VIDEO_CODEC_PROFILE_HIGH
+        default: VIDEO_CODEC_PROFILE_HIGH
+        title: video encoding codec profile
+    title: encoding video parameters
+  v21Destination:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection which owns the project which owns the destination
+      projectId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: project which owns the destination
+      destinationId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: destination id
+      metadata:
+        type: object
+        example:
+          createdBy: Eddie Current
+        title: arbitrary metadata associated with this destination
+      enabled:
+        type: boolean
+        example: true
+        default: 'true'
+        title: is output stream enabled?
+      address:
+        $ref: '#/definitions/v21DestinationAddress'
+        title: address of the destination
+      timeout:
+        type: integer
+        format: int64
+        example: 5000
+        default: '5000'
+        title: timeout (ms) to wait before resetting a connection
+    title: streaming destination of project
+  v21CreateCollectionResponse:
+    type: object
+    properties:
+      collection:
+        $ref: '#/definitions/v21Collection'
+  v21DestinationAddress:
+    type: object
+    properties:
+      rtmpPush:
+        $ref: '#/definitions/v21DestinationRtmpPushAddress'
+        title: rtmp push addressing
+      agora:
+        $ref: '#/definitions/v21DestinationAgoraPushAddress'
+        title: Agora addressing
+      s3Storage:
+        $ref: '#/definitions/v21S3StorageAddress'
+        title: s3 storage addressing
+    title: destination address (select one)
+  v21VideoCodecRateControl:
+    type: object
+    properties:
+      mode:
+        $ref: '#/definitions/v21VideoCodecRateControlMode'
+        example: VIDEO_CODEC_RATE_CONTROL_MODE_CBR
+        default: VIDEO_CODEC_RATE_CONTROL_MODE_CBR
+      targetBitrate:
+        type: integer
+        format: int64
+        example: '3145728'
+        title: video encoding target bitrate (bits/s)
+        maximum: 20971520
+        minimum: 256000
+      maxKeyFrameInterval:
+        type: integer
+        format: int64
+        example: 30
+        default: '30'
+        title: maximum video encoding key frame interval (frames)
+        maximum: 30000
+        minimum: 1
+    title: video encoding CBR rate control params
+  v21GuestCode:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection which owns the project
+      projectId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: project id
+      code:
+        type: string
+        title: the short url code
+      url:
+        type: string
+        title: the short url
+      autoDelete:
+        type: string
+        format: date-time
+        title: auto-delete after time
+  v21AudioRendering:
+    type: object
+    properties:
+      channelLayout:
+        $ref: '#/definitions/v21AudioChannelLayout'
+        example: AUDIO_CHANNEL_LAYOUT_STEREO
+        default: AUDIO_CHANNEL_LAYOUT_STEREO
+        title: audio channel layout
+    title: composition audio parameters
+  v21SourceTrigger:
+    type: object
+    properties:
+      sourceId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: the id of the source
+        required:
+        - source_id
+      start:
+        $ref: '#/definitions/v21SourceTriggerAction'
+        example: SOURCE_TRIGGER_ACTION_OR
+        default: SOURCE_TRIGGER_ACTION_IGNORE
+        title: source should trigger project(s) to start
+      stop:
+        $ref: '#/definitions/v21SourceTriggerAction'
+        example: SOURCE_TRIGGER_ACTION_OR
+        default: SOURCE_TRIGGER_ACTION_IGNORE
+        title: source should trigger project(s) to stop
+    title: triggers to indicate what actions to take on the project for a given Source
+    required:
+    - sourceId
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  v21HlsLifecycleVod:
+    type: object
+    properties:
+      maxDuration:
+        type: integer
+        format: int32
+        example: 0
+        default: '0'
+        title: max duration of the recording in ms (0 is indefinite)
+    title: vod hls lifecycle management
+  v21HlsLifecycle:
+    type: object
+    properties:
+      vod:
+        $ref: '#/definitions/v21HlsLifecycleVod'
+        default: '{}'
+        title: lifecycle of vod
+      live:
+        $ref: '#/definitions/v21HlsLifecycleLive'
+        title: lifecycle of live
+    title: hls lifecycle management
+  v21UpdateCollectionResponse:
+    type: object
+    properties:
+      collection:
+        $ref: '#/definitions/v21Collection'
+        title: the updated collection
+  v21VideoCodec:
+    type: string
+    enum:
+    - VIDEO_CODEC_H264
+    title: video encoding codec
+  v21RenderingQuality:
+    type: string
+    enum:
+    - RENDERING_QUALITY_STANDARD
+    - RENDERING_QUALITY_HIGH
+    title: rendering quality
+  v21SourceRtmpPushAddress:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        default: 'true'
+        title: enable source rtmp push address
+      key:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: assigned rtmp stream key
+        readOnly: true
+      url:
+        type: string
+        example: rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: assigned rtmp destination url
+        readOnly: true
+      baseUrl:
+        type: string
+        example: rtmp://ingest.golightstream.com/api2
+        title: base_url without stream key
+        readOnly: true
+    title: rtmp push source address
+  v21HlsPackaging:
+    type: object
+    properties:
+      lifecycle:
+        $ref: '#/definitions/v21HlsLifecycle'
+        default: '{}'
+        title: lifecycle of hls segments
+      segmentDuration:
+        type: integer
+        format: int32
+        example: 2000
+        default: '2000'
+        title: duration of segments in ms
+        maximum: 18000
+        minimum: 2000
+    title: hls packaging options
+  v21Composition:
+    type: object
+    properties:
+      external:
+        $ref: '#/definitions/v21ExternalComposition'
+        title: compose using an external renderer
+      studioSdk:
+        $ref: '#/definitions/v21StudioSdkComposition'
+        title: compose using the studiosdk renderer
+      scene:
+        $ref: '#/definitions/v21SceneComposition'
+        default: '{}'
+        title: compose scenes using the browser-based compositor
+    title: composition source for project (select one)
+  v21SourceTriggerAction:
+    type: string
+    enum:
+    - SOURCE_TRIGGER_ACTION_IGNORE
+    - SOURCE_TRIGGER_ACTION_OR
+    description: '- SOURCE_TRIGGER_ACTION_OR: SOURCE_TRIGGER_ACTION_AND = 2;'
+    title: boolean logic for trigger
+  v21Project:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection which owns the project
+      projectId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: project id
+      metadata:
+        type: object
+        example:
+          createdBy: Eddie Current
+        title: arbitrary metadata associated with this project
+      rendering:
+        $ref: '#/definitions/v21Rendering'
+        default: '{}'
+        title: composition parameters
+      encoding:
+        $ref: '#/definitions/v21Encoding'
+        default: '{}'
+        title: encoding parameters
+      sources:
+        type: array
+        items:
+          $ref: '#/definitions/v21Source'
+        title: collection live sources added to this project
+      destinations:
+        type: array
+        items:
+          $ref: '#/definitions/v21Destination'
+        title: destinations associated with this project
+      composition:
+        $ref: '#/definitions/v21Composition'
+        default: '{}'
+        title: composition/layout source of the broadcast
+      maxDuration:
+        type: integer
+        format: int64
+        example: 172800000
+        default: '172800000'
+        title: maximum duration (ms) of project broadcasts
+        maximum: 604800000
+      webrtc:
+        $ref: '#/definitions/v21WebRtc'
+        title: configuration for webrtc services (if requested)
+      triggers:
+        type: array
+        items:
+          $ref: '#/definitions/v21ProjectTrigger'
+        title: external triggers to start and stop this broadcast
+      location:
+        $ref: '#/definitions/v21LatLong'
+        title: optional optimal location to start broadcast
+      guestCodes:
+        type: array
+        items:
+          $ref: '#/definitions/v21GuestCode'
+        title: guest codes associated with this project
+        readOnly: true
+    title: project which owns a broadcast, sources, and destinations
+  v21HlsLifecycleLive:
+    type: object
+    properties:
+      playlistCount:
+        type: integer
+        format: int32
+        example: 5
+        default: '5'
+        title: number of entries to advertise in playlist file
+        minimum: 2
+      fileCount:
+        type: integer
+        format: int32
+        example: 10
+        default: '10'
+        title: number of files to keep on disk
+        minimum: 4
+    title: live hls lifecycle management
+  v21DeleteCollectionResponse:
+    type: object
+    properties:
+      sourcesDeleted:
+        type: integer
+        format: int64
+        example: 1
+        title: number of live sources owned by this collection which were deleted
+      projectsDeleted:
+        type: integer
+        format: int64
+        example: 1
+        title: number of projects owned by this collection which were deleted
+      projectIdsStopped:
+        type: array
+        example:
+        - 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        items:
+          type: string
+        title: project ids owned by this collection whose broadcasts were stopped
+  v21S3StorageAddress:
+    type: object
+    properties:
+      region:
+        type: string
+        example: us-west-1
+        title: cloud region
+        required:
+        - region
+      bucket:
+        type: string
+        example: company
+        title: cloud bucket
+        required:
+        - bucket
+      prefix:
+        type: string
+        example: app
+        title: cloud bucket prefix
+      accessKey:
+        type: string
+        title: cloud access key
+        required:
+        - access_key
+      secretKey:
+        type: string
+        title: cloud secret key
+        required:
+        - secret_key
+      token:
+        type: string
+        title: token based auth
+      tokenDuration:
+        type: integer
+        format: int32
+        title: token duration in ms
+      acl:
+        $ref: '#/definitions/v21S3ACL'
+        example: S3ACL_PUBLIC_READ
+        title: access control list
+      endpoint:
+        type: string
+        example: fra1.digitaloceanspaces.com
+        title: endpoint for non aws s3 destinations
+      packaging:
+        $ref: '#/definitions/v21ObjectStoragePackaging'
+        default: '{}'
+        title: the format of the files to be written
+    required:
+    - region
+    - bucket
+    - accessKey
+    - secretKey
+  v21StudioSdkComposition:
+    type: object
+    properties:
+      rendererUrl:
+        type: string
+        example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+        title: the page to render studio kit with. If set, this takes priority over `version`
+      version:
+        type: string
+        example: latest
+        default: latest
+        title: the version of the studio kit renderer to use. Ignored if renderer_url is set
+    title: compose using the studiosdk renderer
+  v21GetCollectionResponse:
+    type: object
+    properties:
+      collection:
+        $ref: '#/definitions/v21Collection'
+  v21AudioEncoding:
+    type: object
+    properties:
+      codec:
+        $ref: '#/definitions/v21AudioCodec'
+        example: AUDIO_CODEC_AAC
+        default: AUDIO_CODEC_AAC
+        title: audio encoding codec
+    title: encoding audio parameters
+  v21GetCollectionsResponse:
+    type: object
+    properties:
+      collections:
+        type: array
+        items:
+          $ref: '#/definitions/v21Collection'
+        title: all collections owned by this user
+  v21PreviewWebRtcAddress:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        default: 'true'
+        title: request rtmp preview
+        required:
+        - enabled
+      displayName:
+        type: string
+        example: Camera1
+        title: the name this source will use in the webrtc room
+        required:
+        - display_name
+      participantId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: the id this source was assigned in the webrtc room
+        readOnly: true
+    title: webrtc addressing parameters
+    required:
+    - enabled
+    - displayName
+  v21DestinationAgoraPushAddress:
+    type: object
+    properties:
+      appId:
+        type: string
+        title: Agora app id
+        required:
+        - app_id
+      channelId:
+        type: string
+        title: Agora channel id
+        required:
+        - channel_id
+      userId:
+        type: string
+        title: Agora user id
+        required:
+        - user_id
+    title: Agora push addressing
+    required:
+    - appId
+    - channelId
+    - userId
+  v21WebRtc:
+    type: object
+    properties:
+      hosted:
+        $ref: '#/definitions/v21HostedWebRtc'
+        title: hosted webrtc configuration
+    title: webrtc service (select one)
+  v21LatLong:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+    title: optimal location of broadcast (to optimize routing and delay)
+  v21Source:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection which owns the source
+      sourceId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection source id
+      metadata:
+        type: object
+        example:
+          createdBy: Eddie Current
+        title: arbitrary metadata associated with this collection source
+      preview:
+        $ref: '#/definitions/v21PreviewAddress'
+        title: preview addresses
+      address:
+        $ref: '#/definitions/v21SourceAddress'
+        title: source address
+    title: collection live source
+  v21VideoCodecProfile:
+    type: string
+    enum:
+    - VIDEO_CODEC_PROFILE_BASELINE
+    - VIDEO_CODEC_PROFILE_MAIN
+    - VIDEO_CODEC_PROFILE_HIGH
+    title: video encoding codec profile
+  v21VideoCodecRateControlMode:
+    type: string
+    enum:
+    - VIDEO_CODEC_RATE_CONTROL_MODE_CBR
+    description: '- VIDEO_CODEC_RATE_CONTROL_MODE_CBR: constant bit rate encoding'
+    title: video encoding rate control mode
+  v21VideoRendering:
+    type: object
+    properties:
+      height:
+        type: integer
+        format: int64
+        example: 720
+        default: '720'
+        title: canvas height (pixels)
+        maximum: 2160
+        minimum: 240
+      width:
+        type: integer
+        format: int64
+        example: 1280
+        default: '1280'
+        title: canvas width (pixels)
+        maximum: 3840
+        minimum: 320
+      framerate:
+        type: number
+        format: float
+        example: 30
+        default: '30'
+        title: canvas frame rate (frames/s)
+        maximum: 60
+        minimum: 1
+      colorSpace:
+        $ref: '#/definitions/v21VideoColorSpace'
+        example: VIDEO_COLOR_SPACE_YUV420
+        default: VIDEO_COLOR_SPACE_YUV420
+        title: rendering color space
+    title: composition video parameters
+  v21Collection:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: collection id
+      metadata:
+        type: object
+        example:
+          createdBy: Eddie Current
+        title: arbitrary metadata associated with this collection
+      projects:
+        type: array
+        items:
+          $ref: '#/definitions/v21Project'
+        title: projects owned by this collection
+      sources:
+        type: array
+        items:
+          $ref: '#/definitions/v21Source'
+        title: collection live sources owned by this collection
+    title: a Collection of Projects and Sources
+  v21ProjectTrigger:
+    type: object
+    properties:
+      source:
+        $ref: '#/definitions/v21SourceTrigger'
+        title: start/stop project with source
+    title: the trigger type (select one)
+  v21Encoding:
+    type: object
+    properties:
+      video:
+        $ref: '#/definitions/v21VideoEncoding'
+        default: '{}'
+        title: the video parameters of the encoding
+      audio:
+        $ref: '#/definitions/v21AudioEncoding'
+        default: '{}'
+        title: the audio parameters of the encoding
+    title: the parameters of the encoding
+  v21HostedWebRtc:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        default: 'true'
+        title: enable webrtc services
+    title: hosted webrtc configuration
+  v21DestinationRtmpPushAddress:
+    type: object
+    properties:
+      key:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: rtmp stream key
+      url:
+        type: string
+        example: rtmp://ingest.fakecompany.com
+        title: rtmp destination url
+        required:
+        - url
+    title: rtmp push destination address
+    required:
+    - url
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v21AudioCodec:
+    type: string
+    enum:
+    - AUDIO_CODEC_AAC
+    title: audio encoding codec
+  v21ExternalComposition:
+    type: object
+    properties:
+      url:
+        type: string
+        example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+        required:
+        - url
+    title: compose using an external renderer
+    required:
+    - url
+  v21SrtPushAddress:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        default: 'true'
+        title: enable source srt push address
+      streamId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: assigned srt streamid
+        readOnly: true
+      url:
+        type: string
+        example: srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: assigned srt destination url
+        readOnly: true
+      baseUrl:
+        type: string
+        example: srt://ingest.api.stream
+        title: base_url without streamid
+        readOnly: true
+    title: srt push addressing
+  v21CreateCollectionRequest:
+    type: object
+    properties:
+      metadata:
+        type: object
+        example:
+          createdBy: Eddie Current
+        title: arbitrary metadata to associate with this collection
+  v21S3ACL:
+    type: string
+    enum:
+    - S3ACL_PRIVATE
+    - S3ACL_PUBLIC_READ
+    - S3ACL_PUBLIC_READ_WRITE
+    - S3ACL_AUTHENTICATED_READ
+    - S3ACL_BUCKET_OWNER_READ
+    - S3ACL_BUCKET_OWNER_FULL_CONTROL
+  v21Rendering:
+    type: object
+    properties:
+      video:
+        $ref: '#/definitions/v21VideoRendering'
+        default: '{}'
+        title: composition video parameters
+      audio:
+        $ref: '#/definitions/v21AudioRendering'
+        default: '{}'
+        title: composition audio parameters
+      quality:
+        $ref: '#/definitions/v21RenderingQuality'
+        example: RENDERING_QUALITY_STANDARD
+        default: RENDERING_QUALITY_STANDARD
+        title: rendering quality
+      targetLatency:
+        type: integer
+        format: int64
+        example: 500
+        title: target end-to-end latency (in ms)
+        maximum: 5000
+        minimum: 100
+      complexity:
+        type: integer
+        format: int32
+        example: 0
+        default: '0'
+        title: estimated composition complexity (where 0 is nominal complexity)
+        maximum: 4
+        minimum: -4
+    title: composition parameters
+  v21AudioChannelLayout:
+    type: string
+    enum:
+    - AUDIO_CHANNEL_LAYOUT_STEREO
+    title: audio channel layout
+  v21ObjectStoragePackaging:
+    type: object
+    properties:
+      hls:
+        $ref: '#/definitions/v21HlsPackaging'
+        default: '{}'
+        title: hls format
+    title: packaging options for object storage
+  v21RtmpPullAddress:
+    type: object
+    properties:
+      url:
+        type: string
+        example: rtmp://ingest.fakecompany.com/inbound/abc123
+        title: rtmp source url
+        required:
+        - url
+    title: rtmp pull addressing
+    required:
+    - url

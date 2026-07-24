@@ -1,0 +1,205 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: AuthenticationService
+  description: The Authentication Service provides token services for clients
+paths:
+  /authentication/token:
+    put:
+      summary: Refresh Access Token
+      description: Forcibly refresh an access token prior to expiration
+      operationId: AuthenticationService_RefreshAccessToken
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21RefreshAccessTokenResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v21RefreshAccessTokenRequest'
+      tags:
+      - AuthenticationService
+  /authentication/token/guest:
+    post:
+      summary: Create Guest Access Token
+      description: Create an access token for a guest
+      operationId: AuthenticationService_CreateGuestAccessToken
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21CreateGuestAccessTokenResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v21CreateGuestAccessTokenRequest'
+      tags:
+      - AuthenticationService
+definitions:
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  v21GuestAccessTokenDirect:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: Eddy Current
+        title: display name of the guest (used to generate webrtc particpant name)
+        required:
+        - display_name
+      serviceUserId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: service-specific user id (used for record auditing purposes)
+    title: create an immutable, single-use guest access token
+    required:
+    - displayName
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v21RefreshAccessTokenResponse:
+    type: object
+  v21Role:
+    type: string
+    enum:
+    - ROLE_HOST
+    - ROLE_COHOST
+    - ROLE_CONTRIBUTOR
+    - ROLE_GUEST
+    - ROLE_VIEWER
+    - ROLE_RENDERER
+    - ROLE_PLATFORM
+    - ROLE_IMPERSONATE
+    title: defined roles
+  v21GuestAccessToken:
+    type: object
+    properties:
+      direct:
+        $ref: '#/definitions/v21GuestAccessTokenDirect'
+      exchange:
+        $ref: '#/definitions/v21GuestAccessTokenExchange'
+    title: the type of access token (selec one)
+  v21GuestAccessTokenExchange:
+    type: object
+    properties:
+      maxDuration:
+        type: integer
+        format: int64
+        example: 300000
+        default: '300000'
+        title: the max duration this token is valid for redemption
+    title: create a multi-use guest access token
+  v21CreateGuestAccessTokenRequest:
+    type: object
+    properties:
+      collectionId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: id of the collection this token is allowed to access
+        required:
+        - collection_id
+      projectId:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: id of the project this token is allowed to access
+        required:
+        - project_id
+      maxDuration:
+        type: integer
+        format: int64
+        example: 172800000
+        default: '172800000'
+        title: requested duration (ms) of token before it expires
+      role:
+        $ref: '#/definitions/v21Role'
+        example: ROLE_GUEST
+        title: the requested role of the guest
+      token:
+        $ref: '#/definitions/v21GuestAccessToken'
+        title: the type of token
+      url:
+        type: string
+        example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+        title: request a shortened url
+    required:
+    - collectionId
+    - projectId
+  v21RefreshAccessTokenRequest:
+    type: object
+  v21CreateGuestAccessTokenResponse:
+    type: object
+    properties:
+      accessToken:
+        type: string
+        example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+        title: access token for guest to be used in subsequent API calls
+      url:
+        type: string
+        title: the shortened url

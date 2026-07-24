@@ -1,0 +1,134 @@
+swagger: '2.0'
+info:
+  title: Event AuthenticationService PublicAuthenticationService API
+  version: '2.0'
+  description: The Authentication Service provides token services for clients
+host: live.api.stream
+basePath: /event/v2
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- name: PublicAuthenticationService
+  description: The Public Authentication Service provides token verification services
+paths:
+  /authentication/jwks:
+    get:
+      summary: Get Public Keys
+      description: Get public keys used to sign access tokens
+      operationId: PublicAuthenticationService_GetJsonWebKeySet
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21GetJsonWebKeySetResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      tags:
+      - PublicAuthenticationService
+  /r/{serviceId}/{code}:
+    get:
+      summary: Exchange Guest Access Token
+      description: Exchange a guest access token with updated user identifiers
+      operationId: PublicAuthenticationService_GuestCodeRedirect
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v21GuestCodeRedirectResponse'
+        '401':
+          description: The access token provided is not valid
+          schema: {}
+        '403':
+          description: The access token provided does not have access to specified resource
+          schema: {}
+        '404':
+          description: The specified resource was not found
+          schema: {}
+        '429':
+          description: The specified service is busy; please use an exponential backoff on subsequent requests.
+          schema: {}
+        '500':
+          description: The specified service is unavailable; please try again later
+          schema: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+      - name: serviceId
+        description: the id of the service
+        in: path
+        required: true
+        type: string
+      - name: code
+        description: the short url code
+        in: path
+        required: true
+        type: string
+      tags:
+      - PublicAuthenticationService
+definitions:
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/protobufAny'
+  v21GetJsonWebKeySetResponse:
+    type: object
+    properties:
+      keys:
+        type: array
+        items:
+          $ref: '#/definitions/v21JsonWebKey'
+        title: public keys used to sign access tokens
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v21GuestCodeRedirectResponse:
+    type: object
+  v21JsonWebKey:
+    type: object
+    properties:
+      alg:
+        type: string
+      kty:
+        type: string
+      use:
+        type: string
+      kid:
+        type: string
+      e:
+        type: string
+      n:
+        type: string
