@@ -1,25 +1,356 @@
 aid: lightstream
 name: Lightstream
-description: Lightstream is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: 'Lightstream (Infiniscene, Inc.) is a Techstars-backed live video company best known for
+  Lightstream Studio, a browser-based streaming studio used by creators to broadcast to Twitch, YouTube
+  and other destinations without installing desktop encoding software. Lightstream also operates API.stream,
+  its developer platform, which exposes the same cloud video pipeline to development partners as three
+  API-first services: a Live API for managing collections, projects, sources, destinations and broadcasts;
+  a Layout API for building and animating layered scene compositions; and an Event API for publishing
+  and subscribing to real-time events across collaborators, guests and renderers. All three services are
+  defined as gRPC Protobuf contracts and fronted by gRPC-Web and REST gateways, secured with a JWT access-token
+  model and role-based permissions (HOST, COHOST, CONTRIBUTOR, GUEST, VIEWER), with first-party JavaScript/TypeScript
+  SDKs and a Studio Kit for embedding a full studio experience.'
 url: https://raw.githubusercontent.com/api-evangelist/lightstream/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://raw.githubusercontent.com/golightstream/api.stream-sdk/main/build/logo-dark.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Video
+- Live Streaming
+- Broadcasting
+- WebRTC
+- RTMP
+- Media
+- Compositing
+- Real Time
+- Events
+- gRPC
+- Creator Tools
+apis:
+- aid: lightstream:lightstream-authenticationservice-api
+  name: Lightstream AuthenticationService API
+  description: The Authentication Service provides token services for clients
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - AuthenticationService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-authenticationservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-backendauthenticationservice-api
+  name: Lightstream BackendAuthenticationService API
+  description: >-
+    The Backend Authentication Service provides token services for partner
+
+    backend systems
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - BackendAuthenticationService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-backendauthenticationservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-collectionservice-api
+  name: Lightstream CollectionService API
+  description: >-
+    The Collection Service operates on collections, which contain projects and
+
+    collection live sources used in projects.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - CollectionService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-collectionservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-destinationservice-api
+  name: Lightstream DestinationService API
+  description: >-
+    The Destination Service operates on Project Destinations. Destinations
+
+    designate where a Broadcast associated with a Project is distributed
+
+    downstream.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - DestinationService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-destinationservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-eventservice-api
+  name: Lightstream EventService API
+  description: >-
+    The event API provides a mechanism for you to subscribe and publish events between
+
+    your backend services and the composition, as well as receive events from the live and layout api.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - EventService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-eventservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-layerservice-api
+  name: Lightstream LayerService API
+  description: Layers
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - LayerService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-layerservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-layoutservice-api
+  name: Lightstream LayoutService API
+  description: Layouts
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - LayoutService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-layoutservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-projectservice-api
+  name: Lightstream ProjectService API
+  description: The Project Service operates on a Project.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - ProjectService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-projectservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-publicauthenticationservice-api
+  name: Lightstream PublicAuthenticationService API
+  description: The Public Authentication Service provides token verification services
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - PublicAuthenticationService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-publicauthenticationservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-sourceservice-api
+  name: Lightstream SourceService API
+  description: The Source Service operates on Collection Live Sources and Project Sources.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - SourceService
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-sourceservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/lightstream-agentic-access.yml
 - type: Website
   url: https://golightstream.com/
+- type: DeveloperPortal
+  url: https://www.api.stream/
+- type: Documentation
+  url: https://www.api.stream/docs/
+- type: APIReference
+  url: https://www.api.stream/docs/api/live/rest/
+- type: GettingStarted
+  url: https://www.api.stream/docs/
+- type: Authentication
+  url: authentication/lightstream-authentication.yml
+- type: SDKs
+  url: packages/lightstream-packages.yml
+- type: Packages
+  url: packages/lightstream-packages.yml
+- type: GitHubOrganization
+  url: https://github.com/golightstream
+- type: Support
+  url: https://golightstream.com/support/
+- type: Community
+  url: https://discord.gg/lightstream
+- type: Blog
+  url: https://golightstream.com/blog
+- type: StatusPage
+  url: https://status.api.stream/
+- type: Lifecycle
+  url: lifecycle/lightstream-lifecycle.yml
+- type: Pricing
+  url: https://golightstream.com/studio/#plans
+- type: SignUp
+  url: https://studio.golightstream.com/welcome
+- type: TermsOfService
+  url: https://api.stream/terms-of-service/
+- type: PrivacyPolicy
+  url: https://api.stream/privacy-policy/
+- type: Conventions
+  url: conventions/lightstream-conventions.yml
+- type: ErrorCatalog
+  url: errors/lightstream-problem-types.yml
+- type: Conformance
+  url: conformance/lightstream-conformance.yml
+- type: DataModel
+  url: data-model/lightstream-data-model.yml
+- type: DomainSecurity
+  url: security/lightstream-domain-security.yml
+- type: MCPServer
+  url: mcp/lightstream-mcp.yml
+- type: LLMsTxt
+  url: llms/lightstream-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Examples
+  url: examples/lightstream-examples.yml
+- type: AsyncAPI
+  url: asyncapi/lightstream-event-asyncapi.yml
+- type: Sandbox
+  url: sandbox/lightstream-sandbox.yml
+- type: Components
+  url: components/lightstream-components.yml
+- type: ChangeLog
+  url: changelog/lightstream-changelog.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
