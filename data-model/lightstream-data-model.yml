@@ -1,0 +1,211 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightstream-{live,layout}-openapi-original.yml
+docs: https://www.api.stream/docs/interface/
+notes: Entity graph derived from the published Swagger definitions and the "Building Blocks" and "Concepts
+  & Models" documentation. The Event API defines no persistent entities — it carries events targeted at
+  a collectionId / projectId / layoutId, which is how the Live and Layout graphs are joined at runtime.
+root: Collection
+entities:
+- name: Collection
+  schema: v21Collection
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: A collection of projects and collection-level live sources; the top-level tenancy object.
+  identifier: collectionId
+  fields:
+  - collectionId
+  - metadata
+  - projects
+  - sources
+  relationships:
+  - type: has_many
+    target: Project
+    via: projects
+  - type: has_many
+    target: Source
+    via: sources
+- name: Project
+  schema: v21Project
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: The project owns a broadcast, its composition, sources, destinations, WebRTC room and guest
+    codes.
+  identifier: projectId
+  fields:
+  - collectionId
+  - composition
+  - destinations
+  - encoding
+  - guestCodes
+  - location
+  - maxDuration
+  - metadata
+  - projectId
+  - rendering
+  - sources
+  - triggers
+  - webrtc
+  relationships:
+  - type: belongs_to
+    target: Collection
+    via: collectionId
+  - type: has_many
+    target: Source
+    via: sources
+  - type: has_many
+    target: Destination
+    via: destinations
+  - type: has_one
+    target: Composition
+    via: composition
+  - type: has_many
+    target: GuestCode
+    via: guestCodes
+  - type: has_many
+    target: ProjectTrigger
+    via: triggers
+  - type: has_one
+    target: BroadcastStatus
+    via: broadcast/status
+- name: Source
+  schema: v21Source
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: A live media source (RTMP push, SRT push, RTMP pull, WebRTC) created on a collection and
+    attached to projects.
+  identifier: sourceId
+  fields:
+  - address
+  - collectionId
+  - metadata
+  - preview
+  - sourceId
+  relationships:
+  - type: belongs_to
+    target: Collection
+    via: collectionId
+  - type: belongs_to
+    target: Project
+    via: AddSourceToProject
+- name: Destination
+  schema: v21Destination
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: A streaming destination of a project (RTMP push, Agora push) with enable flag and timeout.
+  identifier: destinationId
+  fields:
+  - address
+  - collectionId
+  - destinationId
+  - enabled
+  - metadata
+  - projectId
+  - timeout
+  relationships:
+  - type: belongs_to
+    target: Project
+    via: projectId
+  - type: belongs_to
+    target: Collection
+    via: collectionId
+- name: Composition
+  schema: v21Composition
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: The composition source for a project — one of external renderer, Studio Kit, or Scene (Layout-API
+    driven).
+  identifier: ''
+  fields:
+  - external
+  - scene
+  - studioSdk
+  relationships:
+  - type: belongs_to
+    target: Project
+    via: composition
+  - type: has_one
+    target: Layout
+    via: scene
+- name: BroadcastStatus
+  schema: v21ProjectBroadcastStatus
+  api: live
+  source: openapi/lightstream-live-openapi-original.yml
+  description: The live status of a project broadcast — phase, duration, region and datacenter placement.
+  identifier: broadcastId
+  fields:
+  - broadcastId
+  - collectionId
+  - datacenter
+  - duration
+  - phase
+  - projectId
+  - region
+  - start
+  - stop
+  relationships:
+  - type: belongs_to
+    target: Project
+    via: projectId
+- name: Layout
+  schema: v2Layout
+  api: layout
+  source: openapi/lightstream-layout-openapi-original.yml
+  description: A composition document owned by the user; container for layers, with a layout type and
+    transition config.
+  identifier: layoutId
+  fields:
+  - collectionId
+  - height
+  - id
+  - metadata
+  - projectId
+  - requestMetadata
+  - transitions
+  - type
+  - width
+  relationships:
+  - type: has_many
+    target: Layer
+    via: layers
+- name: Layer
+  schema: v2Layer
+  api: layout
+  source: openapi/lightstream-layout-openapi-original.yml
+  description: A single element in a layout — image, video, WebRTC track, HTML/URL element — positioned,
+    scaled, animated and nestable via children.
+  identifier: id
+  fields:
+  - children
+  - data
+  - height
+  - hidden
+  - id
+  - layoutId
+  - metadata
+  - opacity
+  - requestAnimation
+  - requestMetadata
+  - rotation
+  - scale
+  - type
+  - width
+  - x
+  - y
+  relationships:
+  - type: belongs_to
+    target: Layout
+    via: layoutId
+  - type: has_many
+    target: Layer
+    via: children
+cross_api_links:
+- from: Project.composition.scene
+  to: Layout
+  note: the Scene workflow binds a project composition to a Layout API layout
+- from: Event.target
+  to:
+  - Collection
+  - Project
+  - Layout
+  note: events are scoped by collectionId, projectId or layoutId

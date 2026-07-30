@@ -1,0 +1,140 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.api.stream/docs/api/
+docs:
+  design: https://www.api.stream/docs/api/
+  authentication: https://www.api.stream/docs/api/auth/
+  protocols: https://www.api.stream/docs/api/protocol/
+  update_model: https://www.api.stream/docs/api/live/usage
+  regions: https://www.api.stream/docs/service/region
+summary: >-
+  API.stream is a gRPC-first platform. Every service is defined as a Protobuf contract from
+  which database models, documentation, code stubs and gRPC / gRPC-Web / REST interfaces are
+  generated. The REST surface is a grpc-gateway projection, which explains the field-mask
+  update model, the google.rpc.Status error envelope and the absence of REST idioms such as
+  cursor pagination or an idempotency key.
+protocols:
+  supported:
+  - grpc
+  - grpc-web
+  - rest
+  preferred: grpc / grpc-web via the first-party SDKs
+  transport: HTTPS/1.1 for gRPC-Web and REST
+  note: gRPC-Web exists because native gRPC is not available in browser environments.
+authentication:
+  style: JWT bearer access token
+  header: 'Authorization: Bearer <access token>'
+  api_key_header: X-API-Key
+  api_key_scope: >-
+    The API key secures exactly one operation — BackendAuthenticationService_CreateAccessToken.
+    Production API keys must only ever be used server-side; the Development API key may be
+    embedded in a client for testing.
+  token_exchange: >-
+    A partner backend authenticates its own user, then calls CreateAccessToken with an opaque
+    serviceUserId to mint an access token which is relayed to the client.
+  refresh: AuthenticationService_RefreshAccessToken (PUT /authentication/token)
+  guest_tokens: AuthenticationService_CreateGuestAccessToken (POST /authentication/token/guest)
+  jwks: https://live.api.stream/live/v2/authentication/jwks
+  roles:
+  - HOST
+  - COHOST
+  - CONTRIBUTOR
+  - GUEST
+  - VIEWER
+  roles_note: >-
+    Role-based permission matrix published at https://www.api.stream/docs/api/auth/ covering
+    LiveAPI read/write, LayoutAPI read/write, join/start WebRTC, invite guests and manage broadcast.
+  cross_reference: authentication/lightstream-authentication.yml
+idempotency:
+  supported: false
+  evidence: >-
+    No Idempotency-Key header, parameter or documented retry-safety contract appears in any of
+    the three published specs or in the documentation. Creates are POST and are not
+    idempotency-keyed. No Idempotency pointer is wired in apis.yml for this provider.
+partial_update:
+  style: protobuf field mask
+  field: updateMask (update_mask)
+  methods:
+  - PATCH
+  description: >-
+    On Update RPCs the caller populates updateMask with an array of dotted property paths to
+    update or clear (for example address.rtmpPush.url, or a parent object such as
+    address.rtmpPush). gRPC clients must always send updateMask. REST clients may omit it, in
+    which case the gateway computes it from the fields present in the request body.
+pagination:
+  supported: false
+  evidence: >-
+    List operations (CollectionService_GetCollections, SourceService_GetSources,
+    LayoutService_ListLayouts, LayerService_ListLayers) return complete arrays with no cursor,
+    limit, offset or page parameters in the published specs.
+batching:
+  supported: true
+  operation: LayerService_Batch
+  path: POST /layout/v2/layouts/{layoutId}/layers/batch
+  description: Batch create / update / delete of layers in one call for atomic scene changes.
+metadata:
+  supported: true
+  description: >-
+    Arbitrary, application-specific metadata objects can be stored on and retrieved from
+    collections, projects, sources, destinations, layouts and layers. API.stream does not
+    inspect the contents.
+  fields:
+  - Collection.metadata
+  - Project.metadata
+  - Source.metadata
+  - Destination.metadata
+  - Layout.metadata
+  - Layer.metadata
+request_tracing:
+  supported: partial
+  mechanism: correlationId
+  description: >-
+    The Event API stream accepts an optional correlationId on every message; errors returned on
+    the stream carry the correlationId of the request that caused them. No global HTTP
+    request-id header is documented for the REST gateway.
+versioning:
+  scheme: uri-path
+  current:
+    live: v2 (spec info.version 2.1)
+    layout: v2 (spec info.version 2.0)
+    event: v2 (spec info.version 2.0)
+  base_urls:
+  - https://live.api.stream/live/v2
+  - https://live.api.stream/layout/v2
+  - https://live.api.stream/event/v2
+  breaking_change_policy: >-
+    The Protobuf definitions are linted with buf using breaking-change detection at FILE level
+    (proto/buf.yaml in golightstream/api.stream-sdk), which is the strongest published signal of
+    a wire-compatibility commitment. No prose deprecation policy is published.
+  cross_reference: lifecycle/lightstream-lifecycle.yml
+error_envelope:
+  format: google.rpc.Status (grpc-gateway)
+  schema: rpcStatus
+  fields:
+    code: int32 gRPC status code
+    message: human readable message
+    details: array of google.protobuf.Any
+  problem_json: false
+  cross_reference: errors/lightstream-problem-types.yml
+rate_limiting:
+  documented: partial
+  signal: HTTP 429
+  description: >-
+    Every Live API operation documents a 429 response — "The specified service is busy; please
+    use an exponential backoff on subsequent requests." No RateLimit-* / X-RateLimit-* response
+    headers, quotas or published numeric limits were found.
+  guidance: exponential backoff
+placement:
+  supported: true
+  description: >-
+    Projects accept an optional location hint (latitude / longitude) at creation so broadcast
+    resources are placed in a nearby region; actual placement is returned by
+    ProjectService_GetProjectBroadcastStatus as status.region.
+  regions:
+  - REGION_EU_CENTRAL_1
+  - REGION_EU_WEST_1
+  - REGION_US_EAST_1
+  - REGION_US_WEST_1
+  - REGION_CA_EAST_1
+  - REGION_AP_SOUTHEAST_2
+  note: Region is a hint; the backend may place a broadcast elsewhere for availability reasons.

@@ -1,0 +1,56 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightstream-{live,layout,event}-openapi-original.yml
+format: grpc-status
+notes: 'API.stream services are gRPC-first and fronted by grpc-gateway, so errors are not RFC 9457 problem+json.
+  The error envelope is the standard google.rpc.Status shape (rpcStatus): code (int32 gRPC status code),
+  message (string) and details[] (array of google.protobuf.Any). The REST gateway maps that onto the HTTP
+  status codes below. Response descriptions are taken verbatim from the published specs; API.stream does
+  not publish a separate error-code reference page beyond these.'
+envelope:
+  schema: rpcStatus
+  fields:
+    code: int32 gRPC status code
+    message: human readable message
+    details: array of google.protobuf.Any
+problems:
+- status: 401
+  code: '401'
+  title: The access token provided is not valid
+  occurrences: 32
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: 403
+  code: '403'
+  title: The access token provided does not have access to specified resource
+  occurrences: 32
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: 404
+  code: '404'
+  title: The specified resource was not found
+  occurrences: 32
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: 429
+  code: '429'
+  title: The specified service is busy; please use an exponential backoff on subsequent requests.
+  occurrences: 32
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: 500
+  code: '500'
+  title: The specified service is unavailable; please try again later
+  occurrences: 32
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: null
+  code: default
+  title: An unexpected error response.
+  occurrences: 45
+  example_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- status: 404
+  code: '404'
+  title: Layout not found
+  occurrences: 7
+  example_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_GetLayout
+- status: 404
+  code: '404'
+  title: Layer or Layout not found
+  occurrences: 3
+  example_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_GetLayer

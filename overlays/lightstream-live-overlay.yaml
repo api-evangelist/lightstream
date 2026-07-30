@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for API.stream Live API
+  version: 1.0.0
+extends: openapi/lightstream-live-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-slug: lightstream
+    x-apievangelist-api: lightstream:live-api
+    x-apievangelist-harvested: '2026-07-19'
+    x-apievangelist-source: https://www.api.stream/docs/api/live/rest/
+    x-apievangelist-spec-origin: redocusaurus-published swagger 2.0
+    x-apievangelist-protocols:
+    - grpc
+    - grpc-web
+    - rest
+    x-apievangelist-artifacts:
+      authentication: authentication/lightstream-authentication.yml
+      conventions: conventions/lightstream-conventions.yml
+      errors: errors/lightstream-problem-types.yml
+      lifecycle: lifecycle/lightstream-lifecycle.yml
+      data_model: data-model/lightstream-data-model.yml
+      sandbox: sandbox/lightstream-sandbox.yml
+- target: $
+  update:
+    x-apievangelist-servers:
+    - https://live.api.stream/live/v2

@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.api.stream/docs/compositor/
+docs:
+  compositors: https://www.api.stream/docs/compositor/
+  studio_kit: https://www.api.stream/docs/sdk/studiokit/docs/
+  building_blocks: https://www.api.stream/docs/interface/
+summary: >-
+  API.stream ships client-side and hosted rendering surfaces that are distinct from the
+  server-side SDKs in packages/. The Studio Kit embeds a complete browser studio into a partner
+  application; the Scene and hosted-renderer compositors are backend-driven HTML rendering
+  surfaces the platform broadcasts from.
+families:
+- name: Studio Kit
+  kind: embeddable client library
+  loader: '@api.stream/studio-kit'
+  install: npm install @api.stream/studio-kit
+  docs: https://www.api.stream/docs/sdk/studiokit/docs/
+  repository: https://github.com/golightstream/api.stream-studio-kit
+  description: >-
+    Embeds a "Sceneless" studio directly into a browser-based frontend — WebRTC guests, screen
+    share, RTMP sources, layout, preview and broadcast controls — while the partner keeps full
+    control of look and feel.
+  surfaces:
+  - Studio (root interface)
+  - Room (WebRTC room, participants, tracks)
+  - Project / Commands (ScenelessProject workflow)
+  - Events (EventMap subscriptions)
+  - Alert and Overlay components
+  - Helpers.React (StudioContext and hooks for React projects)
+  - Helpers.Callback
+  - Helpers.Room
+- name: Scene Compositor
+  kind: hosted / backend-driven compositor
+  docs: https://www.api.stream/docs/compositor/scene/basics
+  description: >-
+    Backend-only 2D scene compositor driven entirely through the Layout API — composites RTMP
+    video, WebRTC video and arbitrary HTML/URL graphic layers with key-frame animation and
+    transitions, no frontend browser required.
+  capabilities:
+  - layers (image, video, WebRTC, HTML/URL)
+  - animation
+  - transitions (cut, crossfade, fade-to-color, swipe, stinger)
+  - scene switching
+- name: Hosted renderer
+  kind: hosted render surface
+  repository: https://github.com/golightstream/api.stream-studio-kit/tree/main/build/hosted-renderer
+  description: The hosted HTML renderer the platform broadcasts from for Studio Kit projects.
+- name: BYOC (bring your own compositor)
+  kind: external renderer
+  docs: https://www.api.stream/docs/interface/
+  description: >-
+    Partners can build their own HTML5 renderer against the Live API and Layout API primitives
+    and have API.stream broadcast it to RTMP destinations.

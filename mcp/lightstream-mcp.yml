@@ -1,0 +1,244 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightstream-{live,layout,event}-openapi-original.yml
+status: candidate
+notes: No official or hosted Model Context Protocol server was found for Lightstream / API.stream (searched
+  the docs at www.api.stream, the golightstream GitHub org, npm and the public MCP registries). The tool
+  list below is a candidate surface derived one-to-one from the published REST operations of the Live,
+  Layout and Event APIs.
+server:
+  name: api.stream
+  transport: http
+  url: null
+authentication:
+  schemes:
+  - X-API-Key (backend only)
+  - 'Authorization: Bearer <access token>'
+  notes: Only BackendAuthenticationService_CreateAccessToken accepts the API key; every other tool needs
+    an access token.
+tools:
+- name: public_authentication_get_json_web_key_set
+  description: Get Public Keys
+  method: GET
+  path: /live/v2/authentication/jwks
+  source_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
+- name: backend_authentication_create_access_token
+  description: Create Access Token
+  method: POST
+  path: /live/v2/authentication/token
+  source_operation: openapi/lightstream-live-openapi-original.yml#BackendAuthenticationService_CreateAccessToken
+- name: authentication_refresh_access_token
+  description: Refresh Access Token
+  method: PUT
+  path: /live/v2/authentication/token
+  source_operation: openapi/lightstream-live-openapi-original.yml#AuthenticationService_RefreshAccessToken
+- name: authentication_create_guest_access_token
+  description: Create Guest Access Token
+  method: POST
+  path: /live/v2/authentication/token/guest
+  source_operation: openapi/lightstream-live-openapi-original.yml#AuthenticationService_CreateGuestAccessToken
+- name: collection_get_collections
+  description: Get Collections
+  method: GET
+  path: /live/v2/collection
+  source_operation: openapi/lightstream-live-openapi-original.yml#CollectionService_GetCollections
+- name: collection_create_collection
+  description: Create Collection
+  method: POST
+  path: /live/v2/collection
+  source_operation: openapi/lightstream-live-openapi-original.yml#CollectionService_CreateCollection
+- name: collection_get_collection
+  description: Get Collection
+  method: GET
+  path: /live/v2/collection/{collectionId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#CollectionService_GetCollection
+- name: collection_delete_collection
+  description: Delete Collection
+  method: DELETE
+  path: /live/v2/collection/{collectionId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#CollectionService_DeleteCollection
+- name: collection_update_collection
+  description: Update Collection
+  method: PATCH
+  path: /live/v2/collection/{collectionId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#CollectionService_UpdateCollection
+- name: project_create_project
+  description: Create Project
+  method: POST
+  path: /live/v2/collection/{collectionId}/project
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_CreateProject
+- name: project_get_project
+  description: Get Project
+  method: GET
+  path: /live/v2/collection/{collectionId}/project/{projectId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_GetProject
+- name: project_delete_project
+  description: Delete Project
+  method: DELETE
+  path: /live/v2/collection/{collectionId}/project/{projectId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_DeleteProject
+- name: project_update_project
+  description: Update Project
+  method: PATCH
+  path: /live/v2/collection/{collectionId}/project/{projectId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_UpdateProject
+- name: project_get_project_broadcast_snapshot
+  description: Get Snapshot
+  method: GET
+  path: /live/v2/collection/{collectionId}/project/{projectId}/broadcast/snapshot
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_GetProjectBroadcastSnapshot
+- name: project_start_project_broadcast
+  description: Start Broadcast
+  method: PUT
+  path: /live/v2/collection/{collectionId}/project/{projectId}/broadcast/start
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_StartProjectBroadcast
+- name: project_get_project_broadcast_status
+  description: Get Broadcast Status
+  method: GET
+  path: /live/v2/collection/{collectionId}/project/{projectId}/broadcast/status
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_GetProjectBroadcastStatus
+- name: project_stop_project_broadcast
+  description: Stop Broadcast
+  method: PUT
+  path: /live/v2/collection/{collectionId}/project/{projectId}/broadcast/stop
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_StopProjectBroadcast
+- name: destination_create_destination
+  description: Create Destination
+  method: POST
+  path: /live/v2/collection/{collectionId}/project/{projectId}/destination
+  source_operation: openapi/lightstream-live-openapi-original.yml#DestinationService_CreateDestination
+- name: destination_get_destination
+  description: Get Destination
+  method: GET
+  path: /live/v2/collection/{collectionId}/project/{projectId}/destination/{destinationId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#DestinationService_GetDestination
+- name: destination_delete_destination
+  description: Delete Destination
+  method: DELETE
+  path: /live/v2/collection/{collectionId}/project/{projectId}/destination/{destinationId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#DestinationService_DeleteDestination
+- name: destination_update_destination
+  description: Update Destination
+  method: PATCH
+  path: /live/v2/collection/{collectionId}/project/{projectId}/destination/{destinationId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#DestinationService_UpdateDestination
+- name: source_remove_source_from_project
+  description: Delete Source From Project
+  method: DELETE
+  path: /live/v2/collection/{collectionId}/project/{projectId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_RemoveSourceFromProject
+- name: source_add_source_to_project
+  description: Add Source to Project
+  method: PUT
+  path: /live/v2/collection/{collectionId}/project/{projectId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_AddSourceToProject
+- name: source_update_source_in_project
+  description: Update Source
+  method: PATCH
+  path: /live/v2/collection/{collectionId}/project/{projectId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_UpdateSourceInProject
+- name: project_start_project_web_rtc
+  description: Start WebRTC
+  method: PUT
+  path: /live/v2/collection/{collectionId}/project/{projectId}/webrtc/start
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_StartProjectWebRtc
+- name: project_stop_project_web_rtc
+  description: Stop WebRTC
+  method: PUT
+  path: /live/v2/collection/{collectionId}/project/{projectId}/webrtc/stop
+  source_operation: openapi/lightstream-live-openapi-original.yml#ProjectService_StopProjectWebRtc
+- name: source_get_sources
+  description: Get Source
+  method: GET
+  path: /live/v2/collection/{collectionId}/source
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_GetSources
+- name: source_create_source
+  description: Create Collection Live Source
+  method: POST
+  path: /live/v2/collection/{collectionId}/source
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_CreateSource
+- name: source_get_source
+  description: Get Source
+  method: GET
+  path: /live/v2/collection/{collectionId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_GetSource
+- name: source_delete_source
+  description: Delete Live Source
+  method: DELETE
+  path: /live/v2/collection/{collectionId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_DeleteSource
+- name: source_update_source
+  description: Update Source
+  method: PATCH
+  path: /live/v2/collection/{collectionId}/source/{sourceId}
+  source_operation: openapi/lightstream-live-openapi-original.yml#SourceService_UpdateSource
+- name: public_authentication_guest_code_redirect
+  description: Exchange Guest Access Token
+  method: GET
+  path: /live/v2/r/{serviceId}/{code}
+  source_operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GuestCodeRedirect
+- name: layout_list_layouts
+  description: Get all layouts owned by the user.
+  method: GET
+  path: /layout/v2/layouts
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_ListLayouts
+- name: layout_create_layout
+  description: Create a new layout
+  method: POST
+  path: /layout/v2/layouts
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_CreateLayout
+- name: layout_get_layout
+  description: Get a layout
+  method: GET
+  path: /layout/v2/layouts/{layoutId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_GetLayout
+- name: layout_delete_layout
+  description: Delete a layout
+  method: DELETE
+  path: /layout/v2/layouts/{layoutId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_DeleteLayout
+- name: layout_update_layout
+  description: Update a layout
+  method: PATCH
+  path: /layout/v2/layouts/{layoutId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayoutService_UpdateLayout
+- name: layer_list_layers
+  description: List all layers
+  method: GET
+  path: /layout/v2/layouts/{layoutId}/layers
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_ListLayers
+- name: layer_create_layer
+  description: Create a layer
+  method: POST
+  path: /layout/v2/layouts/{layoutId}/layers
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_CreateLayer
+- name: layer_batch
+  description: Batch update
+  method: POST
+  path: /layout/v2/layouts/{layoutId}/layers/batch
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_Batch
+- name: layer_get_layer
+  description: Get a single layer
+  method: GET
+  path: /layout/v2/layouts/{layoutId}/layers/{layerId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_GetLayer
+- name: layer_delete_layer
+  description: Delete a layer
+  method: DELETE
+  path: /layout/v2/layouts/{layoutId}/layers/{layerId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_DeleteLayer
+- name: layer_update_layer
+  description: Update a layer
+  method: PATCH
+  path: /layout/v2/layouts/{layoutId}/layers/{layerId}
+  source_operation: openapi/lightstream-layout-openapi-original.yml#LayerService_UpdateLayer
+- name: event_publish
+  description: Publish Event
+  method: POST
+  path: /event/v2/publish
+  source_operation: openapi/lightstream-event-openapi-original.yml#EventService_Publish
+- name: event_stream
+  description: Stream Events
+  method: GET
+  path: /event/v2/stream
+  source_operation: openapi/lightstream-event-openapi-original.yml#EventService_Stream

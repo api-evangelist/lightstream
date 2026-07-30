@@ -1,0 +1,32 @@
+{
+  "provider": "lightstream",
+  "sources": [
+    "lightstream-authenticationservice-api-openapi.yml",
+    "lightstream-backendauthenticationservice-api-openapi.yml",
+    "lightstream-collectionservice-api-openapi.yml",
+    "lightstream-destinationservice-api-openapi.yml",
+    "lightstream-eventservice-api-openapi.yml",
+    "lightstream-layerservice-api-openapi.yml",
+    "lightstream-layoutservice-api-openapi.yml",
+    "lightstream-projectservice-api-openapi.yml",
+    "lightstream-publicauthenticationservice-api-openapi.yml",
+    "lightstream-sourceservice-api-openapi.yml"
+  ],
+  "outputs": [
+    "lightstream-authenticationservice-api-openapi.yml",
+    "lightstream-backendauthenticationservice-api-openapi.yml",
+    "lightstream-collectionservice-api-openapi.yml",
+    "lightstream-destinationservice-api-openapi.yml",
+    "lightstream-eventservice-api-openapi.yml",
+    "lightstream-layerservice-api-openapi.yml",
+    "lightstream-layoutservice-api-openapi.yml",
+    "lightstream-projectservice-api-openapi.yml",
+    "lightstream-publicauthenticationservice-api-openapi.yml",
+    "lightstream-sourceservice-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

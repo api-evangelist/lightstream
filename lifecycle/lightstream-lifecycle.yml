@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.api.stream/docs/
+versioning:
+  scheme: uri-path
+  current: v2
+  services:
+    live:
+      base: https://live.api.stream/live/v2
+      spec_version: '2.1'
+    layout:
+      base: https://live.api.stream/layout/v2
+      spec_version: '2.0'
+    event:
+      base: https://live.api.stream/event/v2
+      spec_version: '2.0'
+  docs: https://www.api.stream/docs/api/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    No prose deprecation or sunset policy is published. The strongest published compatibility
+    commitment is buf FILE-level breaking-change detection on the Protobuf contracts
+    (proto/buf.yaml in golightstream/api.stream-sdk), which gates wire-breaking changes in CI.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in any of the three published specs carries deprecated: true.
+sla:
+  url: null
+  uptime_target: null
+  notes: >-
+    No public SLA or uptime commitment was found. Accounts are split into a free Development
+    tier (broadcasts limited to a few minutes) and a billed Production tier arranged by
+    contacting Lightstream — see https://www.api.stream/docs/account/
+status_page: https://status.api.stream/
+status_page_notes: >-
+  Per-region status portal for API.stream services with email and SMS incident subscriptions.
+release_history:
+  scheme: semver
+  source: GitHub releases on the first-party SDK repositories
+  urls:
+  - https://github.com/golightstream/api.stream-studio-kit/releases
+  - https://github.com/golightstream/api.stream-sdk/releases
+  cross_reference: changelog/lightstream-changelog.yml
+availability:
+  regions:
+  - id: REGION_EU_CENTRAL_1
+    location: Frankfurt, Germany
+  - id: REGION_EU_WEST_1
+    location: London, United Kingdom
+  - id: REGION_US_EAST_1
+    location: New York City, United States
+  - id: REGION_US_WEST_1
+    location: San Francisco, United States
+  - id: REGION_CA_EAST_1
+    location: Toronto, Canada
+  - id: REGION_AP_SOUTHEAST_2
+    location: Sydney, Australia
+  docs: https://www.api.stream/docs/service/region
+onboarding_status:
+  state: waitlist
+  evidence: >-
+    As of this pass https://api.stream/ presents a waitlist form — "We're not onboarding new
+    customers at the moment" — while the documentation, specs, status portal and npm SDK
+    releases all remain live.

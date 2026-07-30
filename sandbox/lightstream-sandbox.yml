@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.api.stream/docs/account/
+docs: https://www.api.stream/docs/account/
+summary: >-
+  API.stream separates development from production at the account and API-key level rather than
+  by key prefix. Every partner starts on a free Development account whose API key is
+  deliberately limited; a Production account is provisioned by Lightstream at launch and is
+  billed. Developers keep the Development account and key after launch for ongoing testing.
+modes:
+- name: development
+  key: Development API Key
+  billed: false
+  frontend_embeddable: true
+  limits:
+  - Broadcasts are limited to a few minutes in duration.
+  - Access tokens minted against the Development API Key are intentionally limited in
+    capability, duration and scope.
+  intended_use: development, testing and R&D
+- name: production
+  key: Production API Key
+  billed: true
+  frontend_embeddable: false
+  provisioning: contact Lightstream to be set up with a Production account
+  rules:
+  - The Production API Key must only be used for the production product, never for testing or
+    R&D.
+  - The Production API Key must only be used from a backend server to obtain an Access Token on
+    behalf of users; it must never be embedded in a native or browser-based client.
+test_values:
+  published: false
+  notes: >-
+    API.stream publishes no magic test identifiers, test cards, fixture generators or time/clock
+    simulation. Testing is done against a real (duration-limited) Development broadcast. Nothing
+    is invented here.
+test_flow:
+  description: >-
+    The documented quickstart path is to call BackendAuthenticationService_CreateAccessToken with
+    the Development API Key directly from the test application, then use the returned access
+    token for the remaining Live / Layout / Event calls.
+  operations:
+  - openapi/lightstream-live-openapi-original.yml#BackendAuthenticationService_CreateAccessToken
+  - openapi/lightstream-live-openapi-original.yml#CollectionService_CreateCollection
+  - openapi/lightstream-live-openapi-original.yml#ProjectService_CreateProject
+  runnable_examples: examples/lightstream-examples.yml

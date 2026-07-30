@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.npmjs.com/org/api.stream
+notes: >-
+  First-party client libraries are published to npm under the @api.stream scope by the
+  Lightstream (Infiniscene, Inc.) team; every package repository resolves to
+  github.com/golightstream. A Java SDK exists in the api.stream-sdk repository
+  (java/sdk) but no matching artifact was found on Maven Central as of this pass, so it is
+  recorded as source-only. Registries probed with no first-party result: PyPI, Maven
+  Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io.
+packages:
+- language: javascript
+  registry: npm
+  name: '@api.stream/studio-kit'
+  url: https://www.npmjs.com/package/@api.stream/studio-kit
+  install: npm install @api.stream/studio-kit
+  version: 3.0.49
+  repository: https://github.com/golightstream/api.stream-studio-kit
+  docs: https://www.api.stream/docs/sdk/studiokit/docs/
+  description: Client SDK for building studio experiences with API.stream
+  official: true
+- language: javascript
+  registry: npm
+  name: '@api.stream/sdk'
+  url: https://www.npmjs.com/package/@api.stream/sdk
+  install: npm install @api.stream/sdk
+  version: 1.0.42
+  repository: https://github.com/golightstream/api.stream-sdk
+  docs: https://www.api.stream/docs/sdk/api/js/docs/
+  description: JavaScript client for accessing API.stream cloud services (Live, Layout
+    and Event APIs)
+  official: true
+- language: javascript
+  registry: npm
+  name: '@api.stream/protocol-layout-api'
+  url: https://www.npmjs.com/package/@api.stream/protocol-layout-api
+  install: npm install @api.stream/protocol-layout-api
+  version: 1.0.4
+  repository: https://github.com/golightstream/api.stream-sdk
+  description: gRPC-Web bindings for interacting with the API.stream Layout API
+  official: true
+- language: javascript
+  registry: npm
+  name: '@api.stream/protocol-event-api'
+  url: https://www.npmjs.com/package/@api.stream/protocol-event-api
+  install: npm install @api.stream/protocol-event-api
+  version: 1.0.4
+  repository: https://github.com/golightstream/api.stream-sdk
+  description: gRPC-Web bindings for interacting with the API.stream Event API
+  official: true
+- language: javascript
+  registry: npm
+  name: '@api.stream/livekit-server-sdk'
+  url: https://www.npmjs.com/package/@api.stream/livekit-server-sdk
+  install: npm install @api.stream/livekit-server-sdk
+  version: 1.1.3
+  repository: https://github.com/livekit/server-sdk-js
+  description: API.stream-compatible fork of the LiveKit server SDK (WebRTC backend)
+  official: true
+  fork_of: livekit-server-sdk
+source_only:
+- language: java
+  name: API.stream Java SDK
+  repository: https://github.com/golightstream/api.stream-sdk/tree/main/java/sdk
+  registry: null
+  note: published in-repo; no Maven Central coordinate found

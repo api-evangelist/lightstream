@@ -1,0 +1,65 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples
+docs: https://www.api.stream/docs/example/
+notes: >-
+  Runnable first-party sample applications published in the API.stream SDK and Studio Kit
+  repositories. The published Swagger documents also carry in-spec request/response examples
+  (example: values on definition properties), which is what the Redocly reference pages render.
+in_spec_examples:
+  live: true
+  layout: true
+  event: true
+  form: swagger 2.0 `example` keys on definition properties
+examples:
+- name: Scene composition
+  path: js/examples/scenes
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/scenes
+  description: Build a multi-layer scene composition with the Layout API and broadcast it.
+  apis:
+  - lightstream:live-api
+  - lightstream:layout-api
+- name: Scene composition with WebRTC
+  path: js/examples/scenes-webrtc
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/scenes-webrtc
+  description: Scene composition with WebRTC guests joining the broadcast.
+  apis:
+  - lightstream:live-api
+  - lightstream:layout-api
+- name: Scene composition over REST
+  path: js/examples/scenes-rest
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/scenes-rest
+  description: The scene workflow driven purely over the REST gateway.
+  apis:
+  - lightstream:live-api
+  - lightstream:layout-api
+- name: Scenes demo
+  path: js/examples/scenes-demo
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/scenes-demo
+  description: Fuller demo application for the scene workflow.
+- name: Backend authentication via gRPC-Web
+  path: js/examples/backend-auth-grpcweb
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/backend-auth-grpcweb
+  description: Partner backend minting an access token on behalf of a user via the JS SDK.
+  operations:
+  - openapi/lightstream-live-openapi-original.yml#BackendAuthenticationService_CreateAccessToken
+- name: Backend authentication via REST
+  path: js/examples/backend-auth-rest
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/backend-auth-rest
+  description: Express backend that authenticates its own user then POSTs /authentication/token
+    with the X-API-Key header to mint an access token.
+  operations:
+  - openapi/lightstream-live-openapi-original.yml#BackendAuthenticationService_CreateAccessToken
+- name: REST quickstart
+  path: js/examples/rest
+  url: https://github.com/golightstream/api.stream-sdk/tree/main/js/examples/rest
+  description: Minimal axios script — authenticate, create a collection, create a 1920x1080
+    project — against https://live.api.stream/live/v2.
+  operations:
+  - openapi/lightstream-live-openapi-original.yml#BackendAuthenticationService_CreateAccessToken
+  - openapi/lightstream-live-openapi-original.yml#CollectionService_CreateCollection
+  - openapi/lightstream-live-openapi-original.yml#ProjectService_CreateProject
+- name: Studio Kit demo
+  path: examples/studio-kit-demo
+  url: https://github.com/golightstream/api.stream-studio-kit/tree/main/examples/studio-kit-demo
+  description: Reference application embedding a full Lightstream-style studio with the Studio Kit.

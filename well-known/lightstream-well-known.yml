@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source: live HTTP probes of the API and marketing hosts
+result: none
+notes: >-
+  No /.well-known/ discovery documents are published on any Lightstream / API.stream host.
+  Every probe returned 404 (api.stream and golightstream.com serve their SPA/marketing
+  fallback body with a 404 status). Recorded as honest negative data; no WellKnown or
+  SecurityTxt pointer is wired in apis.yml because nothing was found.
+  Note: the Live API does publish a JWKS document, but at an API path rather than a
+  well-known path — https://live.api.stream/live/v2/authentication/jwks (200).
+hosts:
+- host: https://live.api.stream
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.stream
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://golightstream.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+other_discovery:
+- name: JWKS
+  url: https://live.api.stream/live/v2/authentication/jwks
+  status: 200
+  operation: openapi/lightstream-live-openapi-original.yml#PublicAuthenticationService_GetJsonWebKeySet
