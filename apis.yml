@@ -285,6 +285,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/lightstream-event-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/lightstream-agentic-access.yml
 - type: Website
