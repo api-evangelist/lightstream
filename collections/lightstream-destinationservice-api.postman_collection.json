@@ -1,0 +1,2132 @@
+{
+  "item": [
+    {
+      "id": "4e31de0f-f797-40f8-ad8d-89425e94716f",
+      "name": "DestinationService",
+      "description": {
+        "content": "The Destination Service operates on Project Destinations. Destinations\ndesignate where a Broadcast associated with a Project is distributed\ndownstream.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be947459-d0c3-4473-b780-c17c33172f21",
+          "name": "Create Destination",
+          "request": {
+            "name": "Create Destination",
+            "description": {
+              "content": "Create a new Destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "destination"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which will own this destination"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": \"<object>\",\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"<string>\",\n      \"bucket\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": \"2000\"\n        }\n      }\n    }\n  },\n  \"enabled\": \"true\",\n  \"timeout\": \"5000\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "787caf61-6bd4-4b31-be06-42d00307bffd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destination\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"enabled\": true,\n    \"address\": {\n      \"rtmpPush\": {\n        \"url\": \"rtmp://ingest.fakecompany.com\",\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      },\n      \"agora\": {\n        \"appId\": \"<string>\",\n        \"channelId\": \"<string>\",\n        \"userId\": \"<string>\"\n      },\n      \"s3Storage\": {\n        \"region\": \"us-west-1\",\n        \"bucket\": \"company\",\n        \"accessKey\": \"<string>\",\n        \"secretKey\": \"<string>\",\n        \"prefix\": \"app\",\n        \"token\": \"<string>\",\n        \"tokenDuration\": \"<integer>\",\n        \"acl\": \"<string>\",\n        \"endpoint\": \"fra1.digitaloceanspaces.com\",\n        \"packaging\": {\n          \"hls\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"timeout\": 5000\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "677b9596-421f-4360-8c16-a90f3a8378a2",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29afc233-b4e7-40a6-bfca-e10846f6a351",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cc189c3-dad1-41f0-bb0c-4efa3337c0df",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ffcbd77-da4b-4ad4-b352-6d7798b25bc3",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b263cfcb-3e89-4439-9267-8b32d7ab3ecf",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0a3ed0d-9f8e-4cf3-9a9f-c394f9398c63",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own this destination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4604,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0664b73e-56dd-4e62-9a51-4059ac8444c7",
+          "name": "Get Destination",
+          "request": {
+            "name": "Get Destination",
+            "description": {
+              "content": "Get an existing Destination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "destination",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "destinationId",
+                  "description": "(Required) destination id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf9fca2c-e846-43b2-a6cb-caf564236d60",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destination\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"enabled\": true,\n    \"address\": {\n      \"rtmpPush\": {\n        \"url\": \"rtmp://ingest.fakecompany.com\",\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      },\n      \"agora\": {\n        \"appId\": \"<string>\",\n        \"channelId\": \"<string>\",\n        \"userId\": \"<string>\"\n      },\n      \"s3Storage\": {\n        \"region\": \"us-west-1\",\n        \"bucket\": \"company\",\n        \"accessKey\": \"<string>\",\n        \"secretKey\": \"<string>\",\n        \"prefix\": \"app\",\n        \"token\": \"<string>\",\n        \"tokenDuration\": \"<integer>\",\n        \"acl\": \"<string>\",\n        \"endpoint\": \"fra1.digitaloceanspaces.com\",\n        \"packaging\": {\n          \"hls\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"timeout\": 5000\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbe4127c-7c00-4ca1-861c-abfbc4b6908e",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed6dca2c-7b85-4a55-9bac-9f96c13c41b7",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b8aad3f-c060-485c-baa4-90f53125c6aa",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb67d260-5147-4d46-ba84-a13bf0c06252",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c2ffef7-7ae0-4ec6-bf3a-906e47d13b49",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eb0614e-302b-4549-91a3-7299828f037a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2890,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33645f5e-51ab-4e69-90da-d9027c20deb6",
+          "name": "Delete Destination",
+          "request": {
+            "name": "Delete Destination",
+            "description": {
+              "content": "Delete a destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "destination",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "forcibly remove destination if enabled."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "destinationId",
+                  "description": "(Required) destination id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58f3e641-586d-4760-8060-5e128e2e3751",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"broadcastUpdated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8811312a-42da-4a07-83a3-365e204fbfd3",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efb53bc1-a05b-4abf-aacc-dc69af8d09ae",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c51f6de0-aace-4488-bed1-a1504600d4a4",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49a339c5-4c00-4e53-9098-c889986b8f37",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fa8e225-8ac6-4a03-bc5c-d0161eebb50e",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce625e4b-1a75-4fca-a215-25368577033c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2890,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ecc898d-7da8-4b23-924e-24a0ded8b5a5",
+          "name": "Update Destination",
+          "request": {
+            "name": "Update Destination",
+            "description": {
+              "content": "Update a destination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "destination",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which owns the destination"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "destinationId",
+                  "description": "(Required) destination id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updateMask\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"<string>\",\n      \"bucket\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"<string>\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": \"2000\"\n        }\n      }\n    }\n  },\n  \"enabled\": \"true\",\n  \"timeout\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41b65d3d-d4c6-475c-8a19-ba7bb4b973f3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destination\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"enabled\": true,\n    \"address\": {\n      \"rtmpPush\": {\n        \"url\": \"rtmp://ingest.fakecompany.com\",\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      },\n      \"agora\": {\n        \"appId\": \"<string>\",\n        \"channelId\": \"<string>\",\n        \"userId\": \"<string>\"\n      },\n      \"s3Storage\": {\n        \"region\": \"us-west-1\",\n        \"bucket\": \"company\",\n        \"accessKey\": \"<string>\",\n        \"secretKey\": \"<string>\",\n        \"prefix\": \"app\",\n        \"token\": \"<string>\",\n        \"tokenDuration\": \"<integer>\",\n        \"acl\": \"<string>\",\n        \"endpoint\": \"fra1.digitaloceanspaces.com\",\n        \"packaging\": {\n          \"hls\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"timeout\": 5000\n  },\n  \"broadcastUpdated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5c90a31-09f3-4a43-87a1-dbc71ed7047c",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccdd5a6d-1a20-4312-a8ec-b5abc605c373",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2089dc38-2b9e-428a-9d27-56d724b86558",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c1b524c-3630-475c-b3cb-350f1f4107b6",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d73953a6-0701-44bb-ac10-c249046c6a2c",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8e9e0a5-3962-455f-a2ff-5c36c052a23a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "destination",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which owns the destination"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "destinationId",
+                      "description": "(Required) destination id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata, address.rtmpPush.url\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"url\": \"rtmp://ingest.fakecompany.com\",\n      \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"agora\": {\n      \"appId\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"userId\": \"<string>\"\n    },\n    \"s3Storage\": {\n      \"region\": \"us-west-1\",\n      \"bucket\": \"company\",\n      \"accessKey\": \"<string>\",\n      \"secretKey\": \"<string>\",\n      \"prefix\": \"app\",\n      \"token\": \"<string>\",\n      \"tokenDuration\": \"<integer>\",\n      \"acl\": \"<string>\",\n      \"endpoint\": \"fra1.digitaloceanspaces.com\",\n      \"packaging\": {\n        \"hls\": {\n          \"lifecycle\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"segmentDuration\": 2000\n        }\n      }\n    }\n  },\n  \"enabled\": true,\n  \"timeout\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2890,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5d1260c-2e0d-4f6b-9ed0-5aa81a632ccd",
+    "name": "Event AuthenticationService DestinationService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

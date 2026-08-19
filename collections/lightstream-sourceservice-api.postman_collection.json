@@ -1,0 +1,3872 @@
+{
+  "item": [
+    {
+      "id": "6806df5a-6372-4cb8-8c73-fd7dfb2b7570",
+      "name": "SourceService",
+      "description": {
+        "content": "The Source Service operates on Collection Live Sources and Project Sources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7eafad2-096c-4a32-8335-4f8ec1a0ea35",
+          "name": "Delete Source From Project",
+          "request": {
+            "name": "Delete Source From Project",
+            "description": {
+              "content": "Removes a source from a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "delete a live source even if it is in use in a broadcast."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) the id of the parent Collection"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) the id of the Project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) the id of the Source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43c0c71d-1a9e-4936-914b-e84a686e792d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"rendering\": {\n      \"video\": {\n        \"height\": 720,\n        \"width\": 1280,\n        \"framerate\": 30,\n        \"colorSpace\": \"VIDEO_COLOR_SPACE_YUV420\"\n      },\n      \"audio\": {\n        \"channelLayout\": \"AUDIO_CHANNEL_LAYOUT_STEREO\"\n      },\n      \"quality\": \"RENDERING_QUALITY_STANDARD\",\n      \"targetLatency\": 500,\n      \"complexity\": 0\n    },\n    \"encoding\": {\n      \"video\": {\n        \"codec\": \"VIDEO_CODEC_H264\",\n        \"rateControl\": {\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"targetBitrate\": 12925505,\n          \"maxKeyFrameInterval\": 30\n        },\n        \"profile\": \"VIDEO_CODEC_PROFILE_BASELINE\"\n      },\n      \"audio\": {\n        \"codec\": \"AUDIO_CODEC_AAC\"\n      }\n    },\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"destinations\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      }\n    ],\n    \"composition\": {\n      \"external\": {\n        \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n      },\n      \"studioSdk\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"version\": \"latest\"\n      },\n      \"scene\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"selectedLayoutId\": \"e67cfd6ad57560962fddcf63611d2835\",\n        \"debug\": false\n      }\n    },\n    \"maxDuration\": 172800000,\n    \"webrtc\": {\n      \"hosted\": {\n        \"enabled\": true\n      }\n    },\n    \"triggers\": [\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"SOURCE_TRIGGER_ACTION_OR\",\n          \"stop\": \"SOURCE_TRIGGER_ACTION_IGNORE\"\n        }\n      },\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"SOURCE_TRIGGER_ACTION_OR\",\n          \"stop\": \"SOURCE_TRIGGER_ACTION_OR\"\n        }\n      }\n    ],\n    \"location\": {\n      \"latitude\": 9330.027569474161,\n      \"longitude\": 5148.085101752487\n    },\n    \"guestCodes\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1987-07-20T16:47:38.564Z\"\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1978-01-20T09:06:23.334Z\"\n      }\n    ]\n  },\n  \"broadcastUpdated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15582300-12c1-4786-85b0-c7ee8ce02823",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8249b23d-89ed-409b-bf44-ca162991b096",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "988c891f-2c52-4638-b1c4-7e599f39e81b",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b1cead8-e8d8-4059-8db4-8e27d62341a2",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e611b868-38b8-4f90-b440-bf0bb719ea09",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa966403-9dee-4e7a-84a6-53520922835b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) the id of the parent Collection"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) the id of the Project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) the id of the Source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4969,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69b4ca14-0c70-43fa-b7d6-d5aa10a4e23f",
+          "name": "Add Source to Project",
+          "request": {
+            "name": "Add Source to Project",
+            "description": {
+              "content": "Add a source to a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which will own the source"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) live source id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"<string>\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bd3b5a8-1094-4342-881b-56a82b1b386d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"rendering\": {\n      \"video\": {\n        \"height\": 720,\n        \"width\": 1280,\n        \"framerate\": 30,\n        \"colorSpace\": \"VIDEO_COLOR_SPACE_YUV420\"\n      },\n      \"audio\": {\n        \"channelLayout\": \"AUDIO_CHANNEL_LAYOUT_STEREO\"\n      },\n      \"quality\": \"RENDERING_QUALITY_STANDARD\",\n      \"targetLatency\": 500,\n      \"complexity\": 0\n    },\n    \"encoding\": {\n      \"video\": {\n        \"codec\": \"VIDEO_CODEC_H264\",\n        \"rateControl\": {\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"targetBitrate\": 6109168,\n          \"maxKeyFrameInterval\": 30\n        },\n        \"profile\": \"VIDEO_CODEC_PROFILE_MAIN\"\n      },\n      \"audio\": {\n        \"codec\": \"AUDIO_CODEC_AAC\"\n      }\n    },\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"destinations\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      }\n    ],\n    \"composition\": {\n      \"external\": {\n        \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n      },\n      \"studioSdk\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"version\": \"latest\"\n      },\n      \"scene\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"selectedLayoutId\": \"e67cfd6ad57560962fddcf63611d2835\",\n        \"debug\": false\n      }\n    },\n    \"maxDuration\": 172800000,\n    \"webrtc\": {\n      \"hosted\": {\n        \"enabled\": true\n      }\n    },\n    \"triggers\": [\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"<string>\",\n          \"stop\": \"<string>\"\n        }\n      },\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"<string>\",\n          \"stop\": \"<string>\"\n        }\n      }\n    ],\n    \"location\": {\n      \"latitude\": 6.720234397570302,\n      \"longitude\": 4144.128096878152\n    },\n    \"guestCodes\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1951-02-13T07:41:44.168Z\"\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1947-01-19T21:46:37.696Z\"\n      }\n    ]\n  },\n  \"broadcastUpdated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4814b498-b099-4be6-9a2f-51e978e7cbaf",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25dcef80-f763-4a6a-b4c8-90064453f401",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2611bb14-7f37-49c0-bcad-b8bd2751e6e9",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "699d727d-2958-4c9d-ba1e-7fe6e92a706d",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59aa375a-5734-49db-bec6-15d63d2eb7cc",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1ac567a-00e5-4b00-87c8-ef2f326dda1e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5daaacce-28e6-47dd-8b04-4600af7d5dbe",
+          "name": "Update Source",
+          "request": {
+            "name": "Update Source",
+            "description": {
+              "content": "Update attributes of the Source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "project",
+                ":projectId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) project which will own the source"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) live source id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updateMask\": \"<string>\",\n  \"trigger\": {\n    \"sourceId\": \"<string>\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "494edd5a-6416-44e2-9157-190d1aa03d48",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"rendering\": {\n      \"video\": {\n        \"height\": 720,\n        \"width\": 1280,\n        \"framerate\": 30,\n        \"colorSpace\": \"VIDEO_COLOR_SPACE_YUV420\"\n      },\n      \"audio\": {\n        \"channelLayout\": \"AUDIO_CHANNEL_LAYOUT_STEREO\"\n      },\n      \"quality\": \"RENDERING_QUALITY_HIGH\",\n      \"targetLatency\": 500,\n      \"complexity\": 0\n    },\n    \"encoding\": {\n      \"video\": {\n        \"codec\": \"VIDEO_CODEC_H264\",\n        \"rateControl\": {\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"targetBitrate\": 6205495,\n          \"maxKeyFrameInterval\": 30\n        },\n        \"profile\": \"VIDEO_CODEC_PROFILE_BASELINE\"\n      },\n      \"audio\": {\n        \"codec\": \"AUDIO_CODEC_AAC\"\n      }\n    },\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"destinations\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"enabled\": true,\n        \"address\": {\n          \"rtmpPush\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"agora\": {\n            \"appId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"s3Storage\": {\n            \"region\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucket\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accessKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secretKey\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"token\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tokenDuration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endpoint\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"packaging\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"timeout\": 5000\n      }\n    ],\n    \"composition\": {\n      \"external\": {\n        \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n      },\n      \"studioSdk\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"version\": \"latest\"\n      },\n      \"scene\": {\n        \"rendererUrl\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\",\n        \"selectedLayoutId\": \"e67cfd6ad57560962fddcf63611d2835\",\n        \"debug\": false\n      }\n    },\n    \"maxDuration\": 172800000,\n    \"webrtc\": {\n      \"hosted\": {\n        \"enabled\": true\n      }\n    },\n    \"triggers\": [\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"<string>\",\n          \"stop\": \"<string>\"\n        }\n      },\n      {\n        \"source\": {\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"start\": \"<string>\",\n          \"stop\": \"<string>\"\n        }\n      }\n    ],\n    \"location\": {\n      \"latitude\": 8635.86465230786,\n      \"longitude\": 3597.14702706995\n    },\n    \"guestCodes\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1985-02-17T08:16:11.433Z\"\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"code\": \"string\",\n        \"url\": \"string\",\n        \"autoDelete\": \"1976-04-05T13:32:07.155Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4d638a2-6465-4a15-b866-9497c799444d",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ee4c570-b891-4694-9bf6-d43a41f1e3af",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c05c180f-4fe9-46f0-b448-039794f47852",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f61b72d-c375-474c-b30e-bc59dd6c9769",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00673e6e-7e75-499c-afef-463230e0b11b",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de90e140-b60f-4a73-bd4f-6538d1556c73",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "project",
+                    ":projectId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) project which will own the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"trigger\": {\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"start\": \"<string>\",\n    \"stop\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcfdd5f2-c560-4ed9-bb6e-4afbeecde531",
+          "name": "Get Source",
+          "request": {
+            "name": "Get Source",
+            "description": {
+              "content": "Get existing sources in a collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "source"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "904cba9e-9ab7-4100-8490-b1e2fda3f0d4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"metadata\": {\n        \"createdBy\": \"Eddie Current\"\n      },\n      \"preview\": {\n        \"webrtc\": {\n          \"enabled\": true,\n          \"displayName\": \"Camera1\",\n          \"participantId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n        }\n      },\n      \"address\": {\n        \"rtmpPush\": {\n          \"enabled\": true,\n          \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"url\": \"rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"baseUrl\": \"rtmp://ingest.golightstream.com/api2\"\n        },\n        \"srtPush\": {\n          \"enabled\": true,\n          \"streamId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"url\": \"srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"baseUrl\": \"srt://ingest.api.stream\"\n        },\n        \"rtmpPull\": {\n          \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n        }\n      }\n    },\n    {\n      \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"metadata\": {\n        \"createdBy\": \"Eddie Current\"\n      },\n      \"preview\": {\n        \"webrtc\": {\n          \"enabled\": true,\n          \"displayName\": \"Camera1\",\n          \"participantId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n        }\n      },\n      \"address\": {\n        \"rtmpPush\": {\n          \"enabled\": true,\n          \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"url\": \"rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"baseUrl\": \"rtmp://ingest.golightstream.com/api2\"\n        },\n        \"srtPush\": {\n          \"enabled\": true,\n          \"streamId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"url\": \"srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"baseUrl\": \"srt://ingest.api.stream\"\n        },\n        \"rtmpPull\": {\n          \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f05d4c85-dcbf-46cf-9bda-593f5dd398a7",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb7e1433-eb9d-49c1-9634-7b7fe6927837",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33acbbf0-4c46-4e17-ac88-7342ed6a97c6",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fda9f363-f712-40a6-a266-cbf0d1533ce5",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0f9f500-ed60-40e9-b6bc-a5f5a3a46994",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23518d28-e53c-4f30-b769-6043d8a0af4c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "067b9f73-895e-46be-a576-e3ef24a10d75",
+          "name": "Create Collection Live Source",
+          "request": {
+            "name": "Create Collection Live Source",
+            "description": {
+              "content": "Create a new live source in a collection\n### Permissions\n* scope: `SCOPE_VAPI_CREATE`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "source"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which will own this collection live source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": \"<object>\",\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": \"true\"\n    },\n    \"srtPush\": {\n      \"enabled\": \"true\"\n    },\n    \"rtmpPull\": {\n      \"url\": \"<string>\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": \"true\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9bdd164-4b2e-4c92-b89a-29642be847bb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"source\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"preview\": {\n      \"webrtc\": {\n        \"enabled\": true,\n        \"displayName\": \"Camera1\",\n        \"participantId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      }\n    },\n    \"address\": {\n      \"rtmpPush\": {\n        \"enabled\": true,\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"rtmp://ingest.golightstream.com/api2\"\n      },\n      \"srtPush\": {\n        \"enabled\": true,\n        \"streamId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"srt://ingest.api.stream\"\n      },\n      \"rtmpPull\": {\n        \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47717878-20f2-4744-8d9f-c32b46ee84e2",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f713639-33b7-415e-81de-2ef89962c8b5",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a82dadcf-8d04-438c-b35f-e6ec6e1257a9",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc5b0888-aec1-41ae-8d80-739d69eabdb9",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38db8316-03dd-4d3a-b0e5-c7c2b37c5d40",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14d49adb-96f5-408a-84c7-c6b68516010e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which will own this collection live source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27ea5870-7be0-437c-bdd1-349e1b1d72cf",
+          "name": "Get Source",
+          "request": {
+            "name": "Get Source",
+            "description": {
+              "content": "Get an existing source in a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the source"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) source id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e79c4e1-9c66-4136-a753-ae85226d5327",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"source\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"preview\": {\n      \"webrtc\": {\n        \"enabled\": true,\n        \"displayName\": \"Camera1\",\n        \"participantId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      }\n    },\n    \"address\": {\n      \"rtmpPush\": {\n        \"enabled\": true,\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"rtmp://ingest.golightstream.com/api2\"\n      },\n      \"srtPush\": {\n        \"enabled\": true,\n        \"streamId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"srt://ingest.api.stream\"\n      },\n      \"rtmpPull\": {\n        \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1d35b96-2a49-40c5-927b-7c4d92c31626",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a9f203e-55a7-4148-9b55-64a95d4613cb",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1d97e59-417b-4ffa-b57e-daad287d1b3e",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "971afb40-a2d5-4e1a-8f98-0819522f43c5",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c97f8f06-2045-46f9-9457-8d5b4bff4ba1",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "177b697c-2185-40dd-8a3a-c1b0217fbc6d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a31fffd0-d552-4140-9dbf-ac1e1fe67768",
+          "name": "Delete Live Source",
+          "request": {
+            "name": "Delete Live Source",
+            "description": {
+              "content": "Deletes a live source from a collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "delete a live source even if it is in use in a broadcast."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the live source"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) live source id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23fc319f-3f0b-487d-99f7-4e566cb7f3c4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"projectIdsUpdated\": [\n    \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18ac4e80-90d8-4bf1-b8a1-b6ec280f3848",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaf0b591-f17c-4a93-af0c-f9b5939d8f9c",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7876b7f1-9a72-4bd5-a158-1d0d6402f54f",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea16b91b-d4ea-456a-bfee-84d814e1778b",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ca4dc55-0404-4eec-96e7-18855bc3e942",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1deb3ef-1e51-4f4f-ad68-d17ad1cd30ca",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the live source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) live source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e68fdf0-f48e-4896-83b6-0a2ade92727d",
+          "name": "Update Source",
+          "request": {
+            "name": "Update Source",
+            "description": {
+              "content": "Update attributes of the Source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId",
+                "source",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection which owns the project which owns the source"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sourceId",
+                  "description": "(Required) source id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updateMask\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": \"true\"\n    },\n    \"srtPush\": {\n      \"enabled\": \"true\"\n    },\n    \"rtmpPull\": {\n      \"url\": \"<string>\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": \"true\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "619839a0-aade-456b-9853-549655da4bd9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"source\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"preview\": {\n      \"webrtc\": {\n        \"enabled\": true,\n        \"displayName\": \"Camera1\",\n        \"participantId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n      }\n    },\n    \"address\": {\n      \"rtmpPush\": {\n        \"enabled\": true,\n        \"key\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"rtmp://ingest.golightstream.com/api2\"\n      },\n      \"srtPush\": {\n        \"enabled\": true,\n        \"streamId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"url\": \"srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"baseUrl\": \"srt://ingest.api.stream\"\n      },\n      \"rtmpPull\": {\n        \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n      }\n    }\n  },\n  \"broadcastUpdated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97481f01-d4d9-42ef-973d-ba474379aade",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e07f245b-7456-4096-b81e-b32d3764c2fc",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a72dd899-f471-4f4c-8255-df65b2ee9b39",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a58b099b-7817-4286-9efb-19d7d85f61d0",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83a028c5-ef1f-464f-a655-1e788d93b15c",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37020c7d-3c3b-423a-8d20-7e846410083d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "source",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection which owns the project which owns the source"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sourceId",
+                      "description": "(Required) source id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  },\n  \"address\": {\n    \"rtmpPush\": {\n      \"enabled\": true\n    },\n    \"srtPush\": {\n      \"enabled\": true\n    },\n    \"rtmpPull\": {\n      \"url\": \"rtmp://ingest.fakecompany.com/inbound/abc123\"\n    }\n  },\n  \"preview\": {\n    \"webrtc\": {\n      \"enabled\": true,\n      \"displayName\": \"Camera1\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2398,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "25303322-9626-4497-b522-e2b3fb098574",
+    "name": "Event AuthenticationService SourceService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,754 @@
+{
+  "item": [
+    {
+      "id": "c8bbfe29-db95-463b-b979-0828438428e1",
+      "name": "AuthenticationService",
+      "description": {
+        "content": "The Authentication Service provides token services for clients",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "102ad339-f820-4167-bd0f-17324ab21aa3",
+          "name": "Refresh Access Token",
+          "request": {
+            "name": "Refresh Access Token",
+            "description": {
+              "content": "Forcibly refresh an access token prior to expiration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78271da5-ec3a-459c-ad8c-db95eb0c880d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54d7d911-24f0-42a5-a9f6-ad2eef1d9983",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba5ac80e-2446-4f93-86ac-e33cf92f3647",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cab69d9-637e-4b98-98f8-1854e51ee1b2",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe9f811e-6e93-426f-8161-54a3120b7150",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87fbaee6-9936-4c09-99d6-1cd3f30991eb",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd64d19b-d0e4-4627-baa5-43eeb2cc1606",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5490,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f4cabbf-82c1-4251-be6e-bcd3004bbdd8",
+          "name": "Create Guest Access Token",
+          "request": {
+            "name": "Create Guest Access Token",
+            "description": {
+              "content": "Create an access token for a guest",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "token",
+                "guest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collectionId\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"maxDuration\": \"172800000\",\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"<string>\",\n      \"serviceUserId\": \"<string>\"\n    },\n    \"exchange\": {\n      \"maxDuration\": \"300000\"\n    }\n  },\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63cf038b-ef4d-4eea-9f19-bf1ec6de70f2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accessToken\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eca3cc1-03a0-45a1-bc6a-c78b1438c49f",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "907d8f61-b5cb-4f8f-9c93-46161c1d94a3",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d167cd66-009b-4fa4-abdf-87f6f625a2ff",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7643a9a-a1fb-4806-a1af-96c188309369",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "222cb4ba-de95-4340-9543-a10a5ba910b3",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a87c1b77-c795-4aa1-8797-0d804eace2dc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token",
+                    "guest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"maxDuration\": 172800000,\n  \"role\": \"<string>\",\n  \"token\": {\n    \"direct\": {\n      \"displayName\": \"Eddy Current\",\n      \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n    },\n    \"exchange\": {\n      \"maxDuration\": 300000\n    }\n  },\n  \"url\": \"https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1810,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5f442590-f59f-4f9b-978d-d9103941df41",
+    "name": "Event AuthenticationService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

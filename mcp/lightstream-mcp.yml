@@ -242,3 +242,9 @@ tools:
   method: GET
   path: /event/v2/stream
   source_operation: openapi/lightstream-event-openapi-original.yml#EventService_Stream
+deployment:
+  mode: none
+  verified: derived
+  tools: 45
+  checked: '2026-08-12'
+  source: catalog MCP census

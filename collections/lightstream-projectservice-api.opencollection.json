@@ -1,0 +1,292 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService ProjectService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/collection/:collectionId/project",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which will own this project"
+              }
+            ]
+          },
+          "docs": "Create a new project"
+        },
+        {
+          "info": {
+            "name": "Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "also query project broadcast status."
+              }
+            ]
+          },
+          "docs": "Get an existing project"
+        },
+        {
+          "info": {
+            "name": "Update Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              }
+            ]
+          },
+          "docs": "Updates a project"
+        },
+        {
+          "info": {
+            "name": "Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "forcibly end broadcast in progress."
+              }
+            ]
+          },
+          "docs": "Delete a project"
+        },
+        {
+          "info": {
+            "name": "Get Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/broadcast/snapshot",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "snapshot binary format."
+              }
+            ]
+          },
+          "docs": "Get a snapshot of the current output frame of the broadcast"
+        },
+        {
+          "info": {
+            "name": "Start Broadcast",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/broadcast/start",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              },
+              {
+                "name": "webrtcStart",
+                "value": "",
+                "type": "query",
+                "description": "also start webrtc room."
+              }
+            ]
+          },
+          "docs": "Start broadcasting a project"
+        },
+        {
+          "info": {
+            "name": "Get Broadcast Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/broadcast/status",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              }
+            ]
+          },
+          "docs": "Get the broadcast status of the project"
+        },
+        {
+          "info": {
+            "name": "Stop Broadcast",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/broadcast/stop",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              },
+              {
+                "name": "webrtcStop",
+                "value": "",
+                "type": "query",
+                "description": "stop the associated webrtc room,."
+              }
+            ]
+          },
+          "docs": "Stop broadcasting a project"
+        },
+        {
+          "info": {
+            "name": "Start WebRTC",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/webrtc/start",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              }
+            ]
+          },
+          "docs": "Start WebRTC services"
+        },
+        {
+          "info": {
+            "name": "Stop WebRTC",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/webrtc/stop",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project id"
+              }
+            ]
+          },
+          "docs": "Stop WebRTC services"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

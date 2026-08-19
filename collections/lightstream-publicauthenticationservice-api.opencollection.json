@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService PublicAuthenticationService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PublicAuthenticationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Public Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/authentication/jwks"
+          },
+          "docs": "Get public keys used to sign access tokens"
+        },
+        {
+          "info": {
+            "name": "Exchange Guest Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/r/:serviceId/:code",
+            "params": [
+              {
+                "name": "serviceId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the service"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "the short url code"
+              }
+            ]
+          },
+          "docs": "Exchange a guest access token with updated user identifiers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

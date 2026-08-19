@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService LayoutService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LayoutService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all layouts owned by the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/layouts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": " - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
+              }
+            ]
+          },
+          "docs": "Get all layouts owned by the user."
+        },
+        {
+          "info": {
+            "name": "Create a new layout\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/layouts"
+          },
+          "docs": "Create a new layout\n"
+        },
+        {
+          "info": {
+            "name": "Get a layout\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/layouts/:layoutId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              }
+            ]
+          },
+          "docs": "Get a layout\n"
+        },
+        {
+          "info": {
+            "name": "Update a layout\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/layouts/:layoutId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              }
+            ]
+          },
+          "docs": "Update a layout\n"
+        },
+        {
+          "info": {
+            "name": "Delete a layout",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/layouts/:layoutId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              }
+            ]
+          },
+          "docs": "Delete a layout"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

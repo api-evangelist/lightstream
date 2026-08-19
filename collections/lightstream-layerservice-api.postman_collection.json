@@ -1,0 +1,1342 @@
+{
+  "item": [
+    {
+      "id": "a675a03f-4903-4711-96b1-30f83b14498a",
+      "name": "LayerService",
+      "description": {
+        "content": "Layers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7524fa1e-2b59-48c3-9647-a4edee42418b",
+          "name": "List all layers",
+          "request": {
+            "name": "List all layers",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da7e2ba7-97c2-48b8-ba02-426d2c74c130",
+              "name": "list of all layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"image\",\n    \"data\": {\n      \"media\": {\n        \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n      }\n    },\n    \"x\": 1000,\n    \"y\": 1000,\n    \"width\": 1000,\n    \"height\": 1000,\n    \"rotation\": 180,\n    \"opacity\": \"1\",\n    \"scale\": 0.8,\n    \"hidden\": false,\n    \"children\": \"[]\",\n    \"metadata\": {\n      \"name\": \"Test Layer\"\n    },\n    \"id\": \"1234\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n    \"requestMetadata\": {\n      \"example\": true\n    },\n    \"requestAnimation\": \"[]\"\n  },\n  {\n    \"type\": \"image\",\n    \"data\": {\n      \"media\": {\n        \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n      }\n    },\n    \"x\": 1000,\n    \"y\": 1000,\n    \"width\": 1000,\n    \"height\": 1000,\n    \"rotation\": 180,\n    \"opacity\": \"1\",\n    \"scale\": 0.8,\n    \"hidden\": false,\n    \"children\": \"[]\",\n    \"metadata\": {\n      \"name\": \"Test Layer\"\n    },\n    \"id\": \"1234\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n    \"requestMetadata\": {\n      \"example\": true\n    },\n    \"requestAnimation\": \"[]\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30b059c1-feb1-4859-b332-23793aae73c5",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "887829ec-a731-4def-94bd-6d9850dfba7e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3131,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb715e07-a48f-45d8-ae78-f09c16c75e1d",
+          "name": "Create a layer\n",
+          "request": {
+            "name": "Create a layer\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"data\": \"<object>\",\n  \"x\": \"<integer>\",\n  \"y\": \"<integer>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"rotation\": \"0\",\n  \"opacity\": \"1\",\n  \"scale\": \"1\",\n  \"hidden\": \"false\",\n  \"children\": \"[]\",\n  \"parentId\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"requestMetadata\": \"<object>\",\n  \"requestAnimation\": \"[]\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2bd8533-ad48-45e7-b0d1-f8b5c54d71ee",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"id\": \"1234\",\n  \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5626f05b-47f9-49d8-b676-6087d1609d7b",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc807c6f-8cc2-4c75-b87a-7919e46a414f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7915,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb3cddbc-bce0-4536-8052-7a28050d6dbb",
+          "name": "Batch update\n",
+          "request": {
+            "name": "Batch update\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) The layout all requests interact with."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"layers\": [\n    {\n      \"create\": {\n        \"type\": \"<string>\",\n        \"data\": \"<object>\",\n        \"x\": \"<integer>\",\n        \"y\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"rotation\": \"0\",\n        \"opacity\": \"1\",\n        \"scale\": \"1\",\n        \"hidden\": \"false\",\n        \"children\": \"[]\",\n        \"parentId\": \"<string>\",\n        \"metadata\": \"<object>\",\n        \"requestMetadata\": \"<object>\",\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": \"<object>\",\n        \"x\": \"<integer>\",\n        \"y\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"rotation\": \"0\",\n        \"opacity\": \"1\",\n        \"scale\": \"1\",\n        \"hidden\": \"false\",\n        \"children\": \"[]\",\n        \"parentId\": \"<string>\",\n        \"metadata\": \"<object>\",\n        \"requestMetadata\": \"<object>\",\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"<string>\",\n        \"requestMetadata\": \"<object>\"\n      }\n    },\n    {\n      \"create\": {\n        \"type\": \"<string>\",\n        \"data\": \"<object>\",\n        \"x\": \"<integer>\",\n        \"y\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"rotation\": \"0\",\n        \"opacity\": \"1\",\n        \"scale\": \"1\",\n        \"hidden\": \"false\",\n        \"children\": \"[]\",\n        \"parentId\": \"<string>\",\n        \"metadata\": \"<object>\",\n        \"requestMetadata\": \"<object>\",\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": \"<object>\",\n        \"x\": \"<integer>\",\n        \"y\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\",\n        \"rotation\": \"0\",\n        \"opacity\": \"1\",\n        \"scale\": \"1\",\n        \"hidden\": \"false\",\n        \"children\": \"[]\",\n        \"parentId\": \"<string>\",\n        \"metadata\": \"<object>\",\n        \"requestMetadata\": \"<object>\",\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"<string>\",\n        \"requestMetadata\": \"<object>\"\n      }\n    }\n  ],\n  \"requestMetadata\": \"<object>\",\n  \"requestAnimationMode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4039686-0ea0-432c-af98-fb485831ccfc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) The layout all requests interact with."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layers\": [\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    },\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimationMode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"layers\": [\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"id\": \"1234\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"id\": \"1234\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    },\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"id\": \"1234\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"id\": \"1234\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    }\n  ],\n  \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimationMode\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c191dab9-b869-4948-a896-1a44272e646e",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) The layout all requests interact with."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layers\": [\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    },\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimationMode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bef4454-26c0-43e9-816d-5178aef2a644",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) The layout all requests interact with."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layers\": [\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    },\n    {\n      \"create\": {\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"update\": {\n        \"id\": \"12345\",\n        \"type\": \"image\",\n        \"data\": {\n          \"media\": {\n            \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n          }\n        },\n        \"x\": 1000,\n        \"y\": 1000,\n        \"width\": 1000,\n        \"height\": 1000,\n        \"rotation\": 180,\n        \"opacity\": \"1\",\n        \"scale\": 0.8,\n        \"hidden\": false,\n        \"children\": \"[]\",\n        \"parentId\": \"1234\",\n        \"metadata\": {\n          \"name\": \"Test Layer\"\n        },\n        \"requestMetadata\": {\n          \"example\": true\n        },\n        \"requestAnimation\": \"[]\"\n      },\n      \"delete\": {\n        \"id\": \"12345\",\n        \"requestMetadata\": {\n          \"example\": true\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimationMode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7915,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6743e02d-892f-49c5-a067-251084d7063a",
+          "name": "Get a single layer\n",
+          "request": {
+            "name": "Get a single layer\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) the id of the Layer"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76768c32-4210-474e-946e-a3e6f13f1d81",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"id\": \"1234\",\n  \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18db9f46-92e5-4e6f-a8bb-5b20e4e1784a",
+              "name": "Layer or Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f7d4475-c5ea-4907-906c-e03087d31f76",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7915,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff1818d9-a308-4100-a7fe-85c585fb5050",
+          "name": "Delete a layer",
+          "request": {
+            "name": "Delete a layer",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) the id of the Layer"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestMetadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f7d9bf1-6651-4bab-b9a5-83ae717ffad7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86125e10-c78b-4d29-91bd-e3e7d4e5b16f",
+              "name": "Layer or Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a6fe6ea-a198-4c2a-99f1-c58e3f0f15d8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7915,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a08b7a6-208b-42b6-877b-437008aca207",
+          "name": "Update a layer\n",
+          "request": {
+            "name": "Update a layer\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) the id of the Layer"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"data\": \"<object>\",\n  \"x\": \"<integer>\",\n  \"y\": \"<integer>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"rotation\": \"0\",\n  \"opacity\": \"1\",\n  \"scale\": \"1\",\n  \"hidden\": \"false\",\n  \"children\": \"[]\",\n  \"parentId\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"requestMetadata\": \"<object>\",\n  \"requestAnimation\": \"[]\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b3288a5-9839-4545-b2a0-0d820eed2682",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"id\": \"1234\",\n  \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5a2def3-cf06-484d-8814-32f411f8dbc0",
+              "name": "Layer or Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95b87c2a-928d-4767-92f6-c08216a24f32",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) the id of the Layer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"image\",\n  \"data\": {\n    \"media\": {\n      \"url\": \"https://rainmaker.gg/assets/logo-white-medium.png\"\n    }\n  },\n  \"x\": 1000,\n  \"y\": 1000,\n  \"width\": 1000,\n  \"height\": 1000,\n  \"rotation\": 180,\n  \"opacity\": \"1\",\n  \"scale\": 0.8,\n  \"hidden\": false,\n  \"children\": \"[]\",\n  \"parentId\": \"1234\",\n  \"metadata\": {\n    \"name\": \"Test Layer\"\n  },\n  \"requestMetadata\": {\n    \"example\": true\n  },\n  \"requestAnimation\": \"[]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7915,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a637482c-206a-4469-9353-7457d5e3277d",
+    "name": "Event AuthenticationService LayerService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

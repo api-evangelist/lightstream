@@ -1,0 +1,236 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService SourceService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SourceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Source to Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which will own the source"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "live source id"
+              }
+            ]
+          },
+          "docs": "Add a source to a project"
+        },
+        {
+          "info": {
+            "name": "Update Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which will own the source"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "live source id"
+              }
+            ]
+          },
+          "docs": "Update attributes of the Source."
+        },
+        {
+          "info": {
+            "name": "Delete Source From Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the parent Collection"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Project"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Source"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "delete a live source even if it is in use in a broadcast."
+              }
+            ]
+          },
+          "docs": "Removes a source from a project."
+        },
+        {
+          "info": {
+            "name": "Get Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/source",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the source"
+              }
+            ]
+          },
+          "docs": "Get existing sources in a collection"
+        },
+        {
+          "info": {
+            "name": "Create Collection Live Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/collection/:collectionId/source",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which will own this collection live source"
+              }
+            ]
+          },
+          "docs": "Create a new live source in a collection\n### Permissions\n* scope: `SCOPE_VAPI_CREATE`"
+        },
+        {
+          "info": {
+            "name": "Get Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the source"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "source id"
+              }
+            ]
+          },
+          "docs": "Get an existing source in a project"
+        },
+        {
+          "info": {
+            "name": "Update Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/collection/:collectionId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the source"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "source id"
+              }
+            ]
+          },
+          "docs": "Update attributes of the Source."
+        },
+        {
+          "info": {
+            "name": "Delete Live Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/collection/:collectionId/source/:sourceId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the live source"
+              },
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path",
+                "description": "live source id"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "delete a live source even if it is in use in a broadcast."
+              }
+            ]
+          },
+          "docs": "Deletes a live source from a collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

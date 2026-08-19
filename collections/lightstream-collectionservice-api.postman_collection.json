@@ -1,0 +1,1904 @@
+{
+  "item": [
+    {
+      "id": "a0d4cfd5-adeb-4a27-be20-cd81d6a3ab3c",
+      "name": "CollectionService",
+      "description": {
+        "content": "The Collection Service operates on collections, which contain projects and\ncollection live sources used in projects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81da733e-3757-4e52-8e4d-85a7b42ab17c",
+          "name": "Get Collections",
+          "request": {
+            "name": "Get Collections",
+            "description": {
+              "content": "Get all collections owned by the user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "690c6ff5-0080-4751-8a22-dd91c4902fdc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"metadata\": {\n        \"createdBy\": \"Eddie Current\"\n      },\n      \"projects\": [\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"rendering\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetLatency\": 500,\n            \"complexity\": 0\n          },\n          \"encoding\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sources\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"destinations\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"composition\": {\n            \"external\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"studioSdk\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scene\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxDuration\": 172800000,\n          \"webrtc\": {\n            \"hosted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"triggers\": [\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"location\": {\n            \"latitude\": 8016.2339587026745,\n            \"longitude\": 1090.7863114530892\n          },\n          \"guestCodes\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"rendering\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetLatency\": 500,\n            \"complexity\": 0\n          },\n          \"encoding\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sources\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"destinations\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"composition\": {\n            \"external\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"studioSdk\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scene\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxDuration\": 172800000,\n          \"webrtc\": {\n            \"hosted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"triggers\": [\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"location\": {\n            \"latitude\": 517.0318727719314,\n            \"longitude\": 4901.052393760843\n          },\n          \"guestCodes\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"sources\": [\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"preview\": {\n            \"webrtc\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": {\n            \"rtmpPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srtPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rtmpPull\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"preview\": {\n            \"webrtc\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": {\n            \"rtmpPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srtPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rtmpPull\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n      \"metadata\": {\n        \"createdBy\": \"Eddie Current\"\n      },\n      \"projects\": [\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"rendering\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetLatency\": 500,\n            \"complexity\": 0\n          },\n          \"encoding\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sources\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"destinations\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"composition\": {\n            \"external\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"studioSdk\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scene\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxDuration\": 172800000,\n          \"webrtc\": {\n            \"hosted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"triggers\": [\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"location\": {\n            \"latitude\": 9062.858296827199,\n            \"longitude\": 8827.677031944084\n          },\n          \"guestCodes\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"rendering\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quality\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetLatency\": 500,\n            \"complexity\": 0\n          },\n          \"encoding\": {\n            \"video\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"audio\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sources\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"preview\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"destinations\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"destinationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeout\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"composition\": {\n            \"external\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"studioSdk\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scene\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxDuration\": 172800000,\n          \"webrtc\": {\n            \"hosted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"triggers\": [\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"source\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"location\": {\n            \"latitude\": 7493.833632082403,\n            \"longitude\": 8932.12742009728\n          },\n          \"guestCodes\": [\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"collectionId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"projectId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"autoDelete\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"sources\": [\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"preview\": {\n            \"webrtc\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": {\n            \"rtmpPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srtPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rtmpPull\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n          \"metadata\": {\n            \"createdBy\": \"Eddie Current\"\n          },\n          \"preview\": {\n            \"webrtc\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": {\n            \"rtmpPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srtPush\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rtmpPull\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcafe97c-73ea-4833-8c22-c982fe17a383",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "629023c7-c5ea-49e4-ac75-328d5d5e8570",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52964b20-82ac-43d2-997b-3fde1dec5898",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acfc5810-33e6-4e1d-b7c2-0a9089e1f1b2",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "297475f1-d761-425f-b5b5-7d9bff5a4fe8",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f992560e-1501-4db2-be3e-1b4068a3e9f0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3854,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e19aebb4-2b70-4589-bbd9-6fbdb7822621",
+          "name": "Create Collection",
+          "request": {
+            "name": "Create Collection",
+            "description": {
+              "content": "Create a new collection of related projects and collection live sources",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba73d787-6090-441a-91c4-729675e93a94",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collection\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"projects\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 8410.122907459088,\n          \"longitude\": 5905.7006192350655\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2019-08-08T13:26:49.366Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2014-10-29T04:08:50.439Z\"\n          }\n        ]\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 5704.417518939672,\n          \"longitude\": 9226.076295759116\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1993-10-22T00:08:45.935Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1973-12-09T19:36:56.645Z\"\n          }\n        ]\n      }\n    ],\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "006f9bcd-24ce-4fcc-9776-0e663dd0e0f3",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57a60834-1579-4701-8ac8-317cc83eb331",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "922c9371-94c5-41c6-954f-79f6720f7b6c",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afc6a3f7-8e57-4958-a21d-e9979ab7f0ad",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bd1a349-d918-41e5-98b9-9ac0a21c03ce",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "141688be-0977-46dd-85b3-7ea26cfc22ac",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 687,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f99973f9-1441-47fe-96c4-63b8d9f6ae5a",
+          "name": "Get Collection",
+          "request": {
+            "name": "Get Collection",
+            "description": {
+              "content": "Get an existing collection of related projects and collection live\nsources",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "populateProjects",
+                  "value": "true",
+                  "description": "optionally populate projects."
+                },
+                {
+                  "disabled": false,
+                  "key": "populateSources",
+                  "value": "true",
+                  "description": "optionally populate sources."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07c243a4-dd21-441d-922f-d6933b7974d5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collection\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"projects\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 8410.122907459088,\n          \"longitude\": 5905.7006192350655\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2019-08-08T13:26:49.366Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2014-10-29T04:08:50.439Z\"\n          }\n        ]\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 5704.417518939672,\n          \"longitude\": 9226.076295759116\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1993-10-22T00:08:45.935Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1973-12-09T19:36:56.645Z\"\n          }\n        ]\n      }\n    ],\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30830b59-896d-45e3-aacc-a0813289c493",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc72fbf1-bfcf-4474-8ad3-e44c4b39ecf8",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd1e7438-4641-4ef3-ba8c-ca36f8b75045",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16af33a8-0dd3-413c-954c-aa61be09e724",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73638d67-1c28-4313-a5ab-f5a25707b428",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa167741-d282-42fe-acb1-9c631c3e61ad",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "populateProjects",
+                      "value": "true"
+                    },
+                    {
+                      "key": "populateSources",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 687,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "659a7549-2054-4677-9a08-20fa43f0be7d",
+          "name": "Delete Collection",
+          "request": {
+            "name": "Delete Collection",
+            "description": {
+              "content": "Delete a collection of related projects and collection live sources",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "forcibly end all child project broadcasts in progress."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be1f76da-12ea-4304-98f8-cf0f5a803765",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourcesDeleted\": 1,\n  \"projectsDeleted\": 1,\n  \"projectIdsStopped\": [\n    \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d10a4527-ec6d-4cae-89a3-d858268099df",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc31cbd4-3eff-4c03-a136-450ca7663caa",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49ad32ea-5c7d-44df-aa80-0a4bfa4a4447",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "729bb534-495b-46ff-93d4-02afe50611a0",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af6f12c7-7872-4c0e-a768-4b6b7603b8fa",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36d61b0a-f018-42ab-abaf-fc84b64bdfc3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 687,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29334c14-7a4e-4f90-b807-4be4aaccd723",
+          "name": "Update Collection",
+          "request": {
+            "name": "Update Collection",
+            "description": {
+              "content": "Update select collection document data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) collection id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updateMask\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6d75c62-e0c6-4db8-88c7-79af41b76de2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collection\": {\n    \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n    \"metadata\": {\n      \"createdBy\": \"Eddie Current\"\n    },\n    \"projects\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 8410.122907459088,\n          \"longitude\": 5905.7006192350655\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2019-08-08T13:26:49.366Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"2014-10-29T04:08:50.439Z\"\n          }\n        ]\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"rendering\": {\n          \"video\": {\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"framerate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"colorSpace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"channelLayout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"quality\": \"RENDERING_QUALITY_HIGH\",\n          \"targetLatency\": 500,\n          \"complexity\": 0\n        },\n        \"encoding\": {\n          \"video\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateControl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"audio\": {\n            \"codec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sources\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"preview\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"destinations\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"destinationId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"metadata\": {\n              \"createdBy\": \"Eddie Current\"\n            },\n            \"enabled\": true,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeout\": 5000\n          }\n        ],\n        \"composition\": {\n          \"external\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"studioSdk\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scene\": {\n            \"rendererUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selectedLayoutId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"debug\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"maxDuration\": 172800000,\n        \"webrtc\": {\n          \"hosted\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"triggers\": [\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"location\": {\n          \"latitude\": 5704.417518939672,\n          \"longitude\": 9226.076295759116\n        },\n        \"guestCodes\": [\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1993-10-22T00:08:45.935Z\"\n          },\n          {\n            \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"projectId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n            \"code\": \"string\",\n            \"url\": \"string\",\n            \"autoDelete\": \"1973-12-09T19:36:56.645Z\"\n          }\n        ]\n      }\n    ],\n    \"sources\": [\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"collectionId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"sourceId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n        \"metadata\": {\n          \"createdBy\": \"Eddie Current\"\n        },\n        \"preview\": {\n          \"webrtc\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"participantId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"address\": {\n          \"rtmpPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srtPush\": {\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"baseUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rtmpPull\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1916cb9d-eff5-44f5-a180-5a0fc60a4b5d",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5270fad6-8ad4-4607-ac56-f3d4172becec",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b699d1d5-81a0-4cf3-ab55-e9214733c9b0",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22ed3eb4-e12a-4e3e-a948-e3e4225bb624",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45c20088-89eb-476d-93a0-4e4674844248",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08a522ab-8037-4a56-9e89-6760d3142847",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) collection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"updateMask\": \"metadata\",\n  \"metadata\": {\n    \"createdBy\": \"Eddie Current\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 687,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1a7f6dfb-a087-4d89-9637-401bf59ee4a4",
+    "name": "Event AuthenticationService CollectionService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

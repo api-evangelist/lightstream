@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "2521f03d-0962-4762-903b-ebc32df4ff67",
+      "name": "BackendAuthenticationService",
+      "description": {
+        "content": "The Backend Authentication Service provides token services for partner\nbackend systems",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3a189a5-67cc-4f20-a209-92cfce3bfccb",
+          "name": "Create Access Token",
+          "request": {
+            "name": "Create Access Token",
+            "description": {
+              "content": "Create an access token for a session host",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"serviceUserId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": \"172800000\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28fe7762-cde2-4afd-be67-b8aff93f7176",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accessToken\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc9e1b86-b134-43bd-8f0a-2b03c4644e40",
+              "name": "The access token provided is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37176717-f13d-467b-9ecd-3f32cfa97ef7",
+              "name": "The access token provided does not have access to specified resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd597f9e-d4eb-488b-bb5e-52214c2ba643",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86277fc4-bb43-495e-a6cb-722d090a5ff8",
+              "name": "The specified service is busy; please use an exponential backoff on subsequent requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f633964-7dcc-404d-aa37-8019af4af9a7",
+              "name": "The specified service is unavailable; please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17150289-7a2b-4a31-a972-11e2fb02a026",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceUserId\": \"7132b004-61e8-49c1-8dc8-4bb3269ce6f\",\n  \"displayName\": \"<string>\",\n  \"role\": \"<string>\",\n  \"maxDuration\": 172800000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9859,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a967cf67-6283-432e-b427-b97b6fa36264",
+    "name": "Event AuthenticationService BackendAuthenticationService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

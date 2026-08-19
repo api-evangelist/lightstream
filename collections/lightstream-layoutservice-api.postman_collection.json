@@ -1,0 +1,864 @@
+{
+  "item": [
+    {
+      "id": "db904d95-baaf-4469-b790-649be3450eec",
+      "name": "LayoutService",
+      "description": {
+        "content": "Layouts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06f4c3b3-5caf-419d-8a82-8994cc7acd5e",
+          "name": "Get all layouts owned by the user.",
+          "request": {
+            "name": "Get all layouts owned by the user.",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": " - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc983ffe-bb89-4367-aff1-a9641e2c5bcf",
+              "name": "All layouts returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n    \"width\": 1280,\n    \"height\": 720,\n    \"metadata\": {\n      \"name\": \"Test Layout\"\n    },\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"type\": \"LAYOUT_TYPE_SCENELESS\",\n    \"transitions\": [\n      {\n        \"fromLayoutIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"cut\": {},\n        \"crossfade\": {\n          \"durationMs\": 9736\n        },\n        \"fadeToColor\": {\n          \"durationMs\": 8901,\n          \"backgroundColor\": \"string\"\n        },\n        \"swipe\": {\n          \"durationMs\": 5722,\n          \"direction\": \"TRANSITION_DIRECTION_RIGHT\",\n          \"combinedAnimation\": \"TRANSITION_SWIPE_TYPE_COMBINED\"\n        },\n        \"stinger\": {\n          \"cut\": {\n            \"cutPointMs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"fromLayoutIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"cut\": {},\n        \"crossfade\": {\n          \"durationMs\": 74\n        },\n        \"fadeToColor\": {\n          \"durationMs\": 710,\n          \"backgroundColor\": \"string\"\n        },\n        \"swipe\": {\n          \"durationMs\": 6938,\n          \"direction\": \"TRANSITION_DIRECTION_DOWN\",\n          \"combinedAnimation\": \"TRANSITION_SWIPE_TYPE_DESTINATION\"\n        },\n        \"stinger\": {\n          \"cut\": {\n            \"cutPointMs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"requestMetadata\": {\n      \"example\": true\n    }\n  },\n  {\n    \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n    \"width\": 1280,\n    \"height\": 720,\n    \"metadata\": {\n      \"name\": \"Test Layout\"\n    },\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"type\": \"LAYOUT_TYPE_SCENELESS\",\n    \"transitions\": [\n      {\n        \"fromLayoutIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"cut\": {},\n        \"crossfade\": {\n          \"durationMs\": 1158\n        },\n        \"fadeToColor\": {\n          \"durationMs\": 7734,\n          \"backgroundColor\": \"string\"\n        },\n        \"swipe\": {\n          \"durationMs\": 6409,\n          \"direction\": \"TRANSITION_DIRECTION_LEFT\",\n          \"combinedAnimation\": \"TRANSITION_SWIPE_TYPE_COMBINED\"\n        },\n        \"stinger\": {\n          \"cut\": {\n            \"cutPointMs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"fromLayoutIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"cut\": {},\n        \"crossfade\": {\n          \"durationMs\": 8475\n        },\n        \"fadeToColor\": {\n          \"durationMs\": 847,\n          \"backgroundColor\": \"string\"\n        },\n        \"swipe\": {\n          \"durationMs\": 8616,\n          \"direction\": \"TRANSITION_DIRECTION_LEFT\",\n          \"combinedAnimation\": \"TRANSITION_SWIPE_TYPE_SOURCE\"\n        },\n        \"stinger\": {\n          \"cut\": {\n            \"cutPointMs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"requestMetadata\": {\n      \"example\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fc74749-d057-467c-a86d-6d8dc41e63d5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 704,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f87bc16-841c-46b3-9f57-3cdfac49c226",
+          "name": "Create a new layout\n",
+          "request": {
+            "name": "Create a new layout\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"metadata\": \"<object>\",\n  \"projectId\": \"<string>\",\n  \"collectionId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "622438fc-0533-4aac-b8b7-1bef411f589d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9171b69-0be4-4f96-a877-91cfeca4745e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4217,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9aa6e1fe-d38b-41cc-8ca0-4be042342dd1",
+          "name": "Get a layout\n",
+          "request": {
+            "name": "Get a layout\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e18a84a6-fc1e-4cc9-8316-ef45ae8751d4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "364b84a0-6829-42d6-9b95-e2523e42378f",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "738fc2d9-f632-4602-a4c7-ff1b20939344",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4217,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd8c5941-349f-4091-b5ea-8ca2086f924a",
+          "name": "Delete a layout",
+          "request": {
+            "name": "Delete a layout",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb247e2d-636e-46fb-8e3e-15bc364f5fae",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9205be34-a216-4cc4-adb3-b471c6d96765",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90c8640d-5d43-4d92-89a5-0f775777054d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4217,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5045ffa-c3c8-4a16-833f-b3657f0ebc18",
+          "name": "Update a layout\n",
+          "request": {
+            "name": "Update a layout\n",
+            "description": {},
+            "url": {
+              "path": [
+                "layouts",
+                ":layoutId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layoutId",
+                  "description": "(Required) the id of the Layout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"metadata\": \"<object>\",\n  \"projectId\": \"<string>\",\n  \"collectionId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29120476-fedc-4f1f-a4f5-d65e840824b5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"713f6e91-3831-4421-a720-1c8084d10525\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeeff30d-a067-463c-aa53-42766c1a67d0",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37538fdb-adb8-49c5-9572-dd91e8fc8692",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layouts",
+                    ":layoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layoutId",
+                      "description": "(Required) the id of the Layout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"width\": 1280,\n  \"height\": 720,\n  \"metadata\": {\n    \"name\": \"Test Layout\"\n  },\n  \"projectId\": \"624c6f465887b2894ed87c87\",\n  \"collectionId\": \"624c6f475887b2894ed87c89\",\n  \"type\": \"<string>\",\n  \"transitions\": [\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"fromLayoutIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cut\": \"<object>\",\n      \"crossfade\": {\n        \"durationMs\": \"<integer>\"\n      },\n      \"fadeToColor\": {\n        \"durationMs\": \"<integer>\",\n        \"backgroundColor\": \"<string>\"\n      },\n      \"swipe\": {\n        \"durationMs\": \"<integer>\",\n        \"direction\": \"<string>\",\n        \"combinedAnimation\": \"<string>\"\n      },\n      \"stinger\": {\n        \"cut\": {\n          \"cutPointMs\": \"<integer>\",\n          \"media\": {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"volume\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"requestMetadata\": {\n    \"example\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4217,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9c279070-ecd4-42c6-b366-62560526bbbb",
+    "name": "Event AuthenticationService LayoutService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AuthenticationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Refresh Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/authentication/token"
+          },
+          "docs": "Forcibly refresh an access token prior to expiration"
+        },
+        {
+          "info": {
+            "name": "Create Guest Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/authentication/token/guest"
+          },
+          "docs": "Create an access token for a guest"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService DestinationService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DestinationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/destination",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the destination"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which will own this destination"
+              }
+            ]
+          },
+          "docs": "Create a new Destination"
+        },
+        {
+          "info": {
+            "name": "Get Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/destination/:destinationId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the destination"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which owns the destination"
+              },
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path",
+                "description": "destination id"
+              }
+            ]
+          },
+          "docs": "Get an existing Destination."
+        },
+        {
+          "info": {
+            "name": "Update Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/destination/:destinationId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the destination"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which owns the destination"
+              },
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path",
+                "description": "destination id"
+              }
+            ]
+          },
+          "docs": "Update a destination"
+        },
+        {
+          "info": {
+            "name": "Delete Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/collection/:collectionId/project/:projectId/destination/:destinationId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection which owns the project which owns the destination"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "project which owns the destination"
+              },
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path",
+                "description": "destination id"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "forcibly remove destination if enabled."
+              }
+            ]
+          },
+          "docs": "Delete a destination"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService CollectionService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CollectionService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection"
+          },
+          "docs": "Get all collections owned by the user"
+        },
+        {
+          "info": {
+            "name": "Create Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/collection"
+          },
+          "docs": "Create a new collection of related projects and collection live sources"
+        },
+        {
+          "info": {
+            "name": "Get Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collection/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection id"
+              },
+              {
+                "name": "populateProjects",
+                "value": "",
+                "type": "query",
+                "description": "optionally populate projects."
+              },
+              {
+                "name": "populateSources",
+                "value": "",
+                "type": "query",
+                "description": "optionally populate sources."
+              }
+            ]
+          },
+          "docs": "Get an existing collection of related projects and collection live\nsources"
+        },
+        {
+          "info": {
+            "name": "Update Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/collection/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection id"
+              }
+            ]
+          },
+          "docs": "Update select collection document data"
+        },
+        {
+          "info": {
+            "name": "Delete Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/collection/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "collection id"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "forcibly end all child project broadcasts in progress."
+              }
+            ]
+          },
+          "docs": "Delete a collection of related projects and collection live sources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

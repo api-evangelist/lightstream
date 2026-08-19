@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService EventService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Publish Event\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/publish"
+          },
+          "docs": "Publish Event\n"
+        },
+        {
+          "info": {
+            "name": "Stream Events\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/stream",
+            "params": [
+              {
+                "name": "correlationId",
+                "value": "",
+                "type": "query",
+                "description": "Optional value to tag any return values with. This can be any string-based value\nthat your are able to track."
+              },
+              {
+                "name": "subscribe.name",
+                "value": "",
+                "type": "query",
+                "description": "Event name to subscribe to for custom events.\nThis can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`."
+              },
+              {
+                "name": "subscribe.target.collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given collection."
+              },
+              {
+                "name": "subscribe.target.projectId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given project."
+              },
+              {
+                "name": "subscribe.target.layoutId",
+                "value": "",
+                "type": "query",
+                "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+              },
+              {
+                "name": "unsubscribe.name",
+                "value": "",
+                "type": "query",
+                "description": "Event name to subscribe to for custom events.\nThis can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`."
+              },
+              {
+                "name": "unsubscribe.target.collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given collection."
+              },
+              {
+                "name": "unsubscribe.target.projectId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given project."
+              },
+              {
+                "name": "unsubscribe.target.layoutId",
+                "value": "",
+                "type": "query",
+                "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+              },
+              {
+                "name": "publish.name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event."
+              },
+              {
+                "name": "publish.target.collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given collection."
+              },
+              {
+                "name": "publish.target.projectId",
+                "value": "",
+                "type": "query",
+                "description": "Subscribe to events in a given project."
+              },
+              {
+                "name": "publish.target.layoutId",
+                "value": "",
+                "type": "query",
+                "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+              },
+              {
+                "name": "ping",
+                "value": "",
+                "type": "query",
+                "description": "Initiate a ping-pong message."
+              }
+            ]
+          },
+          "docs": "Stream Events\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

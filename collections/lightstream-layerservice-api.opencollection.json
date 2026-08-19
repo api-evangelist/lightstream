@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Event AuthenticationService LayerService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LayerService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all layers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              }
+            ]
+          },
+          "docs": "List all layers"
+        },
+        {
+          "info": {
+            "name": "Create a layer\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              }
+            ]
+          },
+          "docs": "Create a layer\n"
+        },
+        {
+          "info": {
+            "name": "Batch update\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers/batch",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "The layout all requests interact with."
+              }
+            ]
+          },
+          "docs": "Batch update\n"
+        },
+        {
+          "info": {
+            "name": "Get a single layer\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers/:layerId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layer"
+              }
+            ]
+          },
+          "docs": "Get a single layer\n"
+        },
+        {
+          "info": {
+            "name": "Update a layer\n",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers/:layerId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layer"
+              }
+            ]
+          },
+          "docs": "Update a layer\n"
+        },
+        {
+          "info": {
+            "name": "Delete a layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/layouts/:layoutId/layers/:layerId",
+            "params": [
+              {
+                "name": "layoutId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layout"
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the Layer"
+              }
+            ]
+          },
+          "docs": "Delete a layer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

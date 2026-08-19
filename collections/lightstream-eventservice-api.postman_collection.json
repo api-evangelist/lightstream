@@ -1,0 +1,507 @@
+{
+  "item": [
+    {
+      "id": "af5b55ae-a10c-4f04-a7ec-d959b7c9e785",
+      "name": "EventService",
+      "description": {
+        "content": "The event API provides a mechanism for you to subscribe and publish events between\nyour backend services and the composition, as well as receive events from the live and layout api.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf1be9c5-fe15-4d3c-8c47-53ae627bc319",
+          "name": "Publish Event\n",
+          "request": {
+            "name": "Publish Event\n",
+            "description": {},
+            "url": {
+              "path": [
+                "publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"payload\": \"<object>\",\n  \"requestMetadata\": \"<object>\",\n  \"target\": {\n    \"collectionId\": \"<string>\",\n    \"projectId\": \"<string>\",\n    \"layoutId\": \"<uuid>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15d6a551-6445-41ac-af26-d8e72e5211f9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my_app:user_chat\",\n  \"payload\": \"<object>\",\n  \"requestMetadata\": {\n    \"example_data\": true\n  },\n  \"target\": {\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"my_app:user_chat\",\n  \"payload\": {\n    \"payload\": 6871\n  },\n  \"target\": {\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n  },\n  \"requestMetadata\": {\n    \"example_data\": true\n  },\n  \"id\": \"7f23f76c-1990-4a50-b3b9-d615703c777f\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71389122-dff4-4c06-beb4-7637e39fb4b7",
+              "name": "Layout not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my_app:user_chat\",\n  \"payload\": \"<object>\",\n  \"requestMetadata\": {\n    \"example_data\": true\n  },\n  \"target\": {\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc24a278-fbb2-4fc4-8a93-c2d86994371b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my_app:user_chat\",\n  \"payload\": \"<object>\",\n  \"requestMetadata\": {\n    \"example_data\": true\n  },\n  \"target\": {\n    \"collectionId\": \"624c6f475887b2894ed87c89\",\n    \"projectId\": \"624c6f465887b2894ed87c87\",\n    \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2346,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4e5f4e0-35d3-4101-9df7-5c59b7a0005a",
+          "name": "Stream Events\n",
+          "request": {
+            "name": "Stream Events\n",
+            "description": {},
+            "url": {
+              "path": [
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "correlationId",
+                  "value": "<string>",
+                  "description": "Optional value to tag any return values with. This can be any string-based value\nthat your are able to track."
+                },
+                {
+                  "disabled": false,
+                  "key": "subscribe.name",
+                  "value": "<string>",
+                  "description": "(Required) Event name to subscribe to for custom events.\nThis can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`."
+                },
+                {
+                  "disabled": false,
+                  "key": "subscribe.target.collectionId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "subscribe.target.projectId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "subscribe.target.layoutId",
+                  "value": "<uuid>",
+                  "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+                },
+                {
+                  "disabled": false,
+                  "key": "unsubscribe.name",
+                  "value": "<string>",
+                  "description": "(Required) Event name to subscribe to for custom events.\nThis can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`."
+                },
+                {
+                  "disabled": false,
+                  "key": "unsubscribe.target.collectionId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "unsubscribe.target.projectId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "unsubscribe.target.layoutId",
+                  "value": "<uuid>",
+                  "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+                },
+                {
+                  "disabled": false,
+                  "key": "publish.name",
+                  "value": "<string>",
+                  "description": "(Required) Name of the event."
+                },
+                {
+                  "disabled": false,
+                  "key": "publish.target.collectionId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "publish.target.projectId",
+                  "value": "<string>",
+                  "description": "Subscribe to events in a given project."
+                },
+                {
+                  "disabled": false,
+                  "key": "publish.target.layoutId",
+                  "value": "<uuid>",
+                  "description": "Stream events to a specific layout.\nNote: when specified, collection_id and project_id are implictly defined. If you choose\nto define them, you they _must_ match the layout."
+                },
+                {
+                  "disabled": false,
+                  "key": "ping",
+                  "value": "<string>",
+                  "description": "Initiate a ping-pong message."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b12994a9-8440-4ac1-98b0-46564724748b",
+              "name": "A successful response.(streaming responses)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "correlationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "unsubscribe.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "publish.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ping",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"correlationId\": \"7a59c49f-c0bb-4f94-9cbe-73af126dd1ea\",\n    \"sessionId\": \"0c596f1b-3428-47bb-a673-563211ca0c75\",\n    \"event\": {\n      \"name\": \"my_app:user_chat\",\n      \"payload\": {\n        \"payload\": false\n      },\n      \"target\": {\n        \"collectionId\": \"624c6f475887b2894ed87c89\",\n        \"projectId\": \"624c6f465887b2894ed87c87\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n      },\n      \"requestMetadata\": {\n        \"example_data\": true\n      },\n      \"id\": \"7f23f76c-1990-4a50-b3b9-d615703c777f\"\n    },\n    \"pong\": \"string\",\n    \"error\": {\n      \"code\": 13,\n      \"message\": \"INTERNAL: Something went wrong\"\n    },\n    \"subscribed\": {\n      \"name\": \"my_app:user_chat|other_events:*\",\n      \"target\": {\n        \"collectionId\": \"624c6f475887b2894ed87c89\",\n        \"projectId\": \"624c6f465887b2894ed87c87\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n      }\n    },\n    \"unsubscribed\": {\n      \"name\": \"my_app:user_chat|other_events:*\",\n      \"target\": {\n        \"collectionId\": \"624c6f475887b2894ed87c89\",\n        \"projectId\": \"624c6f465887b2894ed87c87\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n      }\n    },\n    \"published\": {\n      \"name\": \"my_app:user_chat\",\n      \"payload\": {\n        \"payload\": 2560\n      },\n      \"target\": {\n        \"collectionId\": \"624c6f475887b2894ed87c89\",\n        \"projectId\": \"624c6f465887b2894ed87c87\",\n        \"layoutId\": \"713f6e91-3831-4421-a720-1c8084d10525\"\n      },\n      \"requestMetadata\": {\n        \"example_data\": true\n      },\n      \"id\": \"7f23f76c-1990-4a50-b3b9-d615703c777f\"\n    },\n    \"reconnectBefore\": {\n      \"reauthenticate\": false,\n      \"beforeTimestamp\": \"1649179486223\"\n    }\n  },\n  \"error\": {\n    \"code\": 8623,\n    \"message\": \"string\",\n    \"details\": [\n      {\n        \"@type\": \"string\",\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      {\n        \"@type\": \"string\",\n        \"key_0\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e70fc737-05a7-45d3-bd0b-f5dd15fbf883",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "correlationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subscribe.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "unsubscribe.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unsubscribe.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "publish.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.collectionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publish.target.layoutId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ping",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9123,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://live.api.stream/event/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "001c3297-a203-4ba9-a1cf-4b8e00b0ebd2",
+    "name": "Event AuthenticationService EventService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Authentication Service provides token services for clients",
+      "type": "text/plain"
+    }
+  }
+}
