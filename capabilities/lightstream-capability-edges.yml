@@ -1,0 +1,36 @@
+slug: lightstream
+provider: Lightstream
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: DestinationService
+  spec_file: lightstream-destinationservice-api-openapi.yml
+  capability_id: BC-3740.20
+  capability_id_l1: BC-3740
+  capability_name: OTT & Streaming Delivery
+  confidence: 0.72
+  evidence: POST /collection/{collectionId}/project/{projectId}/destination — "Create Destination"; schemas
+    v21DestinationRtmpPushAddress, v21HlsPackaging, v21HlsLifecycleLive
+  reason: Destinations configure where a live stream is pushed and how it is packaged (RTMP push, HLS
+    live/VOD packaging, S3 storage), which is streaming origin/packaging and live streaming delivery.
+- tag: LayoutService
+  spec_file: lightstream-layoutservice-api-openapi.yml
+  capability_id: BC-3700.40
+  capability_id_l1: BC-3700
+  capability_name: Live Event & News Production Management
+  confidence: 0.7
+  evidence: 'schemas: v2Transition, TransitionTransitionCrossfade, TransitionTransitionStinger, TransitionTransitionSwipe,
+    TransitionTransitionCut'
+  reason: Layouts with crossfade/stinger/cut transitions are live vision-mixing and on-air composition
+    constructs for a browser live studio — live production management rather than any asset or distribution
+    capability.
