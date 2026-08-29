@@ -11,6 +11,18 @@ description: 'Lightstream (Infiniscene, Inc.) is a Techstars-backed live video c
   model and role-based permissions (HOST, COHOST, CONTRIBUTOR, GUEST, VIEWER), with first-party JavaScript/TypeScript
   SDKs and a Studio Kit for embedding a full studio experience.'
 url: https://raw.githubusercontent.com/api-evangelist/lightstream/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
