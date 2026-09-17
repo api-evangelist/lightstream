@@ -72,28 +72,6 @@ tags_raw:
 - gRPC
 - Creator Tools
 apis:
-- aid: lightstream:lightstream-authenticationservice-api
-  name: Lightstream AuthenticationService API
-  description: The Authentication Service provides token services for clients
-  humanURL: https://www.api.stream/docs/api/live/rest/
-  baseURL: https://live.api.stream/live/v2
-  tags:
-  - AuthenticationService
-  properties:
-  - type: OpenAPI
-    url: openapi/lightstream-authenticationservice-api-openapi.yml
-  - type: Documentation
-    url: https://www.api.stream/docs/api/live/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/live/rest/
-  - type: Documentation
-    url: https://www.api.stream/docs/api/layout/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/layout/rest/
-  - type: Documentation
-    url: https://www.api.stream/docs/api/event/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/event/rest/
 - aid: lightstream:lightstream-backendauthenticationservice-api
   name: Lightstream BackendAuthenticationService API
   description: >-
@@ -159,31 +137,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/lightstream-destinationservice-api-openapi.yml
-  - type: Documentation
-    url: https://www.api.stream/docs/api/live/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/live/rest/
-  - type: Documentation
-    url: https://www.api.stream/docs/api/layout/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/layout/rest/
-  - type: Documentation
-    url: https://www.api.stream/docs/api/event/
-  - type: APIReference
-    url: https://www.api.stream/docs/api/event/rest/
-- aid: lightstream:lightstream-eventservice-api
-  name: Lightstream EventService API
-  description: >-
-    The event API provides a mechanism for you to subscribe and publish events between
-
-    your backend services and the composition, as well as receive events from the live and layout api.
-  humanURL: https://www.api.stream/docs/api/live/rest/
-  baseURL: https://live.api.stream/live/v2
-  tags:
-  - EventService
-  properties:
-  - type: OpenAPI
-    url: openapi/lightstream-eventservice-api-openapi.yml
   - type: Documentation
     url: https://www.api.stream/docs/api/live/
   - type: APIReference
@@ -294,6 +247,53 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/lightstream-sourceservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-authentication-service-api
+  name: Lightstream Authentication Service API
+  description: The Authentication Service provides token services for clients
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - Authentication Service
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-authentication-service-api-openapi.yml
+  - type: Documentation
+    url: https://www.api.stream/docs/api/live/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/live/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/layout/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/layout/rest/
+  - type: Documentation
+    url: https://www.api.stream/docs/api/event/
+  - type: APIReference
+    url: https://www.api.stream/docs/api/event/rest/
+- aid: lightstream:lightstream-event-service-api
+  name: Lightstream Event Service API
+  description: >-
+    The event API provides a mechanism for you to subscribe and publish events between
+
+    your backend services and the composition, as well as receive events from the live and layout api.
+  humanURL: https://www.api.stream/docs/api/live/rest/
+  baseURL: https://live.api.stream/live/v2
+  tags:
+  - Event Service
+  properties:
+  - type: OpenAPI
+    url: openapi/lightstream-event-service-api-openapi.yml
   - type: Documentation
     url: https://www.api.stream/docs/api/live/
   - type: APIReference
