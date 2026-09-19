@@ -2,15 +2,16 @@
 kin_checks:
   slug: lightstream
   schema_version: 0.22.0
-  scored_at: '2026-09-15'
-  run_ts: 2026-09-15T230249
-  note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.22.0.yml; counts below let you verify that.
+  scored_at: '2026-09-17'
+  run_ts: 2026-09-17T233623
+  note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
+    apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
+    below let you verify that.
   counts:
     total: 136
     earned: 43
-    partial: 13
-    missed: 55
+    partial: 14
+    missed: 54
     na: 25
   checks:
   - id: well_known_published
@@ -27,9 +28,6 @@ kin_checks:
     status: missed
     detail: 0 of 10 openapi documents pass
   - id: info_complete
-    status: missed
-    detail: 0 of 10 openapi documents pass
-  - id: security_schemes_defined
     status: missed
     detail: 0 of 10 openapi documents pass
   - id: webhooks_or_callbacks
@@ -139,10 +137,14 @@ kin_checks:
   - id: examples_present
     status: partial
     earned: 1.0
+  - id: security_schemes_defined
+    status: partial
+    earned: 2.8
+    detail: 7 of 10 openapi documents pass
   - id: security_applied
     status: partial
-    earned: 0.3
-    detail: 1 of 10 openapi documents pass
+    earned: 2.1
+    detail: 7 of 10 openapi documents pass
   - id: conformance_declared
     status: partial
     earned: 1.5
@@ -181,3 +183,29 @@ kin_checks:
     status: partial
     earned: 1.25
     detail: 'authorship: derived'
+  na:
+  - asyncapi_3_x
+  - channels_defined
+  - contract_self_operated
+  - fhir_capability_statement
+  - fhir_resource_coverage
+  - graphql_descriptions
+  - graphql_sdl_present
+  - graphql_type_depth
+  - messages_with_schema
+  - os_code_of_conduct
+  - os_contribution_guide
+  - os_releases
+  - os_security_policy
+  - reg_camara_conformance
+  - reg_certification_signal
+  - reg_consent_model
+  - reg_entitlement_terms
+  - reg_fapi_profile
+  - reg_mandate_verified
+  - reg_named_standard_conformance
+  - reg_pci_sca
+  - reg_smart_configuration
+  - reg_write_surface
+  - security_schemes
+  - server_bindings
