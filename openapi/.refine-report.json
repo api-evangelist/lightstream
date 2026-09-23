@@ -1,32 +1,45 @@
 {
   "provider": "lightstream",
   "sources": [
-    "lightstream-authenticationservice-api-openapi.yml",
-    "lightstream-backendauthenticationservice-api-openapi.yml",
-    "lightstream-collectionservice-api-openapi.yml",
-    "lightstream-destinationservice-api-openapi.yml",
-    "lightstream-eventservice-api-openapi.yml",
-    "lightstream-layerservice-api-openapi.yml",
-    "lightstream-layoutservice-api-openapi.yml",
-    "lightstream-projectservice-api-openapi.yml",
-    "lightstream-publicauthenticationservice-api-openapi.yml",
-    "lightstream-sourceservice-api-openapi.yml"
+    "_original/lightstream-event-openapi-original.yml",
+    "_original/lightstream-layout-openapi-original.yml",
+    "_original/lightstream-live-openapi-original.yml"
   ],
   "outputs": [
+    "lightstream-eventservice-api-openapi.yml",
+    "lightstream-layerservice-api-openapi.yml",
+    "lightstream-layoutservice-api-openapi.yml",
     "lightstream-authenticationservice-api-openapi.yml",
     "lightstream-backendauthenticationservice-api-openapi.yml",
     "lightstream-collectionservice-api-openapi.yml",
     "lightstream-destinationservice-api-openapi.yml",
-    "lightstream-eventservice-api-openapi.yml",
-    "lightstream-layerservice-api-openapi.yml",
-    "lightstream-layoutservice-api-openapi.yml",
     "lightstream-projectservice-api-openapi.yml",
     "lightstream-publicauthenticationservice-api-openapi.yml",
     "lightstream-sourceservice-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "lightstream-event-openapi-original.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "lightstream-layout-openapi-original.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "lightstream-live-openapi-original.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: lightstream-authentication-service-api-openapi.yml, lightstream-event-service-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 10 total)"
+  ],
+  "skipped": [
+    "lightstream-authentication-service-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-backendauthenticationservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-collectionservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-destinationservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-event-service-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-layerservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-layoutservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-projectservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-publicauthenticationservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lightstream-sourceservice-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

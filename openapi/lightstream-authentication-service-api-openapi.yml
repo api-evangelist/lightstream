@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: API.stream Live Public Authentication Service API
+  title: API.stream Live Authentication Service API
   description: The Live API enables developers to build video-enabled applications.
   version: '2.1'
 servers:
@@ -8,21 +8,21 @@ servers:
 security:
 - AccessToken: []
 tags:
-- name: PublicAuthenticationService
-  description: The Public Authentication Service provides token verification services
+- name: Authentication Service
+  description: The Authentication Service provides token services for clients
 paths:
-  /authentication/jwks:
-    get:
-      summary: Get Public Keys
-      description: Get public keys used to sign access tokens
-      operationId: PublicAuthenticationService_GetJsonWebKeySet
+  /authentication/token:
+    put:
+      summary: Refresh Access Token
+      description: Forcibly refresh an access token prior to expiration
+      operationId: AuthenticationService_RefreshAccessToken
       responses:
         '200':
           description: A successful response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/v21GetJsonWebKeySetResponse'
+                $ref: '#/components/schemas/v21RefreshAccessTokenResponse'
         '401':
           description: The access token provided is not valid
           content:
@@ -55,19 +55,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
       tags:
-      - PublicAuthenticationService
-  /r/{serviceId}/{code}:
-    get:
-      summary: Exchange Guest Access Token
-      description: Exchange a guest access token with updated user identifiers
-      operationId: PublicAuthenticationService_GuestCodeRedirect
+      - Authentication Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v21RefreshAccessTokenRequest'
+        required: true
+  /authentication/token/guest:
+    post:
+      summary: Create Guest Access Token
+      description: Create an access token for a guest
+      operationId: AuthenticationService_CreateGuestAccessToken
       responses:
         '200':
           description: A successful response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/v21GuestCodeRedirectResponse'
+                $ref: '#/components/schemas/v21CreateGuestAccessTokenResponse'
         '401':
           description: The access token provided is not valid
           content:
@@ -99,39 +105,80 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
-      parameters:
-      - name: serviceId
-        description: the id of the service
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: code
-        description: the short url code
-        in: path
-        required: true
-        schema:
-          type: string
       tags:
-      - PublicAuthenticationService
+      - Authentication Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v21CreateGuestAccessTokenRequest'
+        required: true
 components:
   schemas:
-    v21GetJsonWebKeySetResponse:
+    v21RefreshAccessTokenRequest:
+      type: object
+    v21GuestAccessToken:
       type: object
       properties:
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/v21JsonWebKey'
-          title: public keys used to sign access tokens
+        direct:
+          $ref: '#/components/schemas/v21GuestAccessTokenDirect'
+        exchange:
+          $ref: '#/components/schemas/v21GuestAccessTokenExchange'
+      title: the type of access token (selec one)
+    v21GuestAccessTokenExchange:
+      type: object
+      properties:
+        maxDuration:
+          type: integer
+          format: int64
+          example: 300000
+          default: '300000'
+          title: the max duration this token is valid for redemption
+      title: create a multi-use guest access token
+    v21GuestAccessTokenDirect:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: Eddy Current
+          title: display name of the guest (used to generate webrtc particpant name)
+          required:
+          - display_name
+        serviceUserId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: service-specific user id (used for record auditing purposes)
+      title: create an immutable, single-use guest access token
+      required:
+      - displayName
+    v21Role:
+      type: string
+      enum:
+      - ROLE_HOST
+      - ROLE_COHOST
+      - ROLE_CONTRIBUTOR
+      - ROLE_GUEST
+      - ROLE_VIEWER
+      - ROLE_RENDERER
+      - ROLE_PLATFORM
+      - ROLE_IMPERSONATE
+      title: defined roles
     protobufAny:
       type: object
       properties:
         '@type':
           type: string
       additionalProperties: {}
-    v21GuestCodeRedirectResponse:
+    v21CreateGuestAccessTokenResponse:
       type: object
+      properties:
+        accessToken:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: access token for guest to be used in subsequent API calls
+        url:
+          type: string
+          title: the shortened url
     rpcStatus:
       type: object
       properties:
@@ -144,21 +191,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v21JsonWebKey:
+    v21CreateGuestAccessTokenRequest:
       type: object
       properties:
-        alg:
+        collectionId:
           type: string
-        kty:
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: id of the collection this token is allowed to access
+          required:
+          - collection_id
+        projectId:
           type: string
-        use:
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: id of the project this token is allowed to access
+          required:
+          - project_id
+        maxDuration:
+          type: integer
+          format: int64
+          example: 172800000
+          default: '172800000'
+          title: requested duration (ms) of token before it expires
+        role:
+          $ref: '#/components/schemas/v21Role'
+          example: ROLE_GUEST
+          title: the requested role of the guest
+        token:
+          $ref: '#/components/schemas/v21GuestAccessToken'
+          title: the type of token
+        url:
           type: string
-        kid:
-          type: string
-        e:
-          type: string
-        n:
-          type: string
+          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+          title: request a shortened url
+      required:
+      - collectionId
+      - projectId
+    v21RefreshAccessTokenResponse:
+      type: object
   securitySchemes:
     AccessToken:
       type: apiKey
