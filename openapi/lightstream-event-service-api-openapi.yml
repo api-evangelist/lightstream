@@ -176,35 +176,88 @@ paths:
       - Event Service
 components:
   schemas:
-    v2EventTarget:
+    v2PublishEventRequest:
       type: object
       properties:
-        collectionId:
+        name:
           type: string
-          example: 624c6f475887b2894ed87c89
-          description: Subscribe to events in a given collection.
-        projectId:
+          example: my_app:user_chat
+          description: Name of the event.
+          maxLength: 128
+          minLength: 1
+          required:
+          - name
+        payload:
+          type: object
+          example:
+            custom_event: true
+          description: Value of the event. This can be a free-form value which we do not inspect.
+          required:
+          - payload
+        requestMetadata:
+          type: object
+          example:
+            example_data: true
+          description: 'Metadata associated with the publishing of the event.
+
+            Typically this is information about _why_ the event happened. Use `payload` for
+
+            _what_ the event is.'
+        target:
+          $ref: '#/components/schemas/v2EventTarget'
+          title: Scope the event to a specific target
+      title: Publish a custom event
+      required:
+      - name
+      - payload
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
-          example: 624c6f465887b2894ed87c87
-          description: Subscribe to events in a given project.
-        layoutId:
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v2EventsStreamError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 13
+          description: The GRPC error code for the event.
+        message:
           type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          description: 'Stream events to a specific layout.
+          example: 'INTERNAL: Something went wrong'
+          description: A mesasage indicating what the error is.
+      description: 'Indicates an error with a message sent to the Event API.
 
-            Note: when specified, collection_id and project_id are implictly defined. If you choose
+        Tie `correlation_id` on the message sent to the Event API and the `correlation_id`
 
-            to define them, you they _must_ match the layout.'
-      description: 'Targetting for an event
+        on the parent message to understand which request this error is for.'
+    v2SubscribePayload:
+      type: object
+      properties:
+        name:
+          type: string
+          example: my_app:user_chat|other_events:*
+          description: 'Event name to subscribe to for custom events.
 
-        Event targetting allows you to listen or publish an event against a specific target. You can assume that:
-
-        When subscribing, you will receive events for the chosen scope and any higher scope that isn''t targetted. This means
-
-        - An event published against a layoutId can be listened to by targetting the given layoutId, projectId or collectionId
-
-        - An event published against a collectionId can be subscribed by scoping to any given projectId or layoutId under the collection.'
+            This can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`.'
+          maxLength: 128
+          minLength: 1
+          required:
+          - name
+        target:
+          $ref: '#/components/schemas/v2EventTarget'
+          description: The target to subscribe to.
+      title: Payload to subscribe or unsubscribe from an event
+      required:
+      - name
     v2PublishEventResponse:
       type: object
       properties:
@@ -246,40 +299,56 @@ components:
       required:
       - name
       - payload
-    v2PublishEventRequest:
+    v2EventsStreamReconnectRequest:
       type: object
       properties:
-        name:
+        reauthenticate:
+          type: boolean
+          example: false
+          description: Whether the access token needs to be refreshed before reconnecting.
+          required:
+          - reauthenticate
+        beforeTimestamp:
           type: string
-          example: my_app:user_chat
-          description: Name of the event.
-          maxLength: 128
-          minLength: 1
-          required:
-          - name
-        payload:
-          type: object
-          example:
-            custom_event: true
-          description: Value of the event. This can be a free-form value which we do not inspect.
-          required:
-          - payload
-        requestMetadata:
-          type: object
-          example:
-            example_data: true
-          description: 'Metadata associated with the publishing of the event.
+          example: '1649179486223'
+          description: 'A timestamp indicating when the connection should be reconnected by.
 
-            Typically this is information about _why_ the event happened. Use `payload` for
-
-            _what_ the event is.'
-        target:
-          $ref: '#/components/schemas/v2EventTarget'
-          title: Scope the event to a specific target
-      title: Publish a custom event
+            If you''re maintaining multiple connections, you should reconnect at a random interval within this time range.'
+          required:
+          - before_timestamp
+      title: Indicate to the client that they should re-open their connection
       required:
-      - name
-      - payload
+      - reauthenticate
+      - beforeTimestamp
+    v2EventTarget:
+      type: object
+      properties:
+        collectionId:
+          type: string
+          example: 624c6f475887b2894ed87c89
+          description: Subscribe to events in a given collection.
+        projectId:
+          type: string
+          example: 624c6f465887b2894ed87c87
+          description: Subscribe to events in a given project.
+        layoutId:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          description: 'Stream events to a specific layout.
+
+            Note: when specified, collection_id and project_id are implictly defined. If you choose
+
+            to define them, you they _must_ match the layout.'
+      description: 'Targetting for an event
+
+        Event targetting allows you to listen or publish an event against a specific target. You can assume that:
+
+        When subscribing, you will receive events for the chosen scope and any higher scope that isn''t targetted. This means
+
+        - An event published against a layoutId can be listened to by targetting the given layoutId, projectId or collectionId
+
+        - An event published against a collectionId can be subscribed by scoping to any given projectId or layoutId under the collection.'
     v2EventsStreamResponse:
       type: object
       properties:
@@ -321,78 +390,9 @@ components:
           $ref: '#/components/schemas/v2EventsStreamReconnectRequest'
           description: Inform the client should reoconnect before a timestamp.
       description: Payload returned from the event API.
-    v2EventsStreamError:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          example: 13
-          description: The GRPC error code for the event.
-        message:
-          type: string
-          example: 'INTERNAL: Something went wrong'
-          description: A mesasage indicating what the error is.
-      description: 'Indicates an error with a message sent to the Event API.
-
-        Tie `correlation_id` on the message sent to the Event API and the `correlation_id`
-
-        on the parent message to understand which request this error is for.'
     protobufAny:
       type: object
       properties:
         '@type':
           type: string
       additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v2EventsStreamReconnectRequest:
-      type: object
-      properties:
-        reauthenticate:
-          type: boolean
-          example: false
-          description: Whether the access token needs to be refreshed before reconnecting.
-          required:
-          - reauthenticate
-        beforeTimestamp:
-          type: string
-          example: '1649179486223'
-          description: 'A timestamp indicating when the connection should be reconnected by.
-
-            If you''re maintaining multiple connections, you should reconnect at a random interval within this time range.'
-          required:
-          - before_timestamp
-      title: Indicate to the client that they should re-open their connection
-      required:
-      - reauthenticate
-      - beforeTimestamp
-    v2SubscribePayload:
-      type: object
-      properties:
-        name:
-          type: string
-          example: my_app:user_chat|other_events:*
-          description: 'Event name to subscribe to for custom events.
-
-            This can be a wildcard `my_service:*` or multiple events `my_event|my_other_event`.'
-          maxLength: 128
-          minLength: 1
-          required:
-          - name
-        target:
-          $ref: '#/components/schemas/v2EventTarget'
-          description: The target to subscribe to.
-      title: Payload to subscribe or unsubscribe from an event
-      required:
-      - name

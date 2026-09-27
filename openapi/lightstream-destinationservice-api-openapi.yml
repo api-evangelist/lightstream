@@ -335,132 +335,6 @@ paths:
         required: true
 components:
   schemas:
-    v21DestinationRtmpPushAddress:
-      type: object
-      properties:
-        key:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: rtmp stream key
-        url:
-          type: string
-          example: rtmp://ingest.fakecompany.com
-          title: rtmp destination url
-          required:
-          - url
-      title: rtmp push destination address
-      required:
-      - url
-    v21DestinationAddress:
-      type: object
-      properties:
-        rtmpPush:
-          $ref: '#/components/schemas/v21DestinationRtmpPushAddress'
-          title: rtmp push addressing
-        agora:
-          $ref: '#/components/schemas/v21DestinationAgoraPushAddress'
-          title: Agora addressing
-        s3Storage:
-          $ref: '#/components/schemas/v21S3StorageAddress'
-          title: s3 storage addressing
-      title: destination address (select one)
-    v21GetDestinationResponse:
-      type: object
-      properties:
-        destination:
-          $ref: '#/components/schemas/v21Destination'
-          title: the requested destination
-    v21HlsLifecycleLive:
-      type: object
-      properties:
-        playlistCount:
-          type: integer
-          format: int32
-          example: 5
-          default: '5'
-          title: number of entries to advertise in playlist file
-          minimum: 2
-        fileCount:
-          type: integer
-          format: int32
-          example: 10
-          default: '10'
-          title: number of files to keep on disk
-          minimum: 4
-      title: live hls lifecycle management
-    v21S3ACL:
-      type: string
-      enum:
-      - S3ACL_PRIVATE
-      - S3ACL_PUBLIC_READ
-      - S3ACL_PUBLIC_READ_WRITE
-      - S3ACL_AUTHENTICATED_READ
-      - S3ACL_BUCKET_OWNER_READ
-      - S3ACL_BUCKET_OWNER_FULL_CONTROL
-    v21UpdateDestinationResponse:
-      type: object
-      properties:
-        destination:
-          $ref: '#/components/schemas/v21Destination'
-          title: updated destination
-        broadcastUpdated:
-          type: boolean
-          example: true
-          title: indicates whether the broadcast was updated as a function of this request
-    v21DeleteDestinationResponse:
-      type: object
-      properties:
-        broadcastUpdated:
-          type: boolean
-          example: true
-          title: indicates whether the broadcast was updated as a function of this request
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v21ObjectStoragePackaging:
-      type: object
-      properties:
-        hls:
-          $ref: '#/components/schemas/v21HlsPackaging'
-          default: '{}'
-          title: hls format
-      title: packaging options for object storage
-    v21HlsLifecycleVod:
-      type: object
-      properties:
-        maxDuration:
-          type: integer
-          format: int32
-          example: 0
-          default: '0'
-          title: max duration of the recording in ms (0 is indefinite)
-      title: vod hls lifecycle management
-    v21HlsLifecycle:
-      type: object
-      properties:
-        vod:
-          $ref: '#/components/schemas/v21HlsLifecycleVod'
-          default: '{}'
-          title: lifecycle of vod
-        live:
-          $ref: '#/components/schemas/v21HlsLifecycleLive'
-          title: lifecycle of live
-      title: hls lifecycle management
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     v21S3StorageAddress:
       type: object
       properties:
@@ -514,6 +388,19 @@ components:
       - bucket
       - accessKey
       - secretKey
+    v21DestinationAddress:
+      type: object
+      properties:
+        rtmpPush:
+          $ref: '#/components/schemas/v21DestinationRtmpPushAddress'
+          title: rtmp push addressing
+        agora:
+          $ref: '#/components/schemas/v21DestinationAgoraPushAddress'
+          title: Agora addressing
+        s3Storage:
+          $ref: '#/components/schemas/v21S3StorageAddress'
+          title: s3 storage addressing
+      title: destination address (select one)
     v21Destination:
       type: object
       properties:
@@ -549,6 +436,45 @@ components:
           default: '5000'
           title: timeout (ms) to wait before resetting a connection
       title: streaming destination of project
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v21S3ACL:
+      type: string
+      enum:
+      - S3ACL_PRIVATE
+      - S3ACL_PUBLIC_READ
+      - S3ACL_PUBLIC_READ_WRITE
+      - S3ACL_AUTHENTICATED_READ
+      - S3ACL_BUCKET_OWNER_READ
+      - S3ACL_BUCKET_OWNER_FULL_CONTROL
+    v21HlsLifecycle:
+      type: object
+      properties:
+        vod:
+          $ref: '#/components/schemas/v21HlsLifecycleVod'
+          default: '{}'
+          title: lifecycle of vod
+        live:
+          $ref: '#/components/schemas/v21HlsLifecycleLive'
+          title: lifecycle of live
+      title: hls lifecycle management
+    v21DeleteDestinationResponse:
+      type: object
+      properties:
+        broadcastUpdated:
+          type: boolean
+          example: true
+          title: indicates whether the broadcast was updated as a function of this request
     v21DestinationAgoraPushAddress:
       type: object
       properties:
@@ -572,12 +498,70 @@ components:
       - appId
       - channelId
       - userId
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v21CreateDestinationResponse:
       type: object
       properties:
         destination:
           $ref: '#/components/schemas/v21Destination'
           title: the newly created destination
+    v21DestinationRtmpPushAddress:
+      type: object
+      properties:
+        key:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: rtmp stream key
+        url:
+          type: string
+          example: rtmp://ingest.fakecompany.com
+          title: rtmp destination url
+          required:
+          - url
+      title: rtmp push destination address
+      required:
+      - url
+    v21ObjectStoragePackaging:
+      type: object
+      properties:
+        hls:
+          $ref: '#/components/schemas/v21HlsPackaging'
+          default: '{}'
+          title: hls format
+      title: packaging options for object storage
+    v21HlsLifecycleLive:
+      type: object
+      properties:
+        playlistCount:
+          type: integer
+          format: int32
+          example: 5
+          default: '5'
+          title: number of entries to advertise in playlist file
+          minimum: 2
+        fileCount:
+          type: integer
+          format: int32
+          example: 10
+          default: '10'
+          title: number of files to keep on disk
+          minimum: 4
+      title: live hls lifecycle management
+    v21UpdateDestinationResponse:
+      type: object
+      properties:
+        destination:
+          $ref: '#/components/schemas/v21Destination'
+          title: updated destination
+        broadcastUpdated:
+          type: boolean
+          example: true
+          title: indicates whether the broadcast was updated as a function of this request
     v21HlsPackaging:
       type: object
       properties:
@@ -594,6 +578,22 @@ components:
           maximum: 18000
           minimum: 2000
       title: hls packaging options
+    v21GetDestinationResponse:
+      type: object
+      properties:
+        destination:
+          $ref: '#/components/schemas/v21Destination'
+          title: the requested destination
+    v21HlsLifecycleVod:
+      type: object
+      properties:
+        maxDuration:
+          type: integer
+          format: int32
+          example: 0
+          default: '0'
+          title: max duration of the recording in ms (0 is indefinite)
+      title: vod hls lifecycle management
   securitySchemes:
     AccessToken:
       type: apiKey

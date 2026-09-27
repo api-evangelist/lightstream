@@ -175,6 +175,21 @@ paths:
         required: true
 components:
   schemas:
+    TransitionTransitionCut:
+      type: object
+      description: 'Transition: a simple scene switch. this is the default transition.'
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     TransitionTransitionStingerCut:
       type: object
       properties:
@@ -202,6 +217,106 @@ components:
           $ref: '#/components/schemas/TransitionTransitionSwipeType'
           description: How to animate the slide.
       description: 'Transition: Animation where layouts are slide over another.'
+    TransitionTransitionDirection:
+      type: string
+      enum:
+      - TRANSITION_DIRECTION_LEFT
+      - TRANSITION_DIRECTION_RIGHT
+      - TRANSITION_DIRECTION_UP
+      - TRANSITION_DIRECTION_DOWN
+      description: Direction for the animation to display in.
+    TransitionTransitionCrossfade:
+      type: object
+      properties:
+        durationMs:
+          type: integer
+          format: int32
+          description: The duration to animate over.
+      description: 'Transition: crossfade between two layouts.'
+    v2Transition:
+      type: object
+      properties:
+        fromLayoutIds:
+          type: array
+          items:
+            type: string
+          description: 'A list of layout IDs to apply this transition to. If empty,
+
+            this transition will apply to all scene switches which _do not_ have a matching transition.
+
+            If multiple transitions match (e.g multiple targetting the layout), a transition will be chosen at random.'
+        cut:
+          $ref: '#/components/schemas/TransitionTransitionCut'
+        crossfade:
+          $ref: '#/components/schemas/TransitionTransitionCrossfade'
+        fadeToColor:
+          $ref: '#/components/schemas/TransitionTransitionFadeToColor'
+        swipe:
+          $ref: '#/components/schemas/TransitionTransitionSwipe'
+        stinger:
+          $ref: '#/components/schemas/TransitionTransitionStinger'
+      description: Transition defines a transition into this layout.
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    TransitionTransitionStinger:
+      type: object
+      properties:
+        cut:
+          $ref: '#/components/schemas/TransitionTransitionStingerCut'
+      description: 'Transition: stinger animation.'
+    TransitionTransitionFadeToColor:
+      type: object
+      properties:
+        durationMs:
+          type: integer
+          format: int32
+          description: The duration to animate over. The fade to color will take half this duration.
+        backgroundColor:
+          type: string
+          description: A CSS-compatible background color.
+      description: 'Transition: Fade to a color before transitioning to another layout.'
+    TransitionTransitionSwipeType:
+      type: string
+      enum:
+      - TRANSITION_SWIPE_TYPE_COMBINED
+      - TRANSITION_SWIPE_TYPE_SOURCE
+      - TRANSITION_SWIPE_TYPE_DESTINATION
+      title: "- TRANSITION_SWIPE_TYPE_UNSPECIFIED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_COMBINED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_SOURCE: The source animation is moved out of the way\n - TRANSITION_SWIPE_TYPE_DESTINATION: The destination layout is overlaid"
+    TransitionTransitionMediaType:
+      type: object
+      properties:
+        url:
+          type: string
+          description: External URL to the media content.
+        volume:
+          type: number
+          format: double
+          description: Volume to play the media at between 0 and 1.
+      title: Media definition
+    v2DeleteLayoutResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          title: The ID of the layout deleted
+        requestMetadata:
+          type: object
+          example:
+            example: true
+          default: undefined
+          title: Metadata associated with the deletion of a layout
+    v2LayoutType:
+      type: string
+      enum:
+      - LAYOUT_TYPE_SCENELESS
+      - LAYOUT_TYPE_SCENE
+      description: "The type of layout, specifying how it functions.\n\n - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
     v2Layout:
       type: object
       properties:
@@ -251,98 +366,6 @@ components:
           default: undefined
           title: Metadata sent with the request
       description: A Layout represents a container for multiple layers.
-    TransitionTransitionCut:
-      type: object
-      description: 'Transition: a simple scene switch. this is the default transition.'
-    v2LayoutType:
-      type: string
-      enum:
-      - LAYOUT_TYPE_SCENELESS
-      - LAYOUT_TYPE_SCENE
-      description: "The type of layout, specifying how it functions.\n\n - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
-    TransitionTransitionDirection:
-      type: string
-      enum:
-      - TRANSITION_DIRECTION_LEFT
-      - TRANSITION_DIRECTION_RIGHT
-      - TRANSITION_DIRECTION_UP
-      - TRANSITION_DIRECTION_DOWN
-      description: Direction for the animation to display in.
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    TransitionTransitionSwipeType:
-      type: string
-      enum:
-      - TRANSITION_SWIPE_TYPE_COMBINED
-      - TRANSITION_SWIPE_TYPE_SOURCE
-      - TRANSITION_SWIPE_TYPE_DESTINATION
-      title: "- TRANSITION_SWIPE_TYPE_UNSPECIFIED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_COMBINED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_SOURCE: The source animation is moved out of the way\n - TRANSITION_SWIPE_TYPE_DESTINATION: The destination layout is overlaid"
-    TransitionTransitionFadeToColor:
-      type: object
-      properties:
-        durationMs:
-          type: integer
-          format: int32
-          description: The duration to animate over. The fade to color will take half this duration.
-        backgroundColor:
-          type: string
-          description: A CSS-compatible background color.
-      description: 'Transition: Fade to a color before transitioning to another layout.'
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    TransitionTransitionStinger:
-      type: object
-      properties:
-        cut:
-          $ref: '#/components/schemas/TransitionTransitionStingerCut'
-      description: 'Transition: stinger animation.'
-    v2DeleteLayoutResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          title: The ID of the layout deleted
-        requestMetadata:
-          type: object
-          example:
-            example: true
-          default: undefined
-          title: Metadata associated with the deletion of a layout
-    TransitionTransitionMediaType:
-      type: object
-      properties:
-        url:
-          type: string
-          description: External URL to the media content.
-        volume:
-          type: number
-          format: double
-          description: Volume to play the media at between 0 and 1.
-      title: Media definition
-    TransitionTransitionCrossfade:
-      type: object
-      properties:
-        durationMs:
-          type: integer
-          format: int32
-          description: The duration to animate over.
-      description: 'Transition: crossfade between two layouts.'
     v2PartialLayout:
       type: object
       properties:
@@ -400,26 +423,3 @@ components:
           default: undefined
           title: Metadata associated with the publishing of the event
       title: Partial layout
-    v2Transition:
-      type: object
-      properties:
-        fromLayoutIds:
-          type: array
-          items:
-            type: string
-          description: 'A list of layout IDs to apply this transition to. If empty,
-
-            this transition will apply to all scene switches which _do not_ have a matching transition.
-
-            If multiple transitions match (e.g multiple targetting the layout), a transition will be chosen at random.'
-        cut:
-          $ref: '#/components/schemas/TransitionTransitionCut'
-        crossfade:
-          $ref: '#/components/schemas/TransitionTransitionCrossfade'
-        fadeToColor:
-          $ref: '#/components/schemas/TransitionTransitionFadeToColor'
-        swipe:
-          $ref: '#/components/schemas/TransitionTransitionSwipe'
-        stinger:
-          $ref: '#/components/schemas/TransitionTransitionStinger'
-      description: Transition defines a transition into this layout.

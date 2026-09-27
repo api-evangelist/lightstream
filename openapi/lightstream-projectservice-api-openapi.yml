@@ -698,98 +698,17 @@ paths:
       - ProjectService
 components:
   schemas:
-    v21RenderingQuality:
-      type: string
-      enum:
-      - RENDERING_QUALITY_STANDARD
-      - RENDERING_QUALITY_HIGH
-      title: rendering quality
-    v21AudioEncoding:
+    v21DeleteProjectResponse:
       type: object
       properties:
-        codec:
-          $ref: '#/components/schemas/v21AudioCodec'
-          example: AUDIO_CODEC_AAC
-          default: AUDIO_CODEC_AAC
-          title: audio encoding codec
-      title: encoding audio parameters
-    v21Source:
-      type: object
-      properties:
-        collectionId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: collection which owns the source
-        sourceId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: collection source id
-        metadata:
-          type: object
-          example:
-            createdBy: Eddie Current
-          title: arbitrary metadata associated with this collection source
-        preview:
-          $ref: '#/components/schemas/v21PreviewAddress'
-          title: preview addresses
-        address:
-          $ref: '#/components/schemas/v21SourceAddress'
-          title: source address
-      title: collection live source
-    v21AudioCodec:
-      type: string
-      enum:
-      - AUDIO_CODEC_AAC
-      title: audio encoding codec
-    v21ExternalComposition:
-      type: object
-      properties:
-        url:
-          type: string
-          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
-          required:
-          - url
-      title: compose using an external renderer
-      required:
-      - url
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v21ImageFormat:
-      type: string
-      enum:
-      - IMAGE_FORMAT_JPEG
-      title: image binary format
-    v21VideoCodecRateControlMode:
-      type: string
-      enum:
-      - VIDEO_CODEC_RATE_CONTROL_MODE_CBR
-      description: '- VIDEO_CODEC_RATE_CONTROL_MODE_CBR: constant bit rate encoding'
-      title: video encoding rate control mode
-    v21GuestCode:
-      type: object
-      properties:
-        collectionId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: collection which owns the project
-        projectId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: project id
-        code:
-          type: string
-          title: the short url code
-        url:
-          type: string
-          title: the short url
-        autoDelete:
-          type: string
-          format: date-time
-          title: auto-delete after time
+        broadcastStopped:
+          type: boolean
+          example: true
+          title: was a broadcast stopped
+        layoutsDeleted:
+          type: integer
+          format: int64
+          title: the number of associated layouts deleted
     v21LatLong:
       type: object
       properties:
@@ -800,175 +719,36 @@ components:
           type: number
           format: double
       title: optimal location of broadcast (to optimize routing and delay)
-    v21Destination:
+    v21DestinationAddress:
       type: object
       properties:
-        collectionId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: collection which owns the project which owns the destination
-        projectId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: project which owns the destination
-        destinationId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: destination id
-        metadata:
-          type: object
-          example:
-            createdBy: Eddie Current
-          title: arbitrary metadata associated with this destination
-        enabled:
-          type: boolean
-          example: true
-          default: 'true'
-          title: is output stream enabled?
-        address:
-          $ref: '#/components/schemas/v21DestinationAddress'
-          title: address of the destination
-        timeout:
-          type: integer
-          format: int64
-          example: 5000
-          default: '5000'
-          title: timeout (ms) to wait before resetting a connection
-      title: streaming destination of project
-    v21SourceTriggerAction:
+        rtmpPush:
+          $ref: '#/components/schemas/v21DestinationRtmpPushAddress'
+          title: rtmp push addressing
+        agora:
+          $ref: '#/components/schemas/v21DestinationAgoraPushAddress'
+          title: Agora addressing
+        s3Storage:
+          $ref: '#/components/schemas/v21S3StorageAddress'
+          title: s3 storage addressing
+      title: destination address (select one)
+    v21AudioCodec:
       type: string
       enum:
-      - SOURCE_TRIGGER_ACTION_IGNORE
-      - SOURCE_TRIGGER_ACTION_OR
-      description: '- SOURCE_TRIGGER_ACTION_OR: SOURCE_TRIGGER_ACTION_AND = 2;'
-      title: boolean logic for trigger
-    v21HlsPackaging:
+      - AUDIO_CODEC_AAC
+      title: audio encoding codec
+    v21RtmpPullAddress:
       type: object
       properties:
-        lifecycle:
-          $ref: '#/components/schemas/v21HlsLifecycle'
-          default: '{}'
-          title: lifecycle of hls segments
-        segmentDuration:
-          type: integer
-          format: int32
-          example: 2000
-          default: '2000'
-          title: duration of segments in ms
-          maximum: 18000
-          minimum: 2000
-      title: hls packaging options
-    v21VideoColorSpace:
-      type: string
-      enum:
-      - VIDEO_COLOR_SPACE_YUV420
-      title: rendering color space
-    v21VideoEncoding:
-      type: object
-      properties:
-        codec:
-          $ref: '#/components/schemas/v21VideoCodec'
-          example: VIDEO_CODEC_H264
-          default: VIDEO_CODEC_H264
-          title: video encoding codec
-        rateControl:
-          $ref: '#/components/schemas/v21VideoCodecRateControl'
-          default: '{}'
-          title: video encoding rate control
-        profile:
-          $ref: '#/components/schemas/v21VideoCodecProfile'
-          example: VIDEO_CODEC_PROFILE_HIGH
-          default: VIDEO_CODEC_PROFILE_HIGH
-          title: video encoding codec profile
-      title: encoding video parameters
-    v21GetProjectBroadcastStatusResponse:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/v21ProjectBroadcastStatus'
-          title: the status of the project broadcast
-    v21HostedWebRtc:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          default: 'true'
-          title: enable webrtc services
-      title: hosted webrtc configuration
-    v21UpdateProjectResponse:
-      type: object
-      properties:
-        project:
-          $ref: '#/components/schemas/v21Project'
-          title: updated project
-        broadcastUpdated:
-          type: boolean
-          example: true
-          title: indicates whether the broadcast was updated as a function of this request
-    v21GetProjectBroadcastSnapshotResponse:
-      type: object
-      properties:
-        format:
-          $ref: '#/components/schemas/v21ImageFormat'
-          example: IMAGE_FORMAT_JPEG
-          title: the format of the returned snapshot
-        image:
+        url:
           type: string
-          format: byte
-          title: the binary snapshot
-    v21AudioChannelLayout:
-      type: string
-      enum:
-      - AUDIO_CHANNEL_LAYOUT_STEREO
-      title: audio channel layout
-    v21VideoCodecProfile:
-      type: string
-      enum:
-      - VIDEO_CODEC_PROFILE_BASELINE
-      - VIDEO_CODEC_PROFILE_MAIN
-      - VIDEO_CODEC_PROFILE_HIGH
-      title: video encoding codec profile
-    v21AudioRendering:
-      type: object
-      properties:
-        channelLayout:
-          $ref: '#/components/schemas/v21AudioChannelLayout'
-          example: AUDIO_CHANNEL_LAYOUT_STEREO
-          default: AUDIO_CHANNEL_LAYOUT_STEREO
-          title: audio channel layout
-      title: composition audio parameters
-    v21HlsLifecycleVod:
-      type: object
-      properties:
-        maxDuration:
-          type: integer
-          format: int32
-          example: 0
-          default: '0'
-          title: max duration of the recording in ms (0 is indefinite)
-      title: vod hls lifecycle management
-    v21GetProjectResponse:
-      type: object
-      properties:
-        project:
-          $ref: '#/components/schemas/v21Project'
-          title: the request project
-        status:
-          $ref: '#/components/schemas/v21ProjectBroadcastStatus'
-          title: the status of the project broadcast (if requested)
-    v21Encoding:
-      type: object
-      properties:
-        video:
-          $ref: '#/components/schemas/v21VideoEncoding'
-          default: '{}'
-          title: the video parameters of the encoding
-        audio:
-          $ref: '#/components/schemas/v21AudioEncoding'
-          default: '{}'
-          title: the audio parameters of the encoding
-      title: the parameters of the encoding
+          example: rtmp://ingest.fakecompany.com/inbound/abc123
+          title: rtmp source url
+          required:
+          - url
+      title: rtmp pull addressing
+      required:
+      - url
     v21VideoCodecRateControl:
       type: object
       properties:
@@ -992,109 +772,62 @@ components:
           maximum: 30000
           minimum: 1
       title: video encoding CBR rate control params
-    v21RtmpPullAddress:
+    v21GetProjectBroadcastStatusResponse:
       type: object
       properties:
-        url:
-          type: string
-          example: rtmp://ingest.fakecompany.com/inbound/abc123
-          title: rtmp source url
-          required:
-          - url
-      title: rtmp pull addressing
-      required:
-      - url
-    v21PreviewAddress:
+        status:
+          $ref: '#/components/schemas/v21ProjectBroadcastStatus'
+          title: the status of the project broadcast
+    rpcStatus:
       type: object
       properties:
-        webrtc:
-          $ref: '#/components/schemas/v21PreviewWebRtcAddress'
-          title: 'hls preview address
-
-            optional PreviewHlsPullAddress hls = 1;
-
-            webrtc preview address'
-      title: addresses of source previews
-    v21DestinationRtmpPushAddress:
-      type: object
-      properties:
-        key:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: rtmp stream key
-        url:
-          type: string
-          example: rtmp://ingest.fakecompany.com
-          title: rtmp destination url
-          required:
-          - url
-      title: rtmp push destination address
-      required:
-      - url
-    v21DeleteProjectResponse:
-      type: object
-      properties:
-        broadcastStopped:
-          type: boolean
-          example: true
-          title: was a broadcast stopped
-        layoutsDeleted:
+        code:
           type: integer
-          format: int64
-          title: the number of associated layouts deleted
-    v21StudioSdkComposition:
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v21StopProjectWebRtcResponse:
+      type: object
+    v21DestinationAgoraPushAddress:
       type: object
       properties:
-        rendererUrl:
+        appId:
           type: string
-          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
-          title: the page to render studio kit with. If set, this takes priority over `version`
-        version:
+          title: Agora app id
+          required:
+          - app_id
+        channelId:
           type: string
-          example: latest
-          default: latest
-          title: the version of the studio kit renderer to use. Ignored if renderer_url is set
-      title: compose using the studiosdk renderer
-    v21SceneComposition:
+          title: Agora channel id
+          required:
+          - channel_id
+        userId:
+          type: string
+          title: Agora user id
+          required:
+          - user_id
+      title: Agora push addressing
+      required:
+      - appId
+      - channelId
+      - userId
+    v21RenderingQuality:
+      type: string
+      enum:
+      - RENDERING_QUALITY_STANDARD
+      - RENDERING_QUALITY_HIGH
+      title: rendering quality
+    v21WebRtc:
       type: object
       properties:
-        rendererUrl:
-          type: string
-          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
-          title: the url to pass to the studiosdk
-        selectedLayoutId:
-          type: string
-          example: e67cfd6ad57560962fddcf63611d2835
-          title: the active "scene" to render
-        debug:
-          type: boolean
-          example: false
-          default: 'false'
-      title: compose scenes using the browser-based compositor
-    v21SourceRtmpPushAddress:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          default: 'true'
-          title: enable source rtmp push address
-        key:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: assigned rtmp stream key
-          readOnly: true
-        url:
-          type: string
-          example: rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: assigned rtmp destination url
-          readOnly: true
-        baseUrl:
-          type: string
-          example: rtmp://ingest.golightstream.com/api2
-          title: base_url without stream key
-          readOnly: true
-      title: rtmp push source address
+        hosted:
+          $ref: '#/components/schemas/v21HostedWebRtc'
+          title: hosted webrtc configuration
+      title: webrtc service (select one)
     v21Rendering:
       type: object
       properties:
@@ -1127,51 +860,6 @@ components:
           maximum: 4
           minimum: -4
       title: composition parameters
-    v21ProjectBroadcastPhase:
-      type: string
-      enum:
-      - PROJECT_BROADCAST_PHASE_NOT_RUNNING
-      - PROJECT_BROADCAST_PHASE_WAITING
-      - PROJECT_BROADCAST_PHASE_STARTING
-      - PROJECT_BROADCAST_PHASE_RUNNING
-      - PROJECT_BROADCAST_PHASE_STOPPING
-      - PROJECT_BROADCAST_PHASE_STOPPED
-      - PROJECT_BROADCAST_PHASE_ARCHIVED
-      description: '- PROJECT_BROADCAST_PHASE_WAITING: broadcast is waiting to be scheduled'
-      title: broadcast phase of project
-    v21VideoRendering:
-      type: object
-      properties:
-        height:
-          type: integer
-          format: int64
-          example: 720
-          default: '720'
-          title: canvas height (pixels)
-          maximum: 2160
-          minimum: 240
-        width:
-          type: integer
-          format: int64
-          example: 1280
-          default: '1280'
-          title: canvas width (pixels)
-          maximum: 3840
-          minimum: 320
-        framerate:
-          type: number
-          format: float
-          example: 30
-          default: '30'
-          title: canvas frame rate (frames/s)
-          maximum: 60
-          minimum: 1
-        colorSpace:
-          $ref: '#/components/schemas/v21VideoColorSpace'
-          example: VIDEO_COLOR_SPACE_YUV420
-          default: VIDEO_COLOR_SPACE_YUV420
-          title: rendering color space
-      title: composition video parameters
     v21Project:
       type: object
       properties:
@@ -1235,224 +923,20 @@ components:
           title: guest codes associated with this project
           readOnly: true
       title: project which owns a broadcast, sources, and destinations
-    v21DestinationAddress:
-      type: object
-      properties:
-        rtmpPush:
-          $ref: '#/components/schemas/v21DestinationRtmpPushAddress'
-          title: rtmp push addressing
-        agora:
-          $ref: '#/components/schemas/v21DestinationAgoraPushAddress'
-          title: Agora addressing
-        s3Storage:
-          $ref: '#/components/schemas/v21S3StorageAddress'
-          title: s3 storage addressing
-      title: destination address (select one)
-    v21SourceTrigger:
-      type: object
-      properties:
-        sourceId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: the id of the source
-          required:
-          - source_id
-        start:
-          $ref: '#/components/schemas/v21SourceTriggerAction'
-          example: SOURCE_TRIGGER_ACTION_OR
-          default: SOURCE_TRIGGER_ACTION_IGNORE
-          title: source should trigger project(s) to start
-        stop:
-          $ref: '#/components/schemas/v21SourceTriggerAction'
-          example: SOURCE_TRIGGER_ACTION_OR
-          default: SOURCE_TRIGGER_ACTION_IGNORE
-          title: source should trigger project(s) to stop
-      title: triggers to indicate what actions to take on the project for a given Source
-      required:
-      - sourceId
-    v21Composition:
-      type: object
-      properties:
-        external:
-          $ref: '#/components/schemas/v21ExternalComposition'
-          title: compose using an external renderer
-        studioSdk:
-          $ref: '#/components/schemas/v21StudioSdkComposition'
-          title: compose using the studiosdk renderer
-        scene:
-          $ref: '#/components/schemas/v21SceneComposition'
-          default: '{}'
-          title: compose scenes using the browser-based compositor
-      title: composition source for project (select one)
-    v21S3ACL:
-      type: string
-      enum:
-      - S3ACL_PRIVATE
-      - S3ACL_PUBLIC_READ
-      - S3ACL_PUBLIC_READ_WRITE
-      - S3ACL_AUTHENTICATED_READ
-      - S3ACL_BUCKET_OWNER_READ
-      - S3ACL_BUCKET_OWNER_FULL_CONTROL
-    v21VideoCodec:
-      type: string
-      enum:
-      - VIDEO_CODEC_H264
-      title: video encoding codec
-    v21SourceAddress:
-      type: object
-      properties:
-        rtmpPush:
-          $ref: '#/components/schemas/v21SourceRtmpPushAddress'
-          title: rtmp push addressing
-        srtPush:
-          $ref: '#/components/schemas/v21SrtPushAddress'
-          title: the srt address to publish to
-        rtmpPull:
-          $ref: '#/components/schemas/v21RtmpPullAddress'
-          title: the rtmp address to pull from
-      title: live source address (select one)
-    v21ObjectStoragePackaging:
-      type: object
-      properties:
-        hls:
-          $ref: '#/components/schemas/v21HlsPackaging'
-          default: '{}'
-          title: hls format
-      title: packaging options for object storage
-    v21StartProjectBroadcastResponse:
-      type: object
-      properties:
-        broadcastId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: the id of the broadcast started
-    v21HlsLifecycle:
-      type: object
-      properties:
-        vod:
-          $ref: '#/components/schemas/v21HlsLifecycleVod'
-          default: '{}'
-          title: lifecycle of vod
-        live:
-          $ref: '#/components/schemas/v21HlsLifecycleLive'
-          title: lifecycle of live
-      title: hls lifecycle management
-    v21StartProjectWebRtcResponse:
-      type: object
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v21ProjectTrigger:
-      type: object
-      properties:
-        source:
-          $ref: '#/components/schemas/v21SourceTrigger'
-          title: start/stop project with source
-      title: the trigger type (select one)
-    v21DestinationAgoraPushAddress:
-      type: object
-      properties:
-        appId:
-          type: string
-          title: Agora app id
-          required:
-          - app_id
-        channelId:
-          type: string
-          title: Agora channel id
-          required:
-          - channel_id
-        userId:
-          type: string
-          title: Agora user id
-          required:
-          - user_id
-      title: Agora push addressing
-      required:
-      - appId
-      - channelId
-      - userId
-    v21StopProjectWebRtcResponse:
-      type: object
-    v21Region:
-      type: string
-      enum:
-      - REGION_US_EAST_1
-      - REGION_US_EAST_2
-      - REGION_US_WEST_1
-      - REGION_US_WEST_2
-      - REGION_US_CENTRAL_1
-      - REGION_AP_SOUTHEAST_1
-      - REGION_CA_EAST_1
-      - REGION_EU_CENTRAL_1
-      - REGION_EU_WEST_1
-      description: "- REGION_US_EAST_1: US East\n - REGION_US_WEST_1: US West\n - REGION_US_CENTRAL_1: US Central\n - REGION_AP_SOUTHEAST_1: Asia Pacific Southeast\n - REGION_CA_EAST_1: Canada East\n - REGION_EU_CENTRAL_1: Europe Central\n - REGION_EU_WEST_1: Europe West"
-      title: region which is hosting broadcast
-    v21StopProjectBroadcastResponse:
-      type: object
-    v21SrtPushAddress:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          default: 'true'
-          title: enable source srt push address
-        streamId:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: assigned srt streamid
-          readOnly: true
-        url:
-          type: string
-          example: srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: assigned srt destination url
-          readOnly: true
-        baseUrl:
-          type: string
-          example: srt://ingest.api.stream
-          title: base_url without streamid
-          readOnly: true
-      title: srt push addressing
-    v21WebRtc:
-      type: object
-      properties:
-        hosted:
-          $ref: '#/components/schemas/v21HostedWebRtc'
-          title: hosted webrtc configuration
-      title: webrtc service (select one)
-    v21HlsLifecycleLive:
-      type: object
-      properties:
-        playlistCount:
-          type: integer
-          format: int32
-          example: 5
-          default: '5'
-          title: number of entries to advertise in playlist file
-          minimum: 2
-        fileCount:
-          type: integer
-          format: int32
-          example: 10
-          default: '10'
-          title: number of files to keep on disk
-          minimum: 4
-      title: live hls lifecycle management
     v21CreateProjectResponse:
       type: object
       properties:
         project:
           $ref: '#/components/schemas/v21Project'
+    v21AudioRendering:
+      type: object
+      properties:
+        channelLayout:
+          $ref: '#/components/schemas/v21AudioChannelLayout'
+          example: AUDIO_CHANNEL_LAYOUT_STEREO
+          default: AUDIO_CHANNEL_LAYOUT_STEREO
+          title: audio channel layout
+      title: composition audio parameters
     v21ProjectBroadcastStatus:
       type: object
       properties:
@@ -1495,6 +979,41 @@ components:
           example: nyc1
           title: datacenter broadcast is located
       title: broadcast status
+    v21Destination:
+      type: object
+      properties:
+        collectionId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: collection which owns the project which owns the destination
+        projectId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: project which owns the destination
+        destinationId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: destination id
+        metadata:
+          type: object
+          example:
+            createdBy: Eddie Current
+          title: arbitrary metadata associated with this destination
+        enabled:
+          type: boolean
+          example: true
+          default: 'true'
+          title: is output stream enabled?
+        address:
+          $ref: '#/components/schemas/v21DestinationAddress'
+          title: address of the destination
+        timeout:
+          type: integer
+          format: int64
+          example: 5000
+          default: '5000'
+          title: timeout (ms) to wait before resetting a connection
+      title: streaming destination of project
     v21PreviewWebRtcAddress:
       type: object
       properties:
@@ -1520,6 +1039,365 @@ components:
       required:
       - enabled
       - displayName
+    v21S3ACL:
+      type: string
+      enum:
+      - S3ACL_PRIVATE
+      - S3ACL_PUBLIC_READ
+      - S3ACL_PUBLIC_READ_WRITE
+      - S3ACL_AUTHENTICATED_READ
+      - S3ACL_BUCKET_OWNER_READ
+      - S3ACL_BUCKET_OWNER_FULL_CONTROL
+    v21HlsLifecycle:
+      type: object
+      properties:
+        vod:
+          $ref: '#/components/schemas/v21HlsLifecycleVod'
+          default: '{}'
+          title: lifecycle of vod
+        live:
+          $ref: '#/components/schemas/v21HlsLifecycleLive'
+          title: lifecycle of live
+      title: hls lifecycle management
+    v21StudioSdkComposition:
+      type: object
+      properties:
+        rendererUrl:
+          type: string
+          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+          title: the page to render studio kit with. If set, this takes priority over `version`
+        version:
+          type: string
+          example: latest
+          default: latest
+          title: the version of the studio kit renderer to use. Ignored if renderer_url is set
+      title: compose using the studiosdk renderer
+    v21ObjectStoragePackaging:
+      type: object
+      properties:
+        hls:
+          $ref: '#/components/schemas/v21HlsPackaging'
+          default: '{}'
+          title: hls format
+      title: packaging options for object storage
+    v21SceneComposition:
+      type: object
+      properties:
+        rendererUrl:
+          type: string
+          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+          title: the url to pass to the studiosdk
+        selectedLayoutId:
+          type: string
+          example: e67cfd6ad57560962fddcf63611d2835
+          title: the active "scene" to render
+        debug:
+          type: boolean
+          example: false
+          default: 'false'
+      title: compose scenes using the browser-based compositor
+    v21AudioChannelLayout:
+      type: string
+      enum:
+      - AUDIO_CHANNEL_LAYOUT_STEREO
+      title: audio channel layout
+    v21HlsPackaging:
+      type: object
+      properties:
+        lifecycle:
+          $ref: '#/components/schemas/v21HlsLifecycle'
+          default: '{}'
+          title: lifecycle of hls segments
+        segmentDuration:
+          type: integer
+          format: int32
+          example: 2000
+          default: '2000'
+          title: duration of segments in ms
+          maximum: 18000
+          minimum: 2000
+      title: hls packaging options
+    v21GetProjectBroadcastSnapshotResponse:
+      type: object
+      properties:
+        format:
+          $ref: '#/components/schemas/v21ImageFormat'
+          example: IMAGE_FORMAT_JPEG
+          title: the format of the returned snapshot
+        image:
+          type: string
+          format: byte
+          title: the binary snapshot
+    v21PreviewAddress:
+      type: object
+      properties:
+        webrtc:
+          $ref: '#/components/schemas/v21PreviewWebRtcAddress'
+          title: 'hls preview address
+
+            optional PreviewHlsPullAddress hls = 1;
+
+            webrtc preview address'
+      title: addresses of source previews
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v21SourceTrigger:
+      type: object
+      properties:
+        sourceId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: the id of the source
+          required:
+          - source_id
+        start:
+          $ref: '#/components/schemas/v21SourceTriggerAction'
+          example: SOURCE_TRIGGER_ACTION_OR
+          default: SOURCE_TRIGGER_ACTION_IGNORE
+          title: source should trigger project(s) to start
+        stop:
+          $ref: '#/components/schemas/v21SourceTriggerAction'
+          example: SOURCE_TRIGGER_ACTION_OR
+          default: SOURCE_TRIGGER_ACTION_IGNORE
+          title: source should trigger project(s) to stop
+      title: triggers to indicate what actions to take on the project for a given Source
+      required:
+      - sourceId
+    v21SourceTriggerAction:
+      type: string
+      enum:
+      - SOURCE_TRIGGER_ACTION_IGNORE
+      - SOURCE_TRIGGER_ACTION_OR
+      description: '- SOURCE_TRIGGER_ACTION_OR: SOURCE_TRIGGER_ACTION_AND = 2;'
+      title: boolean logic for trigger
+    v21SrtPushAddress:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          default: 'true'
+          title: enable source srt push address
+        streamId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: assigned srt streamid
+          readOnly: true
+        url:
+          type: string
+          example: srt://ingest.api.stream?streamid=7132b004-61e8-49c1-8dc8-4bb3269ce6f/7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: assigned srt destination url
+          readOnly: true
+        baseUrl:
+          type: string
+          example: srt://ingest.api.stream
+          title: base_url without streamid
+          readOnly: true
+      title: srt push addressing
+    v21StopProjectBroadcastResponse:
+      type: object
+    v21StartProjectBroadcastResponse:
+      type: object
+      properties:
+        broadcastId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: the id of the broadcast started
+    v21VideoRendering:
+      type: object
+      properties:
+        height:
+          type: integer
+          format: int64
+          example: 720
+          default: '720'
+          title: canvas height (pixels)
+          maximum: 2160
+          minimum: 240
+        width:
+          type: integer
+          format: int64
+          example: 1280
+          default: '1280'
+          title: canvas width (pixels)
+          maximum: 3840
+          minimum: 320
+        framerate:
+          type: number
+          format: float
+          example: 30
+          default: '30'
+          title: canvas frame rate (frames/s)
+          maximum: 60
+          minimum: 1
+        colorSpace:
+          $ref: '#/components/schemas/v21VideoColorSpace'
+          example: VIDEO_COLOR_SPACE_YUV420
+          default: VIDEO_COLOR_SPACE_YUV420
+          title: rendering color space
+      title: composition video parameters
+    v21DestinationRtmpPushAddress:
+      type: object
+      properties:
+        key:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: rtmp stream key
+        url:
+          type: string
+          example: rtmp://ingest.fakecompany.com
+          title: rtmp destination url
+          required:
+          - url
+      title: rtmp push destination address
+      required:
+      - url
+    v21GuestCode:
+      type: object
+      properties:
+        collectionId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: collection which owns the project
+        projectId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: project id
+        code:
+          type: string
+          title: the short url code
+        url:
+          type: string
+          title: the short url
+        autoDelete:
+          type: string
+          format: date-time
+          title: auto-delete after time
+    v21ProjectTrigger:
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/v21SourceTrigger'
+          title: start/stop project with source
+      title: the trigger type (select one)
+    v21VideoCodecProfile:
+      type: string
+      enum:
+      - VIDEO_CODEC_PROFILE_BASELINE
+      - VIDEO_CODEC_PROFILE_MAIN
+      - VIDEO_CODEC_PROFILE_HIGH
+      title: video encoding codec profile
+    v21HlsLifecycleLive:
+      type: object
+      properties:
+        playlistCount:
+          type: integer
+          format: int32
+          example: 5
+          default: '5'
+          title: number of entries to advertise in playlist file
+          minimum: 2
+        fileCount:
+          type: integer
+          format: int32
+          example: 10
+          default: '10'
+          title: number of files to keep on disk
+          minimum: 4
+      title: live hls lifecycle management
+    v21Source:
+      type: object
+      properties:
+        collectionId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: collection which owns the source
+        sourceId:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: collection source id
+        metadata:
+          type: object
+          example:
+            createdBy: Eddie Current
+          title: arbitrary metadata associated with this collection source
+        preview:
+          $ref: '#/components/schemas/v21PreviewAddress'
+          title: preview addresses
+        address:
+          $ref: '#/components/schemas/v21SourceAddress'
+          title: source address
+      title: collection live source
+    v21VideoEncoding:
+      type: object
+      properties:
+        codec:
+          $ref: '#/components/schemas/v21VideoCodec'
+          example: VIDEO_CODEC_H264
+          default: VIDEO_CODEC_H264
+          title: video encoding codec
+        rateControl:
+          $ref: '#/components/schemas/v21VideoCodecRateControl'
+          default: '{}'
+          title: video encoding rate control
+        profile:
+          $ref: '#/components/schemas/v21VideoCodecProfile'
+          example: VIDEO_CODEC_PROFILE_HIGH
+          default: VIDEO_CODEC_PROFILE_HIGH
+          title: video encoding codec profile
+      title: encoding video parameters
+    v21AudioEncoding:
+      type: object
+      properties:
+        codec:
+          $ref: '#/components/schemas/v21AudioCodec'
+          example: AUDIO_CODEC_AAC
+          default: AUDIO_CODEC_AAC
+          title: audio encoding codec
+      title: encoding audio parameters
+    v21HlsLifecycleVod:
+      type: object
+      properties:
+        maxDuration:
+          type: integer
+          format: int32
+          example: 0
+          default: '0'
+          title: max duration of the recording in ms (0 is indefinite)
+      title: vod hls lifecycle management
+    v21GetProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/v21Project'
+          title: the request project
+        status:
+          $ref: '#/components/schemas/v21ProjectBroadcastStatus'
+          title: the status of the project broadcast (if requested)
+    v21HostedWebRtc:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          default: 'true'
+          title: enable webrtc services
+      title: hosted webrtc configuration
+    v21ExternalComposition:
+      type: object
+      properties:
+        url:
+          type: string
+          example: https://rainmaker.gg/overlay/e67cfd6ad57560962fddcf63611d2834/1
+          required:
+          - url
+      title: compose using an external renderer
+      required:
+      - url
     v21S3StorageAddress:
       type: object
       properties:
@@ -1573,6 +1451,128 @@ components:
       - bucket
       - accessKey
       - secretKey
+    v21StartProjectWebRtcResponse:
+      type: object
+    v21VideoCodecRateControlMode:
+      type: string
+      enum:
+      - VIDEO_CODEC_RATE_CONTROL_MODE_CBR
+      description: '- VIDEO_CODEC_RATE_CONTROL_MODE_CBR: constant bit rate encoding'
+      title: video encoding rate control mode
+    v21VideoColorSpace:
+      type: string
+      enum:
+      - VIDEO_COLOR_SPACE_YUV420
+      title: rendering color space
+    v21SourceRtmpPushAddress:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          default: 'true'
+          title: enable source rtmp push address
+        key:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: assigned rtmp stream key
+          readOnly: true
+        url:
+          type: string
+          example: rtmp://ingest.golightstream.com/api2/7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: assigned rtmp destination url
+          readOnly: true
+        baseUrl:
+          type: string
+          example: rtmp://ingest.golightstream.com/api2
+          title: base_url without stream key
+          readOnly: true
+      title: rtmp push source address
+    v21Encoding:
+      type: object
+      properties:
+        video:
+          $ref: '#/components/schemas/v21VideoEncoding'
+          default: '{}'
+          title: the video parameters of the encoding
+        audio:
+          $ref: '#/components/schemas/v21AudioEncoding'
+          default: '{}'
+          title: the audio parameters of the encoding
+      title: the parameters of the encoding
+    v21ProjectBroadcastPhase:
+      type: string
+      enum:
+      - PROJECT_BROADCAST_PHASE_NOT_RUNNING
+      - PROJECT_BROADCAST_PHASE_WAITING
+      - PROJECT_BROADCAST_PHASE_STARTING
+      - PROJECT_BROADCAST_PHASE_RUNNING
+      - PROJECT_BROADCAST_PHASE_STOPPING
+      - PROJECT_BROADCAST_PHASE_STOPPED
+      - PROJECT_BROADCAST_PHASE_ARCHIVED
+      description: '- PROJECT_BROADCAST_PHASE_WAITING: broadcast is waiting to be scheduled'
+      title: broadcast phase of project
+    v21ImageFormat:
+      type: string
+      enum:
+      - IMAGE_FORMAT_JPEG
+      title: image binary format
+    v21SourceAddress:
+      type: object
+      properties:
+        rtmpPush:
+          $ref: '#/components/schemas/v21SourceRtmpPushAddress'
+          title: rtmp push addressing
+        srtPush:
+          $ref: '#/components/schemas/v21SrtPushAddress'
+          title: the srt address to publish to
+        rtmpPull:
+          $ref: '#/components/schemas/v21RtmpPullAddress'
+          title: the rtmp address to pull from
+      title: live source address (select one)
+    v21VideoCodec:
+      type: string
+      enum:
+      - VIDEO_CODEC_H264
+      title: video encoding codec
+    v21Region:
+      type: string
+      enum:
+      - REGION_US_EAST_1
+      - REGION_US_EAST_2
+      - REGION_US_WEST_1
+      - REGION_US_WEST_2
+      - REGION_US_CENTRAL_1
+      - REGION_AP_SOUTHEAST_1
+      - REGION_CA_EAST_1
+      - REGION_EU_CENTRAL_1
+      - REGION_EU_WEST_1
+      description: "- REGION_US_EAST_1: US East\n - REGION_US_WEST_1: US West\n - REGION_US_CENTRAL_1: US Central\n - REGION_AP_SOUTHEAST_1: Asia Pacific Southeast\n - REGION_CA_EAST_1: Canada East\n - REGION_EU_CENTRAL_1: Europe Central\n - REGION_EU_WEST_1: Europe West"
+      title: region which is hosting broadcast
+    v21Composition:
+      type: object
+      properties:
+        external:
+          $ref: '#/components/schemas/v21ExternalComposition'
+          title: compose using an external renderer
+        studioSdk:
+          $ref: '#/components/schemas/v21StudioSdkComposition'
+          title: compose using the studiosdk renderer
+        scene:
+          $ref: '#/components/schemas/v21SceneComposition'
+          default: '{}'
+          title: compose scenes using the browser-based compositor
+      title: composition source for project (select one)
+    v21UpdateProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/v21Project'
+          title: updated project
+        broadcastUpdated:
+          type: boolean
+          example: true
+          title: indicates whether the broadcast was updated as a function of this request
   securitySchemes:
     AccessToken:
       type: apiKey
