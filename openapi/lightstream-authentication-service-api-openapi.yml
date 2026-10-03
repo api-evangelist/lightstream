@@ -115,6 +115,36 @@ paths:
         required: true
 components:
   schemas:
+    v21RefreshAccessTokenResponse:
+      type: object
+    v21Role:
+      type: string
+      enum:
+      - ROLE_HOST
+      - ROLE_COHOST
+      - ROLE_CONTRIBUTOR
+      - ROLE_GUEST
+      - ROLE_VIEWER
+      - ROLE_RENDERER
+      - ROLE_PLATFORM
+      - ROLE_IMPERSONATE
+      title: defined roles
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v21CreateGuestAccessTokenResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: access token for guest to be used in subsequent API calls
+        url:
+          type: string
+          title: the shortened url
     rpcStatus:
       type: object
       properties:
@@ -127,7 +157,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v21RefreshAccessTokenResponse:
+    v21RefreshAccessTokenRequest:
       type: object
     v21GuestAccessTokenDirect:
       type: object
@@ -145,36 +175,6 @@ components:
       title: create an immutable, single-use guest access token
       required:
       - displayName
-    v21GuestAccessToken:
-      type: object
-      properties:
-        direct:
-          $ref: '#/components/schemas/v21GuestAccessTokenDirect'
-        exchange:
-          $ref: '#/components/schemas/v21GuestAccessTokenExchange'
-      title: the type of access token (selec one)
-    v21CreateGuestAccessTokenResponse:
-      type: object
-      properties:
-        accessToken:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: access token for guest to be used in subsequent API calls
-        url:
-          type: string
-          title: the shortened url
-    v21Role:
-      type: string
-      enum:
-      - ROLE_HOST
-      - ROLE_COHOST
-      - ROLE_CONTRIBUTOR
-      - ROLE_GUEST
-      - ROLE_VIEWER
-      - ROLE_RENDERER
-      - ROLE_PLATFORM
-      - ROLE_IMPERSONATE
-      title: defined roles
     v21CreateGuestAccessTokenRequest:
       type: object
       properties:
@@ -210,6 +210,14 @@ components:
       required:
       - collectionId
       - projectId
+    v21GuestAccessToken:
+      type: object
+      properties:
+        direct:
+          $ref: '#/components/schemas/v21GuestAccessTokenDirect'
+        exchange:
+          $ref: '#/components/schemas/v21GuestAccessTokenExchange'
+      title: the type of access token (selec one)
     v21GuestAccessTokenExchange:
       type: object
       properties:
@@ -220,14 +228,6 @@ components:
           default: '300000'
           title: the max duration this token is valid for redemption
       title: create a multi-use guest access token
-    v21RefreshAccessTokenRequest:
-      type: object
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
   securitySchemes:
     AccessToken:
       type: apiKey

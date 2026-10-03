@@ -116,18 +116,6 @@ paths:
       - PublicAuthenticationService
 components:
   schemas:
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     v21JsonWebKey:
       type: object
       properties:
@@ -159,6 +147,18 @@ components:
         '@type':
           type: string
       additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
   securitySchemes:
     AccessToken:
       type: apiKey

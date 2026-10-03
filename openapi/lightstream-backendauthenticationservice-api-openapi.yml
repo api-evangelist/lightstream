@@ -68,6 +68,33 @@ paths:
         required: true
 components:
   schemas:
+    v21CreateAccessTokenResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
+          title: 'access token for owner to be asserted in subsequent Video and Layout API
+
+            calls'
+    v21Role:
+      type: string
+      enum:
+      - ROLE_HOST
+      - ROLE_COHOST
+      - ROLE_CONTRIBUTOR
+      - ROLE_GUEST
+      - ROLE_VIEWER
+      - ROLE_RENDERER
+      - ROLE_PLATFORM
+      - ROLE_IMPERSONATE
+      title: defined roles
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     rpcStatus:
       type: object
       properties:
@@ -80,15 +107,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v21CreateAccessTokenResponse:
-      type: object
-      properties:
-        accessToken:
-          type: string
-          example: 7132b004-61e8-49c1-8dc8-4bb3269ce6f
-          title: 'access token for owner to be asserted in subsequent Video and Layout API
-
-            calls'
     v21CreateAccessTokenRequest:
       type: object
       properties:
@@ -116,24 +134,6 @@ components:
           title: requested duration of token before it expires (ms)
       required:
       - serviceUserId
-    v21Role:
-      type: string
-      enum:
-      - ROLE_HOST
-      - ROLE_COHOST
-      - ROLE_CONTRIBUTOR
-      - ROLE_GUEST
-      - ROLE_VIEWER
-      - ROLE_RENDERER
-      - ROLE_PLATFORM
-      - ROLE_IMPERSONATE
-      title: defined roles
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
   securitySchemes:
     AccessToken:
       type: apiKey
