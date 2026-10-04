@@ -116,6 +116,22 @@ paths:
       - PublicAuthenticationService
 components:
   schemas:
+    v21GuestCodeRedirectResponse:
+      type: object
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v21GetJsonWebKeySetResponse:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/v21JsonWebKey'
+          title: public keys used to sign access tokens
     v21JsonWebKey:
       type: object
       properties:
@@ -131,22 +147,6 @@ components:
           type: string
         n:
           type: string
-    v21GetJsonWebKeySetResponse:
-      type: object
-      properties:
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/v21JsonWebKey'
-          title: public keys used to sign access tokens
-    v21GuestCodeRedirectResponse:
-      type: object
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
     rpcStatus:
       type: object
       properties:

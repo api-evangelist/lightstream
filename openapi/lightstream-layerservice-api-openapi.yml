@@ -257,29 +257,6 @@ paths:
         required: true
 components:
   schemas:
-    v2BatchLayerResponse:
-      type: object
-      properties:
-        layers:
-          type: array
-          items:
-            $ref: '#/components/schemas/BatchLayerResponseBatchLayerItem'
-          title: List of responses
-        layoutId:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          description: The layout this batch update belongs to.
-        requestMetadata:
-          type: object
-          example:
-            example: true
-          default: undefined
-          title: Metadata sent with the request
-        requestAnimationMode:
-          $ref: '#/components/schemas/v2RequestAnimationMode'
-          description: Order in which layer animations are applied in the batch.
-      description: A batch update for layers within a layout, indicating creation, removal and updates to layers.
     v2LayerAnimation:
       type: object
       properties:
@@ -320,59 +297,35 @@ components:
       required:
       - properties
       - durationMs
-    v2DeleteLayerResponse:
+    v2DeleteLayerPayload:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          title: The layer id that was deleted
-        layoutId:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          description: The layout this layer belongs to.
-        requestMetadata:
-          type: object
-          example:
-            example: true
-          default: undefined
-          title: Optional request metadata sent with the delete request
-    v2BatchDeleteLayerRequest:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '12345'
-          description: ID of the layer deleted.
-          required:
-          - id
         requestMetadata:
           type: object
           example:
             example: true
           default: undefined
           title: Metadata associated with the deletion of a layer
-      required:
-      - id
+    BatchLayerRequestBatchItem:
+      type: object
+      properties:
+        create:
+          $ref: '#/components/schemas/v2PartialLayer'
+          title: Create a layer
+        update:
+          $ref: '#/components/schemas/v2PartialLayerWithID'
+          title: Update a layer
+        delete:
+          $ref: '#/components/schemas/v2BatchDeleteLayerRequest'
+          title: Delete a layer
+      description: A batch action.
     v2RequestAnimationMode:
       type: string
       enum:
       - REQUEST_ANIMATION_MODE_PARALLEL
       - REQUEST_ANIMATION_MODE_SERIES
       description: "Define how to apply animations in a batch request.\n\n - REQUEST_ANIMATION_MODE_PARALLEL: All animations in the batch will be applied at once.\n - REQUEST_ANIMATION_MODE_SERIES: Each layer update will appy after all animations on the previous layer(s) have completed."
-    BatchLayerResponseBatchLayerItem:
-      type: object
-      properties:
-        create:
-          $ref: '#/components/schemas/v2Layer'
-        update:
-          $ref: '#/components/schemas/v2Layer'
-        delete:
-          $ref: '#/components/schemas/v2DeleteLayerResponse'
-      description: Thee result of interacting with that layer.
-    v2Layer:
+    v2PartialLayer:
       type: object
       properties:
         type:
@@ -444,20 +397,14 @@ components:
             type: object
           default: '[]'
           description: children of the layer.
+        parentId:
+          type: string
+          example: '1234'
+          description: parent layer to asssign to.
         metadata:
           type: object
           example:
             name: Test Layer
-          description: Custom metadata for the layer. This is freeform.
-        id:
-          type: string
-          example: '1234'
-          title: id of the layer
-        layoutId:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          description: the layout this layer is associated with.
         requestMetadata:
           type: object
           example:
@@ -469,14 +416,8 @@ components:
           items:
             $ref: '#/components/schemas/v2LayerAnimation'
           default: '[]'
-          description: Animation information for the layer which should be applied on update.
-      description: The Layer represents a single item within a layout.
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
+          description: Animation information for the layer.
+      description: Partial Layer for creating and updating.
     v2PartialLayerWithID:
       type: object
       properties:
@@ -578,32 +519,55 @@ components:
       description: Partial Layer for updating.
       required:
       - id
-    rpcStatus:
+    protobufAny:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        '@type':
           type: string
-        details:
+      additionalProperties: {}
+    v2BatchLayerResponse:
+      type: object
+      properties:
+        layers:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
-    BatchLayerRequestBatchItem:
+            $ref: '#/components/schemas/BatchLayerResponseBatchLayerItem'
+          title: List of responses
+        layoutId:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          description: The layout this batch update belongs to.
+        requestMetadata:
+          type: object
+          example:
+            example: true
+          default: undefined
+          title: Metadata sent with the request
+        requestAnimationMode:
+          $ref: '#/components/schemas/v2RequestAnimationMode'
+          description: Order in which layer animations are applied in the batch.
+      description: A batch update for layers within a layout, indicating creation, removal and updates to layers.
+    v2DeleteLayerResponse:
       type: object
       properties:
-        create:
-          $ref: '#/components/schemas/v2PartialLayer'
-          title: Create a layer
-        update:
-          $ref: '#/components/schemas/v2PartialLayerWithID'
-          title: Update a layer
-        delete:
-          $ref: '#/components/schemas/v2BatchDeleteLayerRequest'
-          title: Delete a layer
-      description: A batch action.
-    v2PartialLayer:
+        id:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          title: The layer id that was deleted
+        layoutId:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          description: The layout this layer belongs to.
+        requestMetadata:
+          type: object
+          example:
+            example: true
+          default: undefined
+          title: Optional request metadata sent with the delete request
+    v2Layer:
       type: object
       properties:
         type:
@@ -675,14 +639,20 @@ components:
             type: object
           default: '[]'
           description: children of the layer.
-        parentId:
-          type: string
-          example: '1234'
-          description: parent layer to asssign to.
         metadata:
           type: object
           example:
             name: Test Layer
+          description: Custom metadata for the layer. This is freeform.
+        id:
+          type: string
+          example: '1234'
+          title: id of the layer
+        layoutId:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          description: the layout this layer is associated with.
         requestMetadata:
           type: object
           example:
@@ -694,14 +664,44 @@ components:
           items:
             $ref: '#/components/schemas/v2LayerAnimation'
           default: '[]'
-          description: Animation information for the layer.
-      description: Partial Layer for creating and updating.
-    v2DeleteLayerPayload:
+          description: Animation information for the layer which should be applied on update.
+      description: The Layer represents a single item within a layout.
+    BatchLayerResponseBatchLayerItem:
       type: object
       properties:
+        create:
+          $ref: '#/components/schemas/v2Layer'
+        update:
+          $ref: '#/components/schemas/v2Layer'
+        delete:
+          $ref: '#/components/schemas/v2DeleteLayerResponse'
+      description: Thee result of interacting with that layer.
+    v2BatchDeleteLayerRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '12345'
+          description: ID of the layer deleted.
+          required:
+          - id
         requestMetadata:
           type: object
           example:
             example: true
           default: undefined
           title: Metadata associated with the deletion of a layer
+      required:
+      - id
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'

@@ -175,12 +175,55 @@ paths:
         required: true
 components:
   schemas:
-    TransitionTransitionStinger:
+    v2Layout:
       type: object
       properties:
-        cut:
-          $ref: '#/components/schemas/TransitionTransitionStingerCut'
-      description: 'Transition: stinger animation.'
+        id:
+          type: string
+          format: uuid
+          example: 713f6e91-3831-4421-a720-1c8084d10525
+          title: internal ID for the layout
+        width:
+          type: integer
+          format: int32
+          example: 1280
+          title: width of the layout in pixels
+          maximum: 10000
+        height:
+          type: integer
+          format: int32
+          example: 720
+          title: height of the layout in pixels
+          maximum: 10000
+        metadata:
+          type: object
+          example:
+            name: Test Layout
+          description: Custom metadata for the layout. This is freeform.
+          maximum: 10000
+        projectId:
+          type: string
+          example: 624c6f465887b2894ed87c87
+        collectionId:
+          type: string
+          example: 624c6f475887b2894ed87c89
+        type:
+          $ref: '#/components/schemas/v2LayoutType'
+          example: LAYOUT_TYPE_SCENE
+        transitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v2Transition'
+          description: 'Transitions to apply when switching to this scene from another
+
+            note: this is only available for layouts of type `LAYOUT_TYPE_SCENE`.'
+        requestMetadata:
+          type: object
+          example:
+            example: true
+          default: undefined
+          title: Metadata sent with the request
+      description: A Layout represents a container for multiple layers.
     v2Transition:
       type: object
       properties:
@@ -204,20 +247,9 @@ components:
         stinger:
           $ref: '#/components/schemas/TransitionTransitionStinger'
       description: Transition defines a transition into this layout.
-    v2DeleteLayoutResponse:
+    TransitionTransitionCut:
       type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: 713f6e91-3831-4421-a720-1c8084d10525
-          title: The ID of the layout deleted
-        requestMetadata:
-          type: object
-          example:
-            example: true
-          default: undefined
-          title: Metadata associated with the deletion of a layout
+      description: 'Transition: a simple scene switch. this is the default transition.'
     TransitionTransitionFadeToColor:
       type: object
       properties:
@@ -229,9 +261,6 @@ components:
           type: string
           description: A CSS-compatible background color.
       description: 'Transition: Fade to a color before transitioning to another layout.'
-    TransitionTransitionCut:
-      type: object
-      description: 'Transition: a simple scene switch. this is the default transition.'
     TransitionTransitionSwipe:
       type: object
       properties:
@@ -246,6 +275,25 @@ components:
           $ref: '#/components/schemas/TransitionTransitionSwipeType'
           description: How to animate the slide.
       description: 'Transition: Animation where layouts are slide over another.'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    TransitionTransitionStingerCut:
+      type: object
+      properties:
+        cutPointMs:
+          type: integer
+          format: int32
+          description: 'The duration from the start of the media playing at which the layout should change.
+
+            this should be a point where the entire screen is filled.'
+        media:
+          $ref: '#/components/schemas/TransitionTransitionMediaType'
+          description: The remote media to play as the stinger.
+      description: Stinger where the layout is cut over at a specific point.
     v2PartialLayout:
       type: object
       properties:
@@ -303,87 +351,20 @@ components:
           default: undefined
           title: Metadata associated with the publishing of the event
       title: Partial layout
-    v2Layout:
+    v2DeleteLayoutResponse:
       type: object
       properties:
         id:
           type: string
           format: uuid
           example: 713f6e91-3831-4421-a720-1c8084d10525
-          title: internal ID for the layout
-        width:
-          type: integer
-          format: int32
-          example: 1280
-          title: width of the layout in pixels
-          maximum: 10000
-        height:
-          type: integer
-          format: int32
-          example: 720
-          title: height of the layout in pixels
-          maximum: 10000
-        metadata:
-          type: object
-          example:
-            name: Test Layout
-          description: Custom metadata for the layout. This is freeform.
-          maximum: 10000
-        projectId:
-          type: string
-          example: 624c6f465887b2894ed87c87
-        collectionId:
-          type: string
-          example: 624c6f475887b2894ed87c89
-        type:
-          $ref: '#/components/schemas/v2LayoutType'
-          example: LAYOUT_TYPE_SCENE
-        transitions:
-          type: array
-          items:
-            $ref: '#/components/schemas/v2Transition'
-          description: 'Transitions to apply when switching to this scene from another
-
-            note: this is only available for layouts of type `LAYOUT_TYPE_SCENE`.'
+          title: The ID of the layout deleted
         requestMetadata:
           type: object
           example:
             example: true
           default: undefined
-          title: Metadata sent with the request
-      description: A Layout represents a container for multiple layers.
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v2LayoutType:
-      type: string
-      enum:
-      - LAYOUT_TYPE_SCENELESS
-      - LAYOUT_TYPE_SCENE
-      description: "The type of layout, specifying how it functions.\n\n - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
-    TransitionTransitionSwipeType:
-      type: string
-      enum:
-      - TRANSITION_SWIPE_TYPE_COMBINED
-      - TRANSITION_SWIPE_TYPE_SOURCE
-      - TRANSITION_SWIPE_TYPE_DESTINATION
-      title: "- TRANSITION_SWIPE_TYPE_UNSPECIFIED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_COMBINED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_SOURCE: The source animation is moved out of the way\n - TRANSITION_SWIPE_TYPE_DESTINATION: The destination layout is overlaid"
-    TransitionTransitionStingerCut:
-      type: object
-      properties:
-        cutPointMs:
-          type: integer
-          format: int32
-          description: 'The duration from the start of the media playing at which the layout should change.
-
-            this should be a point where the entire screen is filled.'
-        media:
-          $ref: '#/components/schemas/TransitionTransitionMediaType'
-          description: The remote media to play as the stinger.
-      description: Stinger where the layout is cut over at a specific point.
+          title: Metadata associated with the deletion of a layout
     TransitionTransitionMediaType:
       type: object
       properties:
@@ -395,14 +376,13 @@ components:
           format: double
           description: Volume to play the media at between 0 and 1.
       title: Media definition
-    TransitionTransitionCrossfade:
-      type: object
-      properties:
-        durationMs:
-          type: integer
-          format: int32
-          description: The duration to animate over.
-      description: 'Transition: crossfade between two layouts.'
+    TransitionTransitionSwipeType:
+      type: string
+      enum:
+      - TRANSITION_SWIPE_TYPE_COMBINED
+      - TRANSITION_SWIPE_TYPE_SOURCE
+      - TRANSITION_SWIPE_TYPE_DESTINATION
+      title: "- TRANSITION_SWIPE_TYPE_UNSPECIFIED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_COMBINED: Both layouts are animated together\n - TRANSITION_SWIPE_TYPE_SOURCE: The source animation is moved out of the way\n - TRANSITION_SWIPE_TYPE_DESTINATION: The destination layout is overlaid"
     TransitionTransitionDirection:
       type: string
       enum:
@@ -411,6 +391,20 @@ components:
       - TRANSITION_DIRECTION_UP
       - TRANSITION_DIRECTION_DOWN
       description: Direction for the animation to display in.
+    TransitionTransitionCrossfade:
+      type: object
+      properties:
+        durationMs:
+          type: integer
+          format: int32
+          description: The duration to animate over.
+      description: 'Transition: crossfade between two layouts.'
+    TransitionTransitionStinger:
+      type: object
+      properties:
+        cut:
+          $ref: '#/components/schemas/TransitionTransitionStingerCut'
+      description: 'Transition: stinger animation.'
     rpcStatus:
       type: object
       properties:
@@ -423,3 +417,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
+    v2LayoutType:
+      type: string
+      enum:
+      - LAYOUT_TYPE_SCENELESS
+      - LAYOUT_TYPE_SCENE
+      description: "The type of layout, specifying how it functions.\n\n - LAYOUT_TYPE_SCENELESS: A layout managed by Studio Kit\n - LAYOUT_TYPE_SCENE: A layout managed via the layout API for use with our scene-based renderer."
