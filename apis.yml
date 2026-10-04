@@ -265,6 +265,8 @@ apis:
   humanURL: https://www.api.stream/docs/api/live/rest/
   baseURL: https://live.api.stream/live/v2
   tags:
+  - AuthenticationService
+  tags_raw:
   - Authentication Service
   properties:
   - type: OpenAPI
@@ -290,6 +292,8 @@ apis:
   humanURL: https://www.api.stream/docs/api/live/rest/
   baseURL: https://live.api.stream/live/v2
   tags:
+  - EventService
+  tags_raw:
   - Event Service
   properties:
   - type: OpenAPI
